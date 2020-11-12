@@ -3,9 +3,5 @@ layout: page
 title: About Me
 permalink: /about/
 ---
+Hi, I'm Alexander Gladkikh, and I made my own website on GitHub dedicated to my Hobbies: Machine learning, Deep Learning, and algorithmic trading
 
-This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
-
-
-
-[^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
