@@ -16,10 +16,13 @@ At work I had to deal with the analysis of data in the performance of research i
 ### My degrees
 
 **Corporate Energy University, 2020**
+
 Digital production technologies in the power industry
 
 **YANDEX,  MIPT, 2019**
+
 Machine learning and data analysis
 
 **City Business School, 2019**
+
 MINI-MBA Professional
