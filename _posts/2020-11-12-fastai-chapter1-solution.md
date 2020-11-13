@@ -86,7 +86,7 @@ title: Fastbook Chapter 1 questionnaire solutions
  
 **13. Нарисуйте картинку, которая обобщает взгляд Артура Сэмюэля на модель машинного обучения.**
  
- ![](/images/20201112_Post/machine_learning_model.png) 
+ ![](/images/chart-preview.png) 
  
 **14. Почему трудно принять, что модель глубокого обучения делает определенный прогноз?**
  
