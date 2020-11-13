@@ -1,8 +1,9 @@
 ---
 toc: true
 layout: post
+comments: true
 description: Ответы на первую часть Fast.ai Deep Learning 2020
-categories: [markdown, fastai]
+categories: [markdown, fastai, Russian, Deep Learning]
 title: Fastbook Chapter 1 questionnaire solutions
 ---
 Решил собрать ответы на русском языке на [вопросы](https://forums.fast.ai/t/fastbook-chapter-1-questionnaire-solutions-wiki/65647) к первой части курса Deep Learning 2020 на Fast.ai. Если есть притензии к переводу, то пешите в коментариях - поправлю.
