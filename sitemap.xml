@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://zmey56.github.io/blog//2020/01/01/Microsoft-Word-Example-Post.html</loc>
-<lastmod>2020-01-01T00:00:00-06:00</lastmod>
-</url>
-<url>
 <loc>https://zmey56.github.io/blog//markdown/fastai/russian/deep%20learning/2020/11/12/fastai-chapter1-solution.html</loc>
 <lastmod>2020-11-12T00:00:00-06:00</lastmod>
 </url>
 <url>
 <loc>https://zmey56.github.io/blog//english/machine%20learning/algotrading/2020/11/17/ml-prediction-gold-shares.html</loc>
 <lastmod>2020-11-17T00:00:00-06:00</lastmod>
+</url>
+<url>
+<loc>https://zmey56.github.io/blog//2020/11/18/_2020-01-01-Microsoft-Word-Example-Post.html</loc>
+<lastmod>2020-11-18T00:00:00-06:00</lastmod>
 </url>
 <url>
 <loc>https://zmey56.github.io/blog//about/</loc>
