@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Russian - Fastbook Chapter 4 questionnaire solutions | alex.gladkikh.org</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Russian - Fastbook Chapter 4 questionnaire solutions" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Ответы на четвертую часть Fast.ai Deep Learning 2020" />
+<meta property="og:description" content="Ответы на четвертую часть Fast.ai Deep Learning 2020" />
+<link rel="canonical" href="https://zmey56.github.io/blog//markdown/fastai/russian/deep%20learning/2020/12/09/fastai-chapter4-solution.html" />
+<meta property="og:url" content="https://zmey56.github.io/blog//markdown/fastai/russian/deep%20learning/2020/12/09/fastai-chapter4-solution.html" />
+<meta property="og:site_name" content="alex.gladkikh.org" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-12-09T00:00:00-06:00" />
+<script type="application/ld+json">
+{"url":"https://zmey56.github.io/blog//markdown/fastai/russian/deep%20learning/2020/12/09/fastai-chapter4-solution.html","@type":"BlogPosting","headline":"Russian - Fastbook Chapter 4 questionnaire solutions","dateModified":"2020-12-09T00:00:00-06:00","datePublished":"2020-12-09T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://zmey56.github.io/blog//markdown/fastai/russian/deep%20learning/2020/12/09/fastai-chapter4-solution.html"},"description":"Ответы на четвертую часть Fast.ai Deep Learning 2020","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://zmey56.github.io/blog//feed.xml" title="alex.gladkikh.org" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','G-JQ01QKEDN4','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">alex.gladkikh.org</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a><a class="page-link" href="/search/">Search</a><a class="page-link" href="/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Russian - Fastbook Chapter 4 questionnaire solutions</h1><p class="page-description">Ответы на четвертую часть Fast.ai Deep Learning 2020</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-12-09T00:00:00-06:00" itemprop="datePublished">
+        Dec 9, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      12 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/categories/#markdown">markdown</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#fastai">fastai</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#Russian">Russian</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#Deep Learning">Deep Learning</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+</ul><p>Ответы на русском языке на <a href="https://forums.fast.ai/t/fastbook-chapter-4-questionnaire-solutions-wiki/67253">вопросы</a> к четвертой части курса Deep Learning 2020 на Fast.ai. Напоминаю, что третья часть отдана этики.</p>
+
+<p><strong>1. Как представлено на компьютере изображение в градиентах серого? Как цветное изображение?</strong></p>
+
+<p>Изображения представлены массивами со значениями пикселей, представляющими содержимое изображения. Для изображений в оттенках серого используется 2-мерный массив с пикселями, представляющими значения в оттенках серого, в диапазоне от 0 до 256. Значение 0 - белый цвет, а значение 255 - черный, а между ними различные оттенки серого. Для цветных изображений обычно используются три цветовых канала (красный, зеленый, синий), причем для каждого канала используется отдельный 256-диапазонный 2D-массив. Значение пикселя 0 снова представляет белый цвет, а 255 - сплошной красный, зеленый или синий. Три 2-D массива образуют окончательный 3-D массив (тензор ранга 3), представляющий цветное изображение.</p>
+
+<p><strong>2. Как структурированы файлы и папки в наборе данных MNIST_SAMPLE? Почему?</strong></p>
+
+<p>Есть две подпапки, train и valid, первая содержит данные для обучения модели, вторая содержит данные для проверки подтверждения модели после каждого шага обучения. Оценка модели на валидационном наборе служит двум целям: а) сообщить о такой интерпретируемой человеком метрике, как точность (в отличие от часто абстрактных функций потерь, используемых для обучения), б) облегчить обнаружение переобучения путем оценки модели на наборе данных, на котором она не была обучена (короче говоря, модель переобучения работает все лучше на обучающем наборе, но все меньше на валидационном наборе). Конечно, каждый практик мог генерировать свои собственные тренировочные / валидационые разделения данных. Общедоступные наборы данных обычно предварительно разделяются для упрощения сравнения результатов между реализациями/публикациями.</p>
+
+<p>Каждая подпапка имеет две подпапки 3 и 7, которые содержат файлы ф формате jpg для соответствующего класса изображений. Это распространенный способ организации наборов данных, состоящих из изображений. Для полного набора данных MNIST существует 10 подпапок, по одной для изображений каждой цифры.</p>
+
+<p><strong>3. Объясните, как работает подход ”пиксельного сходства (pixel similarity)” к классификации цифр.</strong></p>
+
+<p>В подходе “сходства пикселей” мы генерируем образец для каждого класса, который хотим идентифицировать. В нашем случае мы хотим отличить изображения трех от изображений семи. Мы определяем образец трех как среднее значение по пикселям всех трех в обучающем наборе. Аналогично для семерки. Вы можете визуализировать два образца и увидеть, что они на самом деле являются размытыми версиями чисел, которые они представляют.
+Чтобы определить, является ли ранее нерассматриваемое изображение 3 или 7, мы вычисляем его расстояние до двух образцов (здесь: средняя абсолютная разница в пикселях). Мы говорим, что новый образ-это 3, если его расстояние до образца трех меньше, чем ддля образца семи.</p>
+
+<p><strong>4. Что такое представление списков (list comprehension)? Теперь создайте тот, который выбирает нечетные числа из списка и удваивает их.</strong></p>
+
+<p>Списки (массивы на других языках программирования) часто генерируются с помощью цикла for. Представление списков (list comprehension) - это Питонический способ конденсирования создания списка с помощью цикла for в одно выражение. редставление списков (list comprehension) также часто будет включать условия для фильтрации.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">lst_in</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">lst_out</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">el</span> <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">lst_in</span> <span class="k">if</span> <span class="n">el</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1"># is equivalent to:
+</span><span class="n">lst_out</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">lst_in</span><span class="p">:</span>
+   <span class="k">if</span> <span class="n">el</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+       <span class="n">lst_out</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">el</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>5. Что такое “тензор ранга 3”?</strong></p>
+
+<p>Ранг тензора-это число измерений, которые он имеет. Простой способ определить ранг - это количество индексов, которые вам понадобятся для ссылки на число внутри тензора. Скаляр может быть представлен как тензор ранга 0 (без индекса), вектор может быть представлен как тензор ранга 1 (один индекс, например, v[i]), матрица может быть представлена как тензор ранга 2 (два индекса, например,a[i, j]), а тензор ранга 3-это кубоид или “стек матриц” (три индекса, например,b[i,j, k]). В частности, ранг тензора не зависит от его формы или размерности, например, тензор формы 2x2x2 и тензор формы 3x5x7 имеют ранг 3.
+Обратите внимание, что термин “ранг” имеет различные значения в контексте тензоров и матриц (где он относится к числу линейно независимых векторов столбцов).</p>
+
+<p><strong>6. В чем разница между тензорным рангом и формой (shape)?</strong></p>
+
+<p>Ранг - это число осей или измерений в Тензоре; форма (shape)-размер каждой оси тензора.</p>
+
+<p><em>Как вы получаете ранг от формы?</em></p>
+
+<p>Длина формы тензора - это его ранг.</p>
+
+<p>Итак, если у нас есть изображения папки 3 из набора данных MINST_SAMPLE в Тензоре под названием stacked_threes, и мы находим его форму вот так.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span> <span class="p">]:</span> <span class="n">stacked_threes</span><span class="p">.</span><span class="n">shape</span>
+<span class="n">Out</span><span class="p">[</span> <span class="p">]:</span> <span class="n">torch</span><span class="p">.</span><span class="n">Size</span><span class="p">([</span><span class="mi">6131</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>Нам просто нужно найти его длину, чтобы узнать его ранг. Это делается следующим образом.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span> <span class="p">]:</span> <span class="nb">len</span><span class="p">(</span><span class="n">stacked_threes</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">Out</span><span class="p">[</span> <span class="p">]:</span> <span class="mi">3</span>
+</code></pre></div></div>
+
+<p>Вы также можете получить ранг тензора непосредственно с помощью ndim.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">In</span> <span class="p">[</span> <span class="p">]:</span> <span class="n">stacked_threes</span><span class="p">.</span><span class="n">ndim</span>
+<span class="n">Out</span><span class="p">[</span> <span class="p">]:</span> <span class="mi">3</span>
+</code></pre></div></div>
+
+<p><strong>7. Что такое норма RMSE и L1?</strong></p>
+
+<p>Среднеквадратичная ошибка (RMSE), также называемая нормой L2, и средняя абсолютная разность (MAE), также называемая нормой L1, являются двумя широко используемыми методами измерения “расстояния”. Простые вычитания не работают, потому что некоторые различия положительны, а другие отрицательны и в результате они отменяют друг друга. Поэтому для правильного измерения расстояний необходима функция, которая фокусируется на величинах разностей. Проще всего было бы сложить абсолютные значения разностей, что и есть MAE. RMSE берет среднее значение квадрата (делает все положительным), а затем берет квадратный корень (отменяет возведение в квадрат).</p>
+
+<p><strong>8. Как вы можете выполнить вычисление на тысячах чисел одновременно, во много тысяч раз быстрее, чем цикл на Python?</strong></p>
+
+<p>Поскольку циклы в Python очень медленные, лучше всего представлять операции как операции массива, а не циклически перебирать отдельные элементы. Если это можно сделать, то использование NumPy или PyTorch будет в тысячи раз быстрее, так как они используют базовый код C, который намного быстрее, чем чистый Python. Еще лучше то, что PyTorch позволяет запускать операции на GPU, которые будут иметь значительное ускорение, если есть параллельные операции, которые можно выполнить.</p>
+
+<p><strong>9. Создайте тензор 3x3 или массив, содержащий числа от 1 до 9. Удвоьте его. Выберите в правом нижнем углу 4 цифры.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="n">In</span> <span class="p">[</span> <span class="p">]:</span> <span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">Tensor</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">))).</span><span class="n">view</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span> <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">Out</span> <span class="p">[</span> <span class="p">]:</span> <span class="n">tensor</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">],</span>
+                     <span class="p">[</span><span class="mf">4.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">],</span>
+                     <span class="p">[</span><span class="mf">7.</span><span class="p">,</span> <span class="mf">8.</span><span class="p">,</span> <span class="mf">9.</span><span class="p">]])</span>
+    <span class="n">In</span> <span class="p">[</span> <span class="p">]:</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">;</span> <span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+    <span class="n">Out</span> <span class="p">[</span> <span class="p">]:</span> <span class="n">tensor</span><span class="p">([[</span> <span class="mf">2.</span><span class="p">,</span>  <span class="mf">4.</span><span class="p">,</span>  <span class="mf">6.</span><span class="p">],</span>
+                     <span class="p">[</span> <span class="mf">8.</span><span class="p">,</span> <span class="mf">10.</span><span class="p">,</span> <span class="mf">12.</span><span class="p">],</span>
+                     <span class="p">[</span><span class="mf">14.</span><span class="p">,</span> <span class="mf">16.</span><span class="p">,</span> <span class="mf">18.</span><span class="p">]])</span>
+    <span class="n">In</span> <span class="p">[</span> <span class="p">]:</span>  <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="n">Out</span> <span class="p">[]:</span> <span class="n">tensor</span><span class="p">([[</span><span class="mf">10.</span><span class="p">,</span> <span class="mf">12.</span><span class="p">],</span>
+                    <span class="p">[</span><span class="mf">16.</span><span class="p">,</span> <span class="mf">18.</span><span class="p">]])</span>
+</code></pre></div></div>
+
+<p><strong>10. Что такое бродкастинг?</strong></p>
+
+<p>Бродкастинг (broadcasting) - Научные / числовые пакеты Python, такие как NumPy и PyTorch, часто реализуют бродкастинг, который часто облегчает написание кода. В случае PyTorch тензоры с меньшим рангом расширяются, чтобы иметь тот же размер, что и тензор большего ранга. Таким образом, операции могут выполняться между тензорами с различным рангом.</p>
+
+<p><strong>11. Обычно метрики рассчитываются с использованием обучающего набора или набора проверки? Почему?</strong></p>
+
+<p>Метрики обычно рассчитываются на основе набора валидации. Поскольку набор валидации является данными, которые не использовались для обучения модели, оценка метрик в наборе валидации лучше для того, чтобы определить, есть ли какое-либо переобучение и насколько хорошо модель могла бы обобщить, если бы ей были даны аналогичные данные.</p>
+
+<p><strong>12. Что такое SGD?</strong></p>
+
+<p>SGD, или стохастический градиентный спуск, - это алгоритм оптимизации. В частности, SGD-это алгоритм, который будет обновлять параметры модели для того, чтобы минимизировать заданную функцию потерь, которая была оценена по прогнозам и цели. Ключевая идея SGD (и многих алгоритмов оптимизации, если на то пошло) заключается в том, что градиент функции потерь дает представление о том, как эта функция потерь изменяется в пространстве параметров, которое мы можем использовать, чтобы определить, как лучше всего обновить параметры, чтобы минимизировать функцию потерь. Это то, что делает SGD.</p>
+
+<p><strong>13. Почему SGD использует мини-пакеты?</strong></p>
+
+<p>Нам нужно вычислить нашу функцию потерь (и наш градиент) на одной или нескольких точках данных. Мы не можем рассчитывать на всех наборах данных из-за компьютерных ограничений и ограничений по времени. Однако если мы будем перебирать каждую точку данных, градиент будет неустойчивым и неточным и не пригодным для обучения. В качестве компромисса мы рассчитываем средние потери для небольшого подмножества набора данных за один раз. Это подмножество называется мини-пакетом. Использование мини-пакетов также более эффективно с вычислительной точки зрения, чем отдельные элементы на графическом процессоре.</p>
+
+<p><strong>14. Какие 7 шагов в SGD машинного обучения?</strong></p>
+
+<ol>
+  <li>Инициализируйте параметры-случайные значения часто работают лучше всего.</li>
+  <li>Рассчитать прогнозы-это делается на тренировочном наборе, по одному мини-пакету за раз.</li>
+  <li>Вычислить потери – вычисляется средняя потеря по минипакету**</li>
+  <li>Вычисление градиентов-это аппроксимация того, как должны изменяться параметры, чтобы минимизировать функцию потерь</li>
+  <li>Шаг Весов-обновление параметров на основе вычисленных Весов</li>
+  <li>Повторить процесс</li>
+  <li>Остановка-на практике это либо основано на временных ограничениях, либо обычно основано на том, когда потери в обучении/валидации и показатели перестают улучшаться.</li>
+</ol>
+
+<p><strong>15. Как мы инициализируем веса в модели?</strong></p>
+
+<p>Случайные веса работают довольно хорошо.</p>
+
+<p><strong>16. Что такое “потеря”?</strong></p>
+
+<p>Функция потерь будет возвращать значение, основанное на заданных прогнозах и целевых показателях, где более низкие значения соответствуют лучшим прогнозам модели.</p>
+
+<p><strong>17. Почему мы не можем всегда использовать высокую скорость обучения?</strong></p>
+
+<p>Потери могут “отскакивать” вокруг (колебаться) или даже расходиться, так как оптимизатор делает слишком большие шаги и обновляет параметры быстрее, чем это должно быть.</p>
+
+<p><strong>18. Что такое “градиент”?</strong></p>
+
+<p>Градиенты говорят нам, насколько мы должны изменить каждый вес, чтобы сделать нашу модель лучше. По сути, это мера того, как изменяется функция потерь при изменении Весов модели (производной).</p>
+
+<p><strong>19. Вам нужно знать, как самостоятельно вычислять градиенты?</strong></p>
+
+<p>Ручной расчет градиентов не требуется, так как библиотеки глубокого обучения автоматически рассчитают градиенты для вас. Эта функция известна как автоматическая дифференциация. В PyTorch, если requires_grad=True, градиенты могут быть возвращены  методом обратного вызова: a.backward()</p>
+
+<p><strong>20. Почему мы не можем использовать точность как функцию потерь?</strong></p>
+
+<p>Функция потерь должна изменяться по мере корректировки Весов. Точность меняется только в том случае, если меняются предсказания модели. Таким образом, если в модели есть небольшие изменения, которые, скажем, повышают уверенность в предсказании, но не изменяют предсказание, точность все равно не изменится. Таким образом, градиенты будут равны нулю везде, кроме тех случаев, когда фактические прогнозы изменяются. Таким образом, модель не может учиться на градиентах, равных нулю, и веса модели не будут обновляться и не будут обучаться. Хорошая функция потерь дает немного лучшие потери, когда модель дает немного лучшие прогнозы. Немного лучшие предсказания означают, что модель более уверена в правильности предсказания. Например, предсказание 0,9 против 0,7 для вероятности того, что изображение MNIST является 3, было бы немного лучшим предсказанием. Функция потерь должна отражать это.</p>
+
+<p><strong>21. Нарисуйте сигмовидную функцию. Что особенного в ее форме?</strong></p>
+
+<p><img src="/images/sigmoid.png" alt=""></p>
+
+<p>Сигмоидная функция-это гладкая кривая у которой все значения лежат между 0 и 1. У функций потерь значения вероятности или доверительного уровня лежат между 0 и 1, поэтому на конце модели используется сигмоидная функция.</p>
+
+<p><strong>22. В чем разница между потерями и метриками?</strong></p>
+
+<p>Ключевое различие заключается в том, что метрики служат для человеческого понимания, а потери - автоматизированного обучения. Чтобы потеря была полезна для обучения, она должна иметь значимую производную. Многие показатели, такие как например точность, не подходят. Метрики в свою очередь это цифры которые волнуют людей и отражают производительность модели.</p>
+
+<p><strong>23. Что является функцией для вычисления новых весов с использованием скорости обучения?</strong></p>
+
+<p>Функция оптимизации шага</p>
+
+<p><strong>24. Что класс DataLoader делает?</strong></p>
+
+<p>Класс DataLoader может взять любую коллекцию Python и превратить ее в итератор для пакетов.</p>
+
+<p><strong>25. Напишите псевдокод, показывающий основные шаги, предпринятые каждой эпохой для SGD.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">for</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="ow">in</span> <span class="n">dl</span><span class="p">:</span>
+   <span class="n">pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+   <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_func</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+   <span class="n">loss</span><span class="p">.</span><span class="n">backward</span><span class="p">()</span>
+   <span class="n">parameters</span> <span class="o">-=</span> <span class="n">parameters</span><span class="p">.</span><span class="n">grad</span> <span class="o">*</span> <span class="n">lr</span>
+</code></pre></div></div>
+
+<p><strong>26. Создайте функцию, которая при передаче двух аргументов [1,2,3,4] и ‘abcd’ возвращает [(1, ‘a’), (2, ‘b’), (3, ‘c’), (4, ‘d’)] . Что особенного в этой структуре выходных данных?</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span> <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">))</span>
+</code></pre></div></div>
+<p>Эта структура данных полезна для моделей машинного обучения, когда вам нужны списки кортежей, где каждый кортеж будет содержать входные данные и метку.</p>
+
+<p><strong>27. Что делает <em>view</em> в <em>PyTorch</em>?</strong></p>
+
+<p>Он изменяет форму тензора, не изменяя его содержания.</p>
+
+<p>**28. Какая функция у параметра “смещения(bias)” в нейронной сети? Зачем он нам нужен?</p>
+
+<p>Без параметров смещения, если на вход подается нуль, выход всегда будет равен нулю. Поэтому использование параметров смещения добавляет модели дополнительную гибкость.</p>
+
+<p><strong>29. Что оператор @ делает в python?</strong></p>
+
+<p>Это оператор умножения матриц.</p>
+
+<p><strong>30. Что делает метод <em>backward</em> делает?</strong></p>
+
+<p>Этот метод возвращает текущие градиенты.</p>
+
+<p><strong>31. Почему мы должны обнулять градиенты?</strong></p>
+
+<p>PyTorch будет добавлять градиенты переменных в любые из ранее сохраненных градиентов. Если функция цикла обучения вызывается несколько раз, не обнуляя градиенты, градиент текущих потерь будет добавлен к ранее сохраненному значению градиента.</p>
+
+<p><strong>32. Какую информацию мы должны передать <em>Learner</em>?</strong></p>
+
+<p>Нам нужно передать DataLoader, модель, функцию оптимизации, функцию потерь и, возможно, метрики для вывода.</p>
+
+<p><strong>33. Покажите python или псевдокод для основных шагов обучающего цикла.</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">train_epoch</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">lr</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">xb</span><span class="p">,</span><span class="n">yb</span> <span class="ow">in</span> <span class="n">dl</span><span class="p">:</span>
+        <span class="n">calc_grad</span><span class="p">(</span><span class="n">xb</span><span class="p">,</span> <span class="n">yb</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
+            <span class="n">p</span><span class="p">.</span><span class="n">data</span> <span class="o">-=</span> <span class="n">p</span><span class="p">.</span><span class="n">grad</span><span class="o">*</span><span class="n">lr</span>
+            <span class="n">p</span><span class="p">.</span><span class="n">grad</span><span class="p">.</span><span class="n">zero_</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+    <span class="n">train_epoch</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">lr</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>34. Что такое “ReLU”? Нарисуйте график для значений от -2 до +2.</strong></p>
+
+<p>ReLU просто означает “заменить любые отрицательные числа нулем”. Это обычно используемая функция активации.</p>
+
+<p><img src="/images/relu.png" alt=""></p>
+
+<p><strong>35. Что такое “функция активации”?</strong></p>
+
+<p>Функция активации-это еще одна функция, входящая в состав нейронной сети, цель которой-обеспечить нелинейность модели. Идея состоит в том, что без функции активации есть несколько линейных функций вида y=mx+b. Однако ряд линейных слоев эквивалентен одному линейному слою, поэтому наша модель может подогнать только линию к данным. Вводя нелинейность между линейными слоями,это уже не так. Каждый слой несколько отделен от остальных слоев, и теперь модель может соответствовать гораздо более сложным функциям. На самом деле можно математически доказать, что такая модель может решить любую вычислимую задачу с произвольно высокой точностью, если модель достаточно велика с соответствующими весами. Это известно как универсальная аппроксимационная теорема.</p>
+
+<p><em>*36. В чем разница между *F.relu</em> и <em>nn.ReLU</em>?</p>
+
+<p>F.relu - это функция Python для активации relu. С другой стороны, nn.ReLU-это модуль PyTorch. Это означает, что класс Python может быть вызван как функция таким же образом, как и F.relu.</p>
+
+<p>**37. Универсальная аппроксимационная теорема показывает, что любая функция может быть аппроксимирована настолько близко, насколько это необходимо, используя только одну нелинейность. Так почему же мы обычно используем больше?</p>
+
+<p>Использование более чем одной нелинейности дает практические преимущества. Мы можем использовать более глубокую модель с меньшим количеством параметров, лучшей производительностью, более быстрым обучением и меньшими требованиями к вычислениям и памяти.</p>
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="Zmey56/blog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/markdown/fastai/russian/deep%20learning/2020/12/09/fastai-chapter4-solution.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/Zmey56" title="Zmey56"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/Zmey56" title="Zmey56"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
