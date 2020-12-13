@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Russian - Fastbook Chapter 2 questionnaire solutions | alex.gladkikh.org</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Russian - Fastbook Chapter 2 questionnaire solutions" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Ответы на первую часть Fast.ai Deep Learning 2020" />
+<meta property="og:description" content="Ответы на первую часть Fast.ai Deep Learning 2020" />
+<link rel="canonical" href="https://zmey56.github.io/blog//markdown/fastai/russian/deep%20learning/2020/11/20/fastai-chapter2-solution.html" />
+<meta property="og:url" content="https://zmey56.github.io/blog//markdown/fastai/russian/deep%20learning/2020/11/20/fastai-chapter2-solution.html" />
+<meta property="og:site_name" content="alex.gladkikh.org" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-11-20T00:00:00-06:00" />
+<script type="application/ld+json">
+{"url":"https://zmey56.github.io/blog//markdown/fastai/russian/deep%20learning/2020/11/20/fastai-chapter2-solution.html","@type":"BlogPosting","headline":"Russian - Fastbook Chapter 2 questionnaire solutions","dateModified":"2020-11-20T00:00:00-06:00","datePublished":"2020-11-20T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://zmey56.github.io/blog//markdown/fastai/russian/deep%20learning/2020/11/20/fastai-chapter2-solution.html"},"description":"Ответы на первую часть Fast.ai Deep Learning 2020","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://zmey56.github.io/blog//feed.xml" title="alex.gladkikh.org" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','G-JQ01QKEDN4','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">alex.gladkikh.org</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a><a class="page-link" href="/search/">Search</a><a class="page-link" href="/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Russian - Fastbook Chapter 2 questionnaire solutions</h1><p class="page-description">Ответы на первую часть Fast.ai Deep Learning 2020</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-11-20T00:00:00-06:00" itemprop="datePublished">
+        Nov 20, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      9 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/categories/#markdown">markdown</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#fastai">fastai</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#Russian">Russian</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#Deep Learning">Deep Learning</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+</ul><p>Ответы на русском языке на <a href="https://forums.fast.ai/t/fastbook-chapter-2-questionnaire-solutions-wiki/66392">вопросы</a> ко второй части курса Deep Learning 2020 на Fast.ai. Если есть притензии к переводу, как и в первой части прошу писать в коментариях - поправлю.</p>
+
+<p><strong>1. Приведите пример где модель классификации медведя может работать плохо из-за отличий в структуре или стиле обучающей выборки.</strong></p>
+
+<p>Существует много случаев, когда модель классификации медведей может ошибаться, причинной чего так же может являться отсутсвия экземпляров в обучающих данных:</p>
+
+<ul>
+  <li>изображение частично закрыто</li>
+  <li>ночные фото</li>
+  <li>низкое разрешение</li>
+  <li>объект далеко от камеры</li>
+  <li>приоритет характеритик (например цвета)</li>
+</ul>
+
+<p><strong>2. Где у языковой модели в настоящее время наблюдаются сложности?</strong></p>
+
+<p>Языковые модели могут генерировать тексты, которые например имитируют ответы или стили различных авторов. Но при этом их не интерисует коректность полученного результатав человеческом смысле. То есть используя фактическую базу данных трудно получитьправильные ответы, но при этом он будет казаться убедительным. Это может быть очень опасно, так как обыватель может принять все за “чистую” монету.</p>
+
+<p><strong>3. Каких негативных социальных последствий может быть причина модель генерации текстов?</strong></p>
+
+<p>Способность моделей генерации текста генерировать очень убедительные ответы может быть использовано в массовом масштабе для распространения дезинформации (“фейковых новостей”) и подогрева конфликтов.</p>
+
+<p>При обучении модели усиливают некоторые характеристики (например, гендерную и расовую предвзятость) и в результате выдвет цепочку необъективных результатов.</p>
+
+<p><strong>4. В ситуациях, когда модель может ошибаться, и это может принести значительный вред, что является хорошей альтернативой автоматизации процесса?</strong></p>
+
+<p>Прогнозы контролируются экспертами, которые оценивают результат и принимают решение о следующем шаге. Особенно это актуально для применения машинного обучения при постановке медицинских диагнозов. Например, модель машинного обучения для идентификации инсультов при компьютерной томографии может выявлять высокоприоритетные случаи, которые должны быть расмотрены незамедлительно, в то время как другие случаи расмотраваются врачами в порядке общей очереди. За счет этого повышвется эффективность работы.</p>
+
+<p><strong>5. В какого типа табличных данных глубокое обучение эффективно?</strong></p>
+
+<p>Глубокое обучение хорошо подходит для анализа табличных данных, включающих естественный язык, или категориальные столбцы (содержащих большее количество дискретных величин, таких как почтовый индекс).</p>
+
+<p><strong>6. Что является ключевым недостатком использования модели глубокого обучения для рекомендательных систем?</strong></p>
+
+<p>Машинное обучение для рекомендательных систем часто говорит только о том, какие продукты могут быть интересны пользователю, и мпри этом фактически не являться рекомендацией. Например, пользователю рекомендуются книги которые он уже прочел на основании того, что он уже купил книги этого автора или другие товары которые уже приобретены.</p>
+
+<p><strong>7 Что такое трансмиссионный (Drivetrain) подход?</strong></p>
+
+<p><img src="/images/0312-1-drivetrain-approach-lg.png" alt=""></p>
+
+<p><strong>8. Как этапы подхода Drivetrain соотносятся с системой рекомендаций</strong></p>
+
+<p>Цель механизма рекомендаций состоит в том, чтобы стимулировать дополнительные продажи за счет удовлетворения потребностей клиента в их предпочтениях. Рычагом является ранжирование рекомендаций. Данные необходимо для создания новых рекомендаций и стимулирования новых продаж. Потребуется провести множество рандомизированных экспериментов, чтобы собрать данные из большого объема рекомендаций для широкого круга клиентов. Этот шаг, который делают немногие организации; но без этого него нет информации, необходимой для реальной оптимизации рекомендаций, основанных на вашей истинной цели (больше продаж!).</p>
+
+<p><strong>9. Создайте модель распознавания образа, используя данные, которые вам интересны, и разверните ее в интернете.</strong></p>
+
+<p>Ввыполнить просто второй ноутбук. Можно взять свою выборку, но я остановился на варианте медведей как в работе.</p>
+
+<p><strong>10. Что такое DataLoaders(загрузчик данных)?</strong></p>
+
+<p>Класс Dataloader-это класс, который передает данные в fastai модель. По сути, это класс, который хранит необходимые объекты Dataloader (обычно наборs train и validation).</p>
+
+<p><strong>11. Какие четыре вещи нам нужны для fastai? чтоб создать DataLoaders?</strong></p>
+
+<ul>
+  <li>с какими типами данных мы работаем</li>
+  <li>как получить список элементов</li>
+  <li>какие метки для этих элементы</li>
+  <li>как создать validation набор</li>
+</ul>
+
+<p><strong>12. Что делает параметр split в DataBlock?</strong></p>
+
+<p>Используется для разделения данных на подмножества (как правило обучающие и проверочные). Например, для случайного разбиения данных можно использовать предопределенный класс RandomSplitter из fastai, передавая в данный класс значение доли данных, используемых для проверки.</p>
+
+<p><strong>13. Как мы можно получить при случайном разделении один и тот же набор для проверки?</strong></p>
+
+<p>Оказывается, наши компьютеры не могут действительно генерировать случайные числа. Вместо этого они используют процесс, известный как псевдослучайный генератор. Однако этот процесс можно контролировать с помощью случайного <em>seed</em>. Если установить его начальное значение, то генератор псевдослучайных чисел будет генерировать “случайные” числа одним и тем же образом и они будут совпадать для каждого запуска. Определяя seed мы можем генерировать случайное разбиеник, которое всегда дает один и тот же набор для проверки.</p>
+
+<p><strong>14. Какие буквы чаще всего используются для обозначения независимых и зависимых переменных?</strong></p>
+
+<p><em>х</em> для независимых и <em>y</em> для зависимых.</p>
+
+<p><strong>15. В чем разница между crop, pad и squish Resize ()? Когда и какой из них использовать?</strong></p>
+
+<ul>
+  <li>
+    <p>crop изображения гризли:
+<img src="/images/grizzly_cropped.png" alt="">
+crop(обрезка) - это метод Resize() по умолчанию. В результате обрезается изображение так, чтобы оно соответствовало квадратной форме требуемого размера заполняя всю ширину и высоту. Это может привести к потере некоторых важных деталей. Например, если мы пытаемся распознать породу собаки или кошки, мы можем в конечном итоге обрезать ключевую часть тела или лица, необходимую для различения похожих пород.</p>
+  </li>
+  <li>
+    <p>pad изображения гризли:
+<img src="/images/grizzly_padded.png" alt="">
+pad-это альтернативный метод Resize (), который заполняет недостающие участки изображения нулями (которые отображаются черным цветом при просмотре изображений). Если мы заполняем изображения, то у нас есть много пустого пространства, которое тратиться впустую при вычислении для нашей модели и приводит к более низкому эффективному разрешению для той части изображения, которую мы фактически используем.</p>
+  </li>
+  <li>
+    <p>squish изображения гризли:
+<img src="/images/grizzly_squished.png" alt="">
+squish-это еще один альтернативный метод изменения размера, который либо сжимает, либо растягивает изображение. Это приводит к тому, что изображение принимает нереалистичную форму, что приведет к модели, которая запоминает вещи иначе, чем они есть на самом деле, и как следствие приводит к снижению точности.</p>
+  </li>
+</ul>
+
+<p>Выбор метода изменения размера зависит от задачи и набора данных. Например, если объекты в изображениях набора данных занимают все изображение целиком и обрезка может привести к потере ценной информации, то более правильным будет использование методов сжатие и заполнения.</p>
+
+<p>Другим хорошим методом является RandomResizedCrop, в котором обрезка изображения происходит случайным образом. В каждую эпоху модель будет видеть различную часть одного и того же изображения, что будет учтено при обучении.</p>
+
+<p><strong>16. Что такое приращение данных? Зачем это нужно?</strong></p>
+
+<p>Приращение данных - создание случайных вариаций входных данных таким образом, что они кажутся разными, но при этом не изменяется их значение. Примеры включают в себя переворачивание, поворот, деформацию перспективы, изменение яркости и т. д. Приращение данных полезно для модели, чтобы лучше понять основную концепцию того, какие есть объекты и как интерисующие объекты представлены в изображениях. Таким образом, увеличение объема данных позволяет моделям машинного обучения проыодить обобщение . Это особенно важно, когда маркировка данных может быть медленной и дорогостоящей.</p>
+
+<p><strong>17. В чем разница между item_tfms и batch_tfms?</strong></p>
+
+<ul>
+  <li>item_tfms — используется для определения типа преобразований, применяемых к каждому изображению на процессоре.</li>
+  <li>batch_tfms — используется для определения типа преобразований, применяемых к каждому пакету на графическом процессоре.</li>
+</ul>
+
+<p><strong>18. ЧТо такое матрица ошибок(confusion matrix)?</strong></p>
+
+<p>Матрица ошибок - это сравнения сделанных предсказаний относительно истинных значений. Строки матрицы представляют собой истинные значения, а столбцы-предсказаные. Таким образом, количество изображений в диагональных элементах представляет собой количество правильно классифицированных изображений, в то время как вне диагональные элементы являются неправильно классифицированными изображениями. Матрицы ошибок предоставляют полезную информацию о том, насколько хорошо работает модель и для каких значений она склонна делать ошибки.</p>
+
+<p><strong>19. Что export делает?</strong></p>
+
+<p>export сохраняет как архитектуру, так и обученные параметры архитектуры нейронной сети. Он также сохраняет то, как определен DataLoaders.</p>
+
+<p><strong>20. Как это называется, когда мы используем модель для получения прогнозов вместо обучения?</strong></p>
+
+<p>Inference(вывод)</p>
+
+<p>**21. Что такое виджеты IPython?</p>
+
+<p>Виджеты IPython - это совместные функции JavaScript и Python, которые позволяют нам создавать и взаимодействовать с компонентами GUI (графи́ческий интерфе́йс по́льзователя) непосредственно в ноутбуке Jupyter. Примером этого может служить кнопка загрузки, которая может быть создана с помощью питоновской функции widgets.FileUpload().</p>
+
+<p><strong>22. Когда можно использовать процессор для развертывания? Когда лучше GPU?</strong></p>
+
+<p>Графические процессоры лучше всего подходят для выполнения идентичной работы параллельно. Если вы будете анализировать отдельные фрагменты данных за один раз (например, одно изображение или одно предложение), то процессоры могут быть более экономичными, особенно при том, что рыночной конкуренции за процессорные серверы больше по сравнению с конкуренцией за графические сервера. Графические процессоры можно использовать, если вы собираете ответы пользователей в пакеты за один раз и выполняете вывод на основании этого пакета. В связи с чем это будет вызывать задержку по времени в ожиданиях прогнозов модели. Кроме того, существует много других задач, когда ощущаются преимущества использования графического процессора, такие как управление памятью и работа с очередями из пакетов.</p>
+
+<p><strong>23. Каковы недостатки развертывания приложения на сервере, а не на клиентском устройстве, таком как телефон или ПК?</strong></p>
+
+<p>Приложение для работы потребует подключения к сети, и у него будет дополнительная по времени задержки из-за сети при отправке входных данных и возврате результатов. Кроме того, отправка личных данных на сетевой сервер может привести к проблемам персональной безопасности.</p>
+
+<p><strong>24. Три проблемы, которые могут возникнуть при внедрении системы предупреждения о медведях на практике?</strong></p>
+
+<p>Модель, которую мы обучили, скорее всего, будет работать плохо в следующих случаях:</p>
+
+<ol>
+  <li>Обработка ночных изображений</li>
+  <li>Работа с изображениями с низким разрешением (например, некоторые изображения смартфонов)</li>
+  <li>Запаздывание получение результатов что приводит к их бесполезности</li>
+</ol>
+
+<p>**25. Что такое “данные вне домена”(“out of domain data”)?</p>
+
+<p>Данные, которые принципиально отличаются в каком-то аспекте по сравнению с обучающими данными модели. Например, детектор объектов, который был обучен исключительно с помощью дневных фотографий, получает фотографию, сделанную ночью.</p>
+
+<p>**26. Что такое “сдвиг домена”(“domain shift”)?</p>
+
+<p>Это происходит, когда тип данных постепенно меняется с течением времени. Например, страховая компания использует модель глубокого обучения как часть своего алгоритма ценообразования, но со временем ее клиенты будут отличаться, причем исходные данные обучения не будут репрезентативны текущим данным.</p>
+
+<p><strong>27. Каковы 3 шага в процессе развертывания?</strong></p>
+
+<ol>
+  <li>Ручной процесс (Manual process) – модель запускается параллельно и непосредственно не управляет никакими действиями. Люди проверяют выходные данные модели.</li>
+  <li>Развертывание с ограниченным охватом (Limited scope deployment) – Область применения модели ограничена и тщательно контролируется. Например, ограничение выполнено по географическому и временному принципу, и в свою очередь это строго контролируется.</li>
+  <li>Постепенное расширение (Gradual expansion) – охват модели постепенно увеличивается и в то же время системы отчетности внедряются для проверки любых существенных изменений в предпринимаемых действиях по сравнению с процессом, если бы он выполнялся вручную (т. е. модели должны работать аналогично людям, если только уже не ожидается, что они будут выполнять лучше).</li>
+</ol>
+
+<p><strong>28. Для своего проекта проведите мысленный эксперимент “что произойдет, если он пройдет очень, очень хорошо?”</strong></p>
+
+<p>Выполняется самостоятельно.</p>
+
+<p>**29. Заведите блог и напишите свой первый пост в блоге. Например напишите о том, что, по вашему мнению, может быть полезно глубокое обучение в интересующей вас области.</p>
+
+<p>Выполняется самостоятельно.</p>
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="Zmey56/blog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/markdown/fastai/russian/deep%20learning/2020/11/20/fastai-chapter2-solution.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/Zmey56" title="Zmey56"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/Zmey56" title="Zmey56"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
