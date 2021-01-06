@@ -58,7 +58,7 @@ annotations: false
 show_tags: true
 
 # Add your Google Analytics ID here if you have one and want to use it
-google_analytics: G-JQ01QKEDN4
+google_analytics: G-XGE3L0S7RF
 
 exclude:
   - docker-compose.yml
@@ -120,3 +120,13 @@ kramdown:
 feed:
   posts_limit: 5 #default posts_limit: 10
   excerpt_only: true
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XGE3L0S7RF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XGE3L0S7RF');
+</script>
