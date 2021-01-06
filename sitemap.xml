@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>https://zmey56.github.io/blog//russian/fast.ai/solution/2020/01/06/multicat.html</loc>
+<lastmod>2020-01-06T00:00:00-06:00</lastmod>
+</url>
+<url>
 <loc>https://zmey56.github.io/blog//markdown/fastai/russian/deep%20learning/2020/11/12/fastai-chapter1-solution.html</loc>
 <lastmod>2020-11-12T00:00:00-06:00</lastmod>
 </url>
@@ -21,16 +25,20 @@
 <lastmod>2020-12-13T00:00:00-06:00</lastmod>
 </url>
 <url>
-<loc>https://zmey56.github.io/blog//english/machine%20learning/algotrading/2020/12/20/_11_17_ml_prediction_gold_shares.html</loc>
-<lastmod>2020-12-20T00:00:00-06:00</lastmod>
-</url>
-<url>
 <loc>https://zmey56.github.io/blog//markdown/fastai/russian/deep%20learning/2020/12/20/fastai-chapter5-solution.html</loc>
 <lastmod>2020-12-20T00:00:00-06:00</lastmod>
 </url>
 <url>
 <loc>https://zmey56.github.io/blog//russian/fast.ai/solution/2020/12/21/05-pet-breeds.html</loc>
 <lastmod>2020-12-21T00:00:00-06:00</lastmod>
+</url>
+<url>
+<loc>https://zmey56.github.io/blog//markdown/fastai/russian/deep%20learning/2021/01/04/fastai-chapter6-solution.html</loc>
+<lastmod>2021-01-04T00:00:00-06:00</lastmod>
+</url>
+<url>
+<loc>https://zmey56.github.io/blog//english/machine%20learning/algotrading/2021/01/05/_11_17_ml_prediction_gold_shares.html</loc>
+<lastmod>2021-01-05T00:00:00-06:00</lastmod>
 </url>
 <url>
 <loc>https://zmey56.github.io/blog//about/</loc>
