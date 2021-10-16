@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://zmey56.github.io/blog//markdown/fastai/russian/deep%20learning/2020/11/12/fastai-chapter1-solution.html</loc>
-<lastmod>2020-11-12T00:00:00-06:00</lastmod>
-</url>
-<url>
 <loc>https://zmey56.github.io/blog//english/machine%20learning/algotrading/2020/11/17/ml-prediction-gold-shares.html</loc>
 <lastmod>2020-11-17T00:00:00-06:00</lastmod>
 </url>
@@ -13,28 +9,12 @@
 <lastmod>2020-11-20T00:00:00-06:00</lastmod>
 </url>
 <url>
-<loc>https://zmey56.github.io/blog//markdown/fastai/russian/deep%20learning/2020/11/20/fastai-chapter2-solution.html</loc>
-<lastmod>2020-11-20T00:00:00-06:00</lastmod>
-</url>
-<url>
-<loc>https://zmey56.github.io/blog//markdown/fastai/russian/deep%20learning/2020/12/09/fastai-chapter4-solution.html</loc>
-<lastmod>2020-12-09T00:00:00-06:00</lastmod>
-</url>
-<url>
 <loc>https://zmey56.github.io/blog//russian/fast.ai/solution/2020/12/13/04-mnist-basics.html</loc>
 <lastmod>2020-12-13T00:00:00-06:00</lastmod>
 </url>
 <url>
-<loc>https://zmey56.github.io/blog//markdown/fastai/russian/deep%20learning/2020/12/20/fastai-chapter5-solution.html</loc>
-<lastmod>2020-12-20T00:00:00-06:00</lastmod>
-</url>
-<url>
 <loc>https://zmey56.github.io/blog//russian/fast.ai/solution/2020/12/21/05-pet-breeds.html</loc>
 <lastmod>2020-12-21T00:00:00-06:00</lastmod>
-</url>
-<url>
-<loc>https://zmey56.github.io/blog//markdown/fastai/russian/deep%20learning/2021/01/04/fastai-chapter6-solution.html</loc>
-<lastmod>2021-01-04T00:00:00-06:00</lastmod>
 </url>
 <url>
 <loc>https://zmey56.github.io/blog//russian/fast.ai/solution/2021/01/06/06-multicat.html</loc>
@@ -45,16 +25,8 @@
 <lastmod>2021-01-17T00:00:00-06:00</lastmod>
 </url>
 <url>
-<loc>https://zmey56.github.io/blog//markdown/fastai/russian/deep%20learning/2021/01/17/fastai-chapter6-solution.html</loc>
-<lastmod>2021-01-17T00:00:00-06:00</lastmod>
-</url>
-<url>
 <loc>https://zmey56.github.io/blog//russian/fast.ai/solution/2021/01/22/08-collab.html</loc>
 <lastmod>2021-01-22T00:00:00-06:00</lastmod>
-</url>
-<url>
-<loc>https://zmey56.github.io/blog//markdown/fastai/russian/deep%20learning/2021/02/08/fastai-chapter9-solution.html</loc>
-<lastmod>2021-02-08T00:00:00-06:00</lastmod>
 </url>
 <url>
 <loc>https://zmey56.github.io/blog//russian/fast.ai/solution/2021/02/11/09-tabular.html</loc>
@@ -83,8 +55,5 @@
 </url>
 <url>
 <loc>https://zmey56.github.io/blog//categories/</loc>
-</url>
-<url>
-<loc>https://zmey56.github.io/blog//page2/</loc>
 </url>
 </urlset>
