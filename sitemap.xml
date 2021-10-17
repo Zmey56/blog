@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>https://zmey56.github.io/blog//english/machine%20learning/algotrading/2020/02/09/getting-stock-quotes-using-python.html</loc>
+<lastmod>2020-02-09T00:00:00-06:00</lastmod>
+</url>
+<url>
 <loc>https://zmey56.github.io/blog//english/machine%20learning/algotrading/2020/11/17/ml-prediction-gold-shares.html</loc>
 <lastmod>2020-11-17T00:00:00-06:00</lastmod>
 </url>
