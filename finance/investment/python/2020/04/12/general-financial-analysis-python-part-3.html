@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Общий финансовый анализ на Python (Часть 3) | alex.gladkikh.org</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Общий финансовый анализ на Python (Часть 3)" />
+<meta name="author" content="Zmey56" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="General Financial Analysis in Python (Part 3)" />
+<meta property="og:description" content="General Financial Analysis in Python (Part 3)" />
+<link rel="canonical" href="https://zmey56.github.io/blog//finance/investment/python/2020/04/12/general-financial-analysis-python-part-3.html" />
+<meta property="og:url" content="https://zmey56.github.io/blog//finance/investment/python/2020/04/12/general-financial-analysis-python-part-3.html" />
+<meta property="og:site_name" content="alex.gladkikh.org" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-04-12T00:00:00-05:00" />
+<script type="application/ld+json">
+{"url":"https://zmey56.github.io/blog//finance/investment/python/2020/04/12/general-financial-analysis-python-part-3.html","@type":"BlogPosting","headline":"Общий финансовый анализ на Python (Часть 3)","dateModified":"2020-04-12T00:00:00-05:00","datePublished":"2020-04-12T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://zmey56.github.io/blog//finance/investment/python/2020/04/12/general-financial-analysis-python-part-3.html"},"author":{"@type":"Person","name":"Zmey56"},"description":"General Financial Analysis in Python (Part 3)","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://zmey56.github.io/blog//feed.xml" title="alex.gladkikh.org" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-183752218-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">alex.gladkikh.org</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a><a class="page-link" href="/search/">Search</a><a class="page-link" href="/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Общий финансовый анализ на Python (Часть 3)</h1><p class="page-description">General Financial Analysis in Python (Part 3)</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-04-12T00:00:00-05:00" itemprop="datePublished">
+        Apr 12, 2020
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Zmey56</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      5 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/categories/#finance">finance</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#investment">investment</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#python">python</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/Zmey56/blog/tree/master/_notebooks/2020-04-12-general-financial-analysis-python-part-3.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/Zmey56/blog/master?filepath=_notebooks%2F2020-04-12-general-financial-analysis-python-part-3.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/Zmey56/blog/blob/master/_notebooks/2020-04-12-general-financial-analysis-python-part-3.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-04-12-general-financial-analysis-python-part-3.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>После всех вычислений, приведенных в прошлых двух публикациях, можно углубиться в статистический анализ и рассмотреть метод наименьших квадратов. Для этой цели используется библиотека statsmodels, которая позволяет пользователям исследовать данные, оценивать статистические модели и выполнять статистические тесты. За основу были взяты эта статья и эта статья. Само описание используемой функции на английском доступно по следующей ссылке.</p>
+<p>Сначала немного теории:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>О линейной регрессии</strong></p>
+<p>Линейная регрессия используется в качестве прогнозирующей модели, когда предполагается линейная зависимость между зависимой переменной (переменная, которую мы пытаемся предсказать) и независимой переменной (переменная и/или переменные, используемые для предсказания).</p>
+<p>В самом простой случае при рассмотрении используется одна переменная на основании которой мы пытаемся предсказать другую. Формула в этом случае имеет следующий вид:</p>
+<p>Y = C + M*X</p>
+<ul>
+<li>Y - зависимая переменная (результат / прогноз / оценка)</li>
+<li>C - Константа (Y-Intercept)</li>
+<li>M - Наклон линии регрессии (угловой коэффициент или градиент оценённой линии; она представляет собой величину, на которую Y увеличивается в среднем, если мы увеличиваем X на одну единицу)</li>
+<li>X - независимая переменная (предиктор, используемый в прогнозе Y)</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>В действительности так же может существовать связь между зависимой переменной и несколькими независимыми переменными. Для этих типов моделей (при условии линейности) мы можем использовать множественную линейную регрессию следующего вида:</p>
+<p>Y = C + M1X1 + M2X2 + …</p>
+<p><strong>Бета — коэффициент</strong></p>
+<p>Про данный коэффициент написано уже много, для примера на этой странице</p>
+<p>Коротко, если не вдаваться в подробности, то можно его охарактеризовать следующим образом:</p>
+<p>Акции c бета-коэффициентом:</p>
+<ul>
+<li>ноль указывает на отсутствие корреляции между акцией и индексом</li>
+<li>единица указывает на то, что акция имеет ту же волатильность, что и индекс</li>
+<li>больше одного — указывает на большую доходность (а следовательно и риски) акции, чем индекс</li>
+<li>менее единицы — менее волатильная акция, чем индекса</li>
+</ul>
+<p>Другими словами, если акция увеличится на 14%, в то время как рынок вырос всего на 10%, то бета-коэффициент акции составит 1,4. Как правило на рынках с более высоким бета-коэффициентом можно предположить лучшие условия для вознаграждения (а следовательно и для риска).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$\beta(x)$ = $Cov(r_i,r_m)\over\delta^2_m$</p>
+<p>где:</p>
+<ul>
+<li>$r_i$ - доходность i-акции(инвестиционного портфеля);</li>
+<li>$r_m$ - рыночная доходность;</li>
+<li>$\delta^2_m$ - дисперсия рыночной доходности.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Практика</strong></p>
+<p>Следующий код Python включает в себя пример линейной регрессии, где входной переменной является доходность по Индексу МосБиржи, а оцениваемая переменная — доходность по акциям Аэрофлот.</p>
+<p>Для того, чтобы отсутствовала необходимость вспоминать как загружать данные и приводить данные к форме, необходимой для расчета — код приводиться с момента загрузки данных и до получения результатов. Вот полный синтаксис для выполнения линейной регрессии в Python с использованием statsmodels:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">yfinance</span> <span class="k">as</span> <span class="nn">yf</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+
+<span class="c1">#Загружаю данные</span>
+<span class="n">ticker</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'AFLT.ME'</span><span class="p">,</span><span class="s1">'IMOEX.ME'</span><span class="p">]</span>
+<span class="n">stock</span> <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">ticker</span><span class="p">)</span>
+
+<span class="c1"># Выделение скорректированой цены закрытия</span>
+<span class="n">all_adj_close</span> <span class="o">=</span> <span class="n">stock</span><span class="p">[[</span><span class="s1">'Adj Close'</span><span class="p">]]</span>
+
+<span class="c1"># Вычисление доходности </span>
+<span class="n">all_returns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">all_adj_close</span> <span class="o">/</span> <span class="n">all_adj_close</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># Выделение доходности по акциям  </span>
+<span class="n">aflt_returns</span> <span class="o">=</span> <span class="n">all_returns</span><span class="p">[</span><span class="s1">'Adj Close'</span><span class="p">][[</span><span class="s1">'AFLT.ME'</span><span class="p">]]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Выделение доходности по индексу МосБиржи </span>
+<span class="n">moex_returns</span> <span class="o">=</span> <span class="n">all_returns</span><span class="p">[</span><span class="s1">'Adj Close'</span><span class="p">][[</span><span class="s1">'IMOEX.ME'</span><span class="p">]]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+
+<span class="c1"># Создание нового DataFrame</span>
+
+<span class="n">return_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">aflt_returns</span><span class="p">,</span> <span class="n">moex_returns</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="n">return_data</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'AFLT.ME'</span><span class="p">,</span> <span class="s1">'IMOEX.ME'</span><span class="p">]</span>
+
+
+<span class="c1"># Добавляем столбец единиц и определяем X и y</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">return_data</span><span class="p">[</span><span class="s1">'IMOEX.ME'</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">return_data</span><span class="p">[</span><span class="s1">'AFLT.ME'</span><span class="p">]</span>
+
+
+<span class="c1"># Создание модели</span>
+<span class="n">model_moex</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="c1"># Вывод результатов</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model_moex</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[*********************100%***********************]  2 of 2 completed
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                AFLT.ME   R-squared:                       0.135
+Model:                            OLS   Adj. R-squared:                  0.135
+Method:                 Least Squares   F-statistic:                     454.5
+Date:                Mon, 18 Oct 2021   Prob (F-statistic):           7.89e-94
+Time:                        19:33:22   Log-Likelihood:                 7260.3
+No. Observations:                2909   AIC:                        -1.452e+04
+Df Residuals:                    2907   BIC:                        -1.450e+04
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const      -7.886e-05      0.000     -0.213      0.831      -0.001       0.001
+IMOEX.ME       0.8101      0.038     21.320      0.000       0.736       0.885
+==============================================================================
+Omnibus:                      651.369   Durbin-Watson:                   1.857
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            22810.853
+Skew:                          -0.295   Prob(JB):                         0.00
+Kurtosis:                      16.706   Cond. No.                         103.
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>На сайте yahoo и Мосбиржи бета коэффициент отличается незначительно в большую сторону. Но надо честно признаться, что расчет для некоторых других акций с российской биржи показал более значительные отличия, но в пределах интервала.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/images/copied_from_nb/images/sber_yahoo.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Тот же анализ для акции FB и индекса SP500. Здесь вычисление, как в оригинале, проводится через месячную доходность.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sp_500</span> <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">'^GSPC'</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="s2">"2012-05-01"</span><span class="p">)</span>
+<span class="n">fb</span> <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">'FB'</span><span class="p">)</span>
+
+<span class="c1"># Пересчет в месячную доходность</span>
+<span class="n">fb</span> <span class="o">=</span> <span class="n">fb</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">'BM'</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">sp_500</span> <span class="o">=</span> <span class="n">sp_500</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">'BM'</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">monthly_prices</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">fb</span><span class="p">[</span><span class="s1">'Close'</span><span class="p">],</span> <span class="n">sp_500</span><span class="p">[</span><span class="s1">'Close'</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">monthly_prices</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'FB'</span><span class="p">,</span> <span class="s1">'^GSPC'</span><span class="p">]</span>
+
+<span class="n">monthly_returns</span> <span class="o">=</span> <span class="n">monthly_prices</span><span class="o">.</span><span class="n">pct_change</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">clean_monthly_returns</span> <span class="o">=</span> <span class="n">monthly_returns</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">clean_monthly_returns</span><span class="p">[</span><span class="s1">'^GSPC'</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">clean_monthly_returns</span><span class="p">[</span><span class="s1">'FB'</span><span class="p">]</span>
+
+<span class="n">X1</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="n">model_fb_sp_500</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">X1</span><span class="p">)</span>
+
+<span class="n">results_fb_sp_500</span> <span class="o">=</span> <span class="n">model_fb_sp_500</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results_fb_sp_500</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[*********************100%***********************]  1 of 1 completed
+[*********************100%***********************]  1 of 1 completed
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                     FB   R-squared:                       0.181
+Model:                            OLS   Adj. R-squared:                  0.174
+Method:                 Least Squares   F-statistic:                     24.59
+Date:                Mon, 18 Oct 2021   Prob (F-statistic):           2.56e-06
+Time:                        19:47:24   Log-Likelihood:                 110.11
+No. Observations:                 113   AIC:                            -216.2
+Df Residuals:                     111   BIC:                            -210.8
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          0.0131      0.009      1.446      0.151      -0.005       0.031
+^GSPC          1.1515      0.232      4.959      0.000       0.691       1.612
+==============================================================================
+Omnibus:                       26.778   Durbin-Watson:                   1.820
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              104.750
+Skew:                           0.671   Prob(JB):                     1.79e-23
+Kurtosis:                       7.522   Cond. No.                         26.8
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="/images/copied_from_nb/images/fb_yahoo.png" alt=""></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>В этом случае все совпало и подтвердило возможность использование statsmodels для определения коэффициента бета.</p>
+<p>Ну и в качестве бонуса — если Вы хотите получить только бета — коэффициент и остальную статистику вы хотите оставить в стороне, то предлагается еще один код для его расчета:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span><span class="p">,</span> <span class="n">r_value</span><span class="p">,</span> <span class="n">p_value</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">slope</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1.1515416131106546
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Правда это не означает, что всю остальные получаемые значения надо игнорировать, но для их понимания понадобятся знание статистики. Приведу небольшую выдержку из получаемых значений:</p>
+<ul>
+<li>R-squared, который является коэффициентом детерминации и принимает значения от 0 до 1. Чем ближе значение коэффициента к 1, тем сильнее зависимость;</li>
+<li>Adj. R-squared — скорректированный R-squared на основании числа наблюдений и числа степеней свободы;</li>
+<li>std err — стандартная ошибка оценки коэффициента;</li>
+<li>P&gt;|t| — р-значение Величина менее 0,05 считается статистически значимой;</li>
+<li>0.025 и 0.975 — нижнее и верхнее значения доверительного интервала.</li>
+<li>и т.д.</li>
+</ul>
+<p>На этом пока что все. Конечно, представляет интерес поискать зависимость между различными величинами для того, чтобы через одну предсказать другую и получить профит. В одном из иностранных источников встретилось предсказание индекса через процентную ставку и уровень безработицы. Но если изменение процентной ставки в России можно взять с сайта Центробанка, то другие пока продолжаю искать. К сожалению, на сайте Росстата не удалось найти актуальные. Это заключительная публикация в рамках статей общего финансового анализа.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="Zmey56/blog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/finance/investment/python/2020/04/12/general-financial-analysis-python-part-3.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/Zmey56" title="Zmey56"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/Zmey56" title="Zmey56"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
