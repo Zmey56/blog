@@ -200,8 +200,8 @@ window.onload = wrap_img;
 
 <span class="n">tickers</span> <span class="o">=</span> <span class="n">tickers</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 <span class="n">symbols</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="c1">#for ticker in tickers:</span>
- <span class="c1">#   symbols.append(ticker[&#39;symbol&#39;])</span>
+<span class="k">for</span> <span class="n">ticker</span> <span class="ow">in</span> <span class="n">tickers</span><span class="p">:</span>
+    <span class="n">symbols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ticker</span><span class="p">[</span><span class="s1">&#39;symbol&#39;</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -218,26 +218,10 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tickers</span>
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>{&#39;Error Message&#39;: &#39;Limit Reach . Please upgrade your plan or visit our documentation for more details at https://fmpcloud.io/plans &#39;}</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -261,34 +245,11 @@ window.onload = wrap_img;
 <span class="n">symbols</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">ticker</span> <span class="ow">in</span> <span class="n">tickers</span><span class="p">:</span>
   <span class="n">symbols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ticker</span><span class="p">[</span><span class="s1">&#39;symbol&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">symbols</span><span class="p">)</span>
+<span class="c1">#print(symbols)</span>
 <span class="c1">#[&#39;SMMCW&#39;, &#39;VOD&#39;, &#39;TRMD&#39;, &#39;TRMB&#39;, &#39;NBL&#39;, &#39;EMMA&#39;,...]</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-3-4cfc3d43ef34&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      8</span> symbols <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">]</span>
-<span class="ansi-green-intense-fg ansi-bold">      9</span> <span class="ansi-green-fg">for</span> ticker <span class="ansi-green-fg">in</span> tickers<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">---&gt; 10</span><span class="ansi-red-fg">   </span>symbols<span class="ansi-blue-fg">.</span>append<span class="ansi-blue-fg">(</span>ticker<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;symbol&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     11</span> print<span class="ansi-blue-fg">(</span>symbols<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     12</span> <span class="ansi-red-fg">#[&#39;SMMCW&#39;, &#39;VOD&#39;, &#39;TRMD&#39;, &#39;TRMB&#39;, &#39;NBL&#39;, &#39;EMMA&#39;,...]</span>
-
-<span class="ansi-red-fg">TypeError</span>: string indices must be integers</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -317,7 +278,7 @@ window.onload = wrap_img;
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>0</pre>
+<pre>5500</pre>
 </div>
 
 </div>
