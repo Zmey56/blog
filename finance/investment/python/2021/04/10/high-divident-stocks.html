@@ -86,7 +86,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      4 min read
+      3 min read
     
 </span></p>
 
@@ -201,52 +201,7 @@ window.onload = wrap_img;
 <span class="n">tickers</span> <span class="o">=</span> <span class="n">tickers</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 <span class="n">symbols</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">ticker</span> <span class="ow">in</span> <span class="n">tickers</span><span class="p">:</span>
-    <span class="n">symbols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ticker</span><span class="p">[</span><span class="s1">&#39;symbol&#39;</span><span class="p">])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    
-
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    
-
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">demo</span> <span class="o">=</span> <span class="s1">&#39;39b9d9eeb3ba3fe57e039284db7ed2c0&#39;</span>
-
-<span class="n">tickers</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;https://fmpcloud.io/api/v3/symbol/available-nasdaq?apikey=</span><span class="si">{</span><span class="n">demo</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="n">tickers</span> <span class="o">=</span> <span class="n">tickers</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-<span class="n">symbols</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">ticker</span> <span class="ow">in</span> <span class="n">tickers</span><span class="p">:</span>
   <span class="n">symbols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ticker</span><span class="p">[</span><span class="s1">&#39;symbol&#39;</span><span class="p">])</span>
-<span class="c1">#print(symbols)</span>
-<span class="c1">#[&#39;SMMCW&#39;, &#39;VOD&#39;, &#39;TRMD&#39;, &#39;TRMB&#39;, &#39;NBL&#39;, &#39;EMMA&#39;,...]</span>
 </pre></div>
 
     </div>
