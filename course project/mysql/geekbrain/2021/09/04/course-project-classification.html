@@ -83,7 +83,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      2 min read
+      3 min read
     
 </span></p>
 
@@ -106,6 +106,7 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#что-вам-нужно-знать-о-торговле-валютами-и-акциями">Что Вам нужно знать О Торговле Валютами и Акциями</a></li>
 </ul><p>Согласно представленному заданию мне было необходимо придумать тему и по ней создать базу данных.Вот общее описание проекта:</p>
 
 <p><strong>Требования к курсовому проекту:</strong></p>
@@ -122,9 +123,12 @@ window.onload = wrap_img;
 
 <p><em>Примеры: описать модель хранения данных популярного веб-сайта: кинопоиск, booking.com, wikipedia, интернет-магазин, geekbrains, госуслуги…</em></p>
 
-<p>Торговля криптовалютами, покупка акций и тому подобное в наши дни чрезвычайно популярны – это воспринимается как легкая прибыль. В настоящее время цены растут, но мы не можем знать, когда это изменится. С другой стороны, мы знаем, что в какой-то момент это произойдет. Но мы здесь не для того, чтобы делать финансовые прогнозы. Вместо этого мы поговорим о модели данных, которую можно использовать для поддержки торговли криптовалютами и финансовыми инструментами, такими как акции или акции фондов.</p>
+<p>За основу я взял <a href="https://vertabelo.com/blog/a-data-model-for-trading-stocks-funds-and-cryptocurrencies/">статью</a>, размещенную на иностранном источнике. В ней показана основная схема. Осталось только ее перевести в SQL. Прежде перевод теории.</p>
 
-<p>Что Вам нужно знать О Торговле Валютами и Акциями</p>
+<p>Торговля криптовалютами, покупка акций и тому подобное в наши дни чрезвычайно популярны, так как это воспринимается как легкая прибыль. В настоящее время цены растут, но мы не можем знать, когда это изменится. С другой стороны, мы знаем, что в какой-то момент это произойдет. Но мы здесь не для того, чтобы делать финансовые прогнозы. Вместо этого мы поговорим о модели данных, которую можно использовать для поддержки торговли криптовалютами и финансовыми инструментами, такими как акции или акции фондов.</p>
+
+<h3 id="что-вам-нужно-знать-о-торговле-валютами-и-акциями">
+<a class="anchor" href="#%D1%87%D1%82%D0%BE-%D0%B2%D0%B0%D0%BC-%D0%BD%D1%83%D0%B6%D0%BD%D0%BE-%D0%B7%D0%BD%D0%B0%D1%82%D1%8C-%D0%BE-%D1%82%D0%BE%D1%80%D0%B3%D0%BE%D0%B2%D0%BB%D0%B5-%D0%B2%D0%B0%D0%BB%D1%8E%D1%82%D0%B0%D0%BC%D0%B8-%D0%B8-%D0%B0%D0%BA%D1%86%D0%B8%D1%8F%D0%BC%D0%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a>Что Вам нужно знать О Торговле Валютами и Акциями</h3>
 
 <p>Технологические усовершенствования за последние несколько десятилетий оказали значительное влияние на торговлю. В настоящее время существует множество онлайн-торговых платформ, которые вы можете использовать. Большая часть сегодняшней торговли осуществляется виртуально – вы можете увидеть бумажные акции в музеях, но вряд ли вы увидите акции, которые вы покупаете в бумажной форме. И вам не нужно паковать чемоданы и отправляться на Уолл-стрит или любую другую фондовую биржу, чтобы совершить сделку. Не выходя из своего компьютера или мобильного устройства, вы можете покупать или продавать производные финансовые инструменты (такие как облигации, акции или товары).</p>
 
@@ -134,7 +138,72 @@ window.onload = wrap_img;
 
 <p>Эта тема сложна, и в нашей модели может быть много деталей (например, записи документов и транзакций). Я собираюсь сделать это просто; я не буду реализовывать какую-либо автоматическую торговлю или какие-либо формулы для создания новых цен после торгового события.</p>
 
-<p>Итак, давайте взглянем на эту простую торговую модель.</p>
+<p>Перейдем к коду. Согласно статье база состоит из трех блоков:</p>
+
+<ul>
+  <li>CURRENCIES</li>
+  <li>TRADERS</li>
+  <li>ITEMS</li>
+</ul>
+
+<p>Теперь напишем код ля каждого блока:</p>
+
+<p><strong>CURRENCIES</strong></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">DATABASE</span> <span class="n">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="n">coursework_portfolio</span><span class="p">;</span>
+<span class="n">USE</span> <span class="n">coursework_portfolio</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Сначало создаю страну из которой осуществляется торговля</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="n">country</span><span class="p">;</span>
+
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">country</span><span class="p">(</span>
+	<span class="n">id</span> <span class="nb">SERIAL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+	<span class="n">country</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span>
+<span class="p">)</span> <span class="k">COMMENT</span> <span class="o">=</span> <span class="s1">'Страна из которой осуществляется торговля'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Валюту которую использует пользователь для торговли</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="n">currency_used</span><span class="p">;</span>
+
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">currency_used</span><span class="p">(</span>
+	<span class="n">id</span> <span class="nb">SERIAL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+	<span class="n">country_id</span> <span class="nb">BIGINT</span> <span class="nb">UNSIGNED</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">COMMENT</span> <span class="s1">'Ключ на другую таблицу'</span><span class="p">,</span>
+	<span class="n">currency_id</span> <span class="nb">INT</span> <span class="nb">UNSIGNED</span> <span class="k">COMMENT</span> <span class="s1">'Ключ на другую таблицу'</span><span class="p">,</span>
+	<span class="n">data_from</span> <span class="nb">DATETIME</span> <span class="k">DEFAULT</span> <span class="k">CURRENT_TIMESTAMP</span> <span class="k">COMMENT</span> <span class="s1">'Дата начала использования валюты'</span><span class="p">,</span>
+	<span class="n">data_to</span> <span class="nb">DATETIME</span> <span class="k">DEFAULT</span> <span class="k">CURRENT_TIMESTAMP</span> <span class="k">COMMENT</span> <span class="s1">'Дата окончания использования валюты. Если NULL, то валюта до сих пор используется'</span>
+<span class="p">)</span> <span class="k">COMMENT</span> <span class="o">=</span> <span class="s1">'Валюта использованная для покупки'</span><span class="p">;</span>
+
+<span class="k">DESC</span> <span class="n">currency_used</span> <span class="p">;</span>
+</code></pre></div></div>
+
+<p>Хранятся текущие и исторические курсы между валютными парами.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="n">currency_rate</span><span class="p">;</span>
+
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">currency_rate</span><span class="p">(</span>
+	<span class="n">id</span> <span class="nb">SERIAL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+	<span class="n">currency_id</span> <span class="nb">INT</span> <span class="nb">UNSIGNED</span> <span class="k">COMMENT</span> <span class="s1">'Ключ на другую таблицу'</span><span class="p">,</span>
+	<span class="n">base_currency_id</span> <span class="nb">INT</span> <span class="nb">UNSIGNED</span> <span class="k">COMMENT</span> <span class="s1">'Ключ на другую таблицу'</span><span class="p">,</span>
+	<span class="n">rate</span> <span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="mi">0</span> <span class="k">COMMENT</span> <span class="s1">'Курс валюты'</span><span class="p">,</span>
+	<span class="n">ts</span> <span class="nb">DATETIME</span> <span class="k">DEFAULT</span> <span class="k">CURRENT_TIMESTAMP</span> <span class="k">COMMENT</span> <span class="s1">'Время в которое данный курс был зафиксирован'</span>
+<span class="p">)</span> <span class="k">COMMENT</span> <span class="o">=</span> <span class="s1">'Курс валюты'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Хранить все валюты, которые мы когда-либо использовали для торговли.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="n">currency</span><span class="p">;</span>
+
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">currency</span><span class="p">(</span>
+	<span class="n">id</span> <span class="nb">INT</span> <span class="nb">UNSIGNED</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+	<span class="n">code</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">UNIQUE</span> <span class="k">COMMENT</span> <span class="s1">'Код используемый для уникального обозначения валюты'</span><span class="p">,</span>
+	<span class="n">name</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">UNIQUE</span> <span class="k">COMMENT</span> <span class="s1">'Уникальное название этой валюты'</span><span class="p">,</span>
+	<span class="n">is_active</span> <span class="nb">BOOL</span> <span class="k">DEFAULT</span> <span class="k">FALSE</span> <span class="k">COMMENT</span> <span class="s1">'Если валюта в настоящее время активна в нашей системе'</span><span class="p">,</span>
+	<span class="n">is_base_currency</span> <span class="nb">BOOL</span> <span class="k">DEFAULT</span> <span class="k">FALSE</span> <span class="k">COMMENT</span> <span class="s1">'Если эта валюта является базовой валютой нашей системы.'</span>
+<span class="p">)</span> <span class="k">COMMENT</span> <span class="o">=</span> <span class="s1">'Курс валюты'</span><span class="p">;</span>
+</code></pre></div></div>
 
   </div><!-- from https://github.com/utterance/utterances -->
 <script src="https://utteranc.es/client.js"
