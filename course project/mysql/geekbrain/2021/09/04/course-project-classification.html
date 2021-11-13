@@ -4,19 +4,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Course project “MySQL database for the financial instruments market” | alex.gladkikh.org</title>
+<title>Курсовой проект “База данных на MySQL для рынка финансовых инструментов. Часть 1” | alex.gladkikh.org</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Course project “MySQL database for the financial instruments market”" />
+<meta property="og:title" content="Курсовой проект “База данных на MySQL для рынка финансовых инструментов. Часть 1”" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Курсовой проект “База данных на MySQL для рынка финансовых инструментов”" />
-<meta property="og:description" content="Курсовой проект “База данных на MySQL для рынка финансовых инструментов”" />
+<meta name="description" content="Course project “MySQL database for the financial instruments market. Part 1”" />
+<meta property="og:description" content="Course project “MySQL database for the financial instruments market. Part 1”" />
 <link rel="canonical" href="https://zmey56.github.io/blog//course%20project/mysql/geekbrain/2021/09/04/course-project-classification.html" />
 <meta property="og:url" content="https://zmey56.github.io/blog//course%20project/mysql/geekbrain/2021/09/04/course-project-classification.html" />
 <meta property="og:site_name" content="alex.gladkikh.org" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-09-04T00:00:00-05:00" />
 <script type="application/ld+json">
-{"url":"https://zmey56.github.io/blog//course%20project/mysql/geekbrain/2021/09/04/course-project-classification.html","@type":"BlogPosting","headline":"Course project “MySQL database for the financial instruments market”","dateModified":"2021-09-04T00:00:00-05:00","datePublished":"2021-09-04T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://zmey56.github.io/blog//course%20project/mysql/geekbrain/2021/09/04/course-project-classification.html"},"description":"Курсовой проект “База данных на MySQL для рынка финансовых инструментов”","@context":"https://schema.org"}</script>
+{"url":"https://zmey56.github.io/blog//course%20project/mysql/geekbrain/2021/09/04/course-project-classification.html","@type":"BlogPosting","headline":"Курсовой проект “База данных на MySQL для рынка финансовых инструментов. Часть 1”","dateModified":"2021-09-04T00:00:00-05:00","datePublished":"2021-09-04T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://zmey56.github.io/blog//course%20project/mysql/geekbrain/2021/09/04/course-project-classification.html"},"description":"Course project “MySQL database for the financial instruments market. Part 1”","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://zmey56.github.io/blog//feed.xml" title="alex.gladkikh.org" /><!-- the google_analytics_id gets auto inserted from the config file -->
 
@@ -77,13 +77,13 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Course project &quot;MySQL database for the financial instruments market&quot;</h1><p class="page-description">Курсовой проект "База данных на MySQL для рынка финансовых инструментов"</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-09-04T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Курсовой проект &quot;База данных на MySQL для рынка финансовых инструментов. Часть 1&quot;</h1><p class="page-description">Course project "MySQL database for the financial instruments market. Part 1"</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-09-04T00:00:00-05:00" itemprop="datePublished">
         Sep 4, 2021
       </time>
        • <span class="read-time" title="Estimated read time">
     
     
-      3 min read
+      9 min read
     
 </span></p>
 
@@ -106,7 +106,14 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
-<li class="toc-entry toc-h3"><a href="#что-вам-нужно-знать-о-торговле-валютами-и-акциями">Что Вам нужно знать О Торговле Валютами и Акциями</a></li>
+<li class="toc-entry toc-h3"><a href="#1-общее-текстовое-описание-базы-данных-и-решаемых-задач">1. Общее текстовое описание базы данных и решаемых задач</a></li>
+<li class="toc-entry toc-h3"><a href="#2-cкрипты-создания-структуры-бд">2. Cкрипты создания структуры БД</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#currencies">CURRENCIES</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#3-скрипты-создания-отношений">3. Скрипты создания отношений</a></li>
+<li class="toc-entry toc-h3"><a href="#4-создание-erdiagram-для-бд">4. Создание ERDiagram для БД</a></li>
 </ul><p>Согласно представленному заданию мне было необходимо придумать тему и по ней создать базу данных.Вот общее описание проекта:</p>
 
 <p><strong>Требования к курсовому проекту:</strong></p>
@@ -127,8 +134,10 @@ window.onload = wrap_img;
 
 <p>Торговля криптовалютами, покупка акций и тому подобное в наши дни чрезвычайно популярны, так как это воспринимается как легкая прибыль. В настоящее время цены растут, но мы не можем знать, когда это изменится. С другой стороны, мы знаем, что в какой-то момент это произойдет. Но мы здесь не для того, чтобы делать финансовые прогнозы. Вместо этого мы поговорим о модели данных, которую можно использовать для поддержки торговли криптовалютами и финансовыми инструментами, такими как акции или акции фондов.</p>
 
-<h3 id="что-вам-нужно-знать-о-торговле-валютами-и-акциями">
-<a class="anchor" href="#%D1%87%D1%82%D0%BE-%D0%B2%D0%B0%D0%BC-%D0%BD%D1%83%D0%B6%D0%BD%D0%BE-%D0%B7%D0%BD%D0%B0%D1%82%D1%8C-%D0%BE-%D1%82%D0%BE%D1%80%D0%B3%D0%BE%D0%B2%D0%BB%D0%B5-%D0%B2%D0%B0%D0%BB%D1%8E%D1%82%D0%B0%D0%BC%D0%B8-%D0%B8-%D0%B0%D0%BA%D1%86%D0%B8%D1%8F%D0%BC%D0%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a>Что Вам нужно знать О Торговле Валютами и Акциями</h3>
+<h3 id="1-общее-текстовое-описание-базы-данных-и-решаемых-задач">
+<a class="anchor" href="#1-%D0%BE%D0%B1%D1%89%D0%B5%D0%B5-%D1%82%D0%B5%D0%BA%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5-%D0%BE%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B1%D0%B0%D0%B7%D1%8B-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85-%D0%B8-%D1%80%D0%B5%D1%88%D0%B0%D0%B5%D0%BC%D1%8B%D1%85-%D0%B7%D0%B0%D0%B4%D0%B0%D1%87" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Общее текстовое описание базы данных и решаемых задач</h3>
+
+<p><strong>Что Вам нужно знать О Торговле Валютами и Акциями</strong></p>
 
 <p>Технологические усовершенствования за последние несколько десятилетий оказали значительное влияние на торговлю. В настоящее время существует множество онлайн-торговых платформ, которые вы можете использовать. Большая часть сегодняшней торговли осуществляется виртуально – вы можете увидеть бумажные акции в музеях, но вряд ли вы увидите акции, которые вы покупаете в бумажной форме. И вам не нужно паковать чемоданы и отправляться на Уолл-стрит или любую другую фондовую биржу, чтобы совершить сделку. Не выходя из своего компьютера или мобильного устройства, вы можете покупать или продавать производные финансовые инструменты (такие как облигации, акции или товары).</p>
 
@@ -148,7 +157,11 @@ window.onload = wrap_img;
 
 <p>Теперь напишем код ля каждого блока:</p>
 
-<p><strong>CURRENCIES</strong></p>
+<h3 id="2-cкрипты-создания-структуры-бд">
+<a class="anchor" href="#2-c%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D1%8B-%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D1%8F-%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D1%8B-%D0%B1%D0%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Cкрипты создания структуры БД</h3>
+
+<h4 id="currencies">
+<a class="anchor" href="#currencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>CURRENCIES</h4>
 
 <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">DATABASE</span> <span class="n">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="n">coursework_portfolio</span><span class="p">;</span>
 <span class="n">USE</span> <span class="n">coursework_portfolio</span><span class="p">;</span>
@@ -204,6 +217,230 @@ window.onload = wrap_img;
 	<span class="n">is_base_currency</span> <span class="nb">BOOL</span> <span class="k">DEFAULT</span> <span class="k">FALSE</span> <span class="k">COMMENT</span> <span class="s1">'Если эта валюта является базовой валютой нашей системы.'</span>
 <span class="p">)</span> <span class="k">COMMENT</span> <span class="o">=</span> <span class="s1">'Курс валюты'</span><span class="p">;</span>
 </code></pre></div></div>
+
+<p>####ITEMS</p>
+
+<p>Таблицы item определяют все товары, доступные для торговли, и их текущий статус. Также здесь записываются все изменения, произошедшие с этими товарами с течением времени.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="n">item</span><span class="p">;</span>
+
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">item</span><span class="p">(</span>
+	<span class="n">id</span> <span class="nb">SERIAL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+	<span class="n">code</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">64</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">UNIQUE</span> <span class="k">COMMENT</span> <span class="s1">'Код используемый для уникального обозначения товара(акции, ПИФы и т.д.)'</span><span class="p">,</span>
+	<span class="n">name</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">UNIQUE</span> <span class="k">COMMENT</span> <span class="s1">'Полное имя'</span><span class="p">,</span>
+	<span class="n">is_active</span> <span class="nb">BOOL</span> <span class="k">DEFAULT</span> <span class="k">FALSE</span> <span class="k">COMMENT</span> <span class="s1">'Доступен ли этот товар для торговли или нет'</span><span class="p">,</span>
+	<span class="n">currency_id</span> <span class="nb">INT</span> <span class="nb">UNSIGNED</span> <span class="k">COMMENT</span> <span class="s1">'Ссылается на валюту, используемую в качестве базовой валюты для данного товара'</span><span class="p">,</span>
+	<span class="n">details</span> <span class="nb">TEXT</span> <span class="k">COMMENT</span> <span class="s1">'Все дополнительные сведения (например, количество выпущенных акций) в текстовом формате.'</span>
+<span class="p">)</span> <span class="k">COMMENT</span> <span class="o">=</span> <span class="s1">'Доступные товары'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Таблица цен отслеживает все изменения цен во времени.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="n">price</span><span class="p">;</span>
+
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">price</span><span class="p">(</span>
+	<span class="n">id</span> <span class="nb">SERIAL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+	<span class="n">item_id</span> <span class="nb">BIGINT</span> <span class="nb">UNSIGNED</span> <span class="k">COMMENT</span> <span class="s1">'Ссылается на валюту, используемую в качестве базовой валюты для данного товара'</span><span class="p">,</span>
+	<span class="n">currency_id</span> <span class="nb">INT</span> <span class="nb">UNSIGNED</span> <span class="k">COMMENT</span> <span class="s1">'Ссылается на валюту, используемую в качестве базовой валюты для данного товара'</span><span class="p">,</span>
+	<span class="n">buy</span> <span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="mi">0</span> <span class="k">COMMENT</span> <span class="s1">'Курс покупки'</span><span class="p">,</span>
+	<span class="n">sell</span> <span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="mi">0</span> <span class="k">COMMENT</span> <span class="s1">'Курс продажи'</span><span class="p">,</span>
+	<span class="n">ts</span> <span class="nb">DATETIME</span> <span class="k">DEFAULT</span> <span class="k">CURRENT_TIMESTAMP</span> <span class="k">COMMENT</span> <span class="s1">'Время в которое сделка по последней цене была зафиксирована'</span>
+<span class="p">)</span> <span class="k">COMMENT</span> <span class="o">=</span> <span class="s1">'Изменение цены'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Таблица отчета</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="n">report</span><span class="p">;</span>
+
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">report</span><span class="p">(</span>
+	<span class="n">id</span> <span class="nb">SERIAL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+	<span class="n">trading_data</span> <span class="nb">DATETIME</span> <span class="k">DEFAULT</span> <span class="k">CURRENT_TIMESTAMP</span> <span class="k">COMMENT</span> <span class="s1">'Дата отчета'</span><span class="p">,</span>
+	<span class="n">item_id</span> <span class="nb">BIGINT</span> <span class="nb">UNSIGNED</span> <span class="k">COMMENT</span> <span class="s1">'Ссылается на валюту, используемую в качестве базовой валюты для данного товара'</span><span class="p">,</span>
+	<span class="n">currency_id</span> <span class="nb">INT</span> <span class="nb">UNSIGNED</span> <span class="k">COMMENT</span> <span class="s1">'Ссылается на валюту, используемую в качестве базовой валюты для данного товара'</span><span class="p">,</span>
+	<span class="n">first_price</span> <span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="k">DEFAULT</span> <span class="k">NULL</span> <span class="k">COMMENT</span> <span class="s1">'Начальная цена'</span><span class="p">,</span>
+	<span class="n">last_price</span> <span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="k">DEFAULT</span> <span class="k">NULL</span> <span class="k">COMMENT</span> <span class="s1">'Последняя цена'</span><span class="p">,</span>
+	<span class="n">min_price</span> <span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="k">DEFAULT</span> <span class="k">NULL</span> <span class="k">COMMENT</span> <span class="s1">'Минимальная цена'</span><span class="p">,</span>
+	<span class="n">max_price</span> <span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="k">DEFAULT</span> <span class="k">NULL</span> <span class="k">COMMENT</span> <span class="s1">'Максимальная цена'</span><span class="p">,</span>
+	<span class="n">avg_price</span> <span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="k">DEFAULT</span> <span class="k">NULL</span> <span class="k">COMMENT</span> <span class="s1">'Средняя цена'</span><span class="p">,</span>
+	<span class="n">total_amount</span> <span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="k">DEFAULT</span> <span class="k">NULL</span> <span class="k">COMMENT</span> <span class="s1">'Общая сумма, уплаченная за этот товар в течение отчетного периода.'</span><span class="p">,</span>
+	<span class="n">quantity</span> <span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="k">DEFAULT</span> <span class="k">NULL</span> <span class="k">COMMENT</span> <span class="s1">'Количество товаров, проданных в течение данного отчетного периода.'</span>
+<span class="p">)</span> <span class="k">COMMENT</span> <span class="o">=</span> <span class="s1">'Отчет'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>####TRADERS</p>
+
+<p>Таблица трейдеров</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="n">trader</span><span class="p">;</span>
+
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">trader</span> <span class="p">(</span>
+	<span class="n">id</span> <span class="nb">SERIAL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+    <span class="n">firstname</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="k">COMMENT</span> <span class="s1">'Имя'</span><span class="p">,</span>
+    <span class="n">lastname</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="k">COMMENT</span> <span class="s1">'Фамилия'</span><span class="p">,</span>
+    <span class="n">user_name</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">UNIQUE</span> <span class="k">COMMENT</span> <span class="s1">'Логин у всех уникальный'</span><span class="p">,</span>
+    <span class="n">email</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">UNIQUE</span><span class="p">,</span>
+    <span class="n">confirmation_code</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">COMMENT</span> <span class="s1">'Код, отправленный пользователю для завершения процесса регистрации.'</span><span class="p">,</span>
+    <span class="n">time_registered</span> <span class="nb">DATETIME</span> <span class="k">DEFAULT</span> <span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span>
+    <span class="n">time_confirmed</span> <span class="nb">DATETIME</span> <span class="k">DEFAULT</span> <span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span>
+    <span class="n">country_id</span> <span class="nb">BIGINT</span> <span class="nb">UNSIGNED</span> <span class="k">COMMENT</span> <span class="s1">'Страна, в которой живет.'</span><span class="p">,</span>
+    <span class="n">preffered_currency_id</span> <span class="nb">BIGINT</span> <span class="nb">UNSIGNED</span> <span class="k">COMMENT</span> <span class="s1">'Валюта, которую трейдер предпочитает'</span>
+<span class="p">)</span> <span class="k">COMMENT</span> <span class="s1">'юзеры'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Список всех товаров, которыми в настоящее время владеет трейдер</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="n">current_inventory</span><span class="p">;</span>
+
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">current_inventory</span> <span class="p">(</span>
+	<span class="n">id</span> <span class="nb">SERIAL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+	<span class="n">trader_id</span> <span class="nb">BIGINT</span> <span class="nb">UNSIGNED</span> <span class="k">COMMENT</span> <span class="s1">'Ссылка на трейдера'</span><span class="p">,</span>
+	<span class="n">item_id</span> <span class="nb">BIGINT</span> <span class="nb">UNSIGNED</span> <span class="k">COMMENT</span> <span class="s1">'Ссылка на товар'</span><span class="p">,</span>
+	<span class="n">quantity</span> <span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="k">DEFAULT</span> <span class="k">NULL</span> <span class="k">COMMENT</span> <span class="s1">'Количество товаров'</span>
+<span class="p">)</span> <span class="k">COMMENT</span> <span class="s1">'Список товаров'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Торговое событие</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="n">trade</span><span class="p">;</span>
+
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">trade</span> <span class="p">(</span>
+	<span class="n">id</span> <span class="nb">SERIAL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+	<span class="n">item_id</span> <span class="nb">BIGINT</span> <span class="nb">UNSIGNED</span> <span class="k">COMMENT</span> <span class="s1">'Ссылка на товар'</span><span class="p">,</span>
+	<span class="n">seller_id</span> <span class="nb">BIGINT</span> <span class="nb">UNSIGNED</span> <span class="k">DEFAULT</span> <span class="k">NULL</span> <span class="k">COMMENT</span> <span class="s1">'Ссылка на трейдера'</span><span class="p">,</span>
+	<span class="n">buyer_id</span> <span class="nb">BIGINT</span> <span class="nb">UNSIGNED</span> <span class="k">COMMENT</span> <span class="s1">'Ссылка на трейдера'</span><span class="p">,</span>
+	<span class="n">quantity</span> <span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="k">DEFAULT</span> <span class="k">NULL</span> <span class="k">COMMENT</span> <span class="s1">'Количество товаров'</span><span class="p">,</span>
+	<span class="n">unit_price</span> <span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="k">DEFAULT</span> <span class="k">NULL</span> <span class="k">COMMENT</span> <span class="s1">'Цена за единицу'</span><span class="p">,</span>
+	<span class="n">description</span> <span class="nb">TEXT</span> <span class="k">COMMENT</span> <span class="s1">'Все дополнительные сведения (например, количество выпущенных акций) в текстовом формате.'</span><span class="p">,</span>
+	<span class="n">offer_id</span> <span class="nb">BIGINT</span> <span class="nb">UNSIGNED</span> <span class="k">COMMENT</span> <span class="s1">'Индификатор сделки'</span>
+<span class="p">)</span> <span class="k">COMMENT</span> <span class="s1">'Сделки'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Учет всех предложений</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="n">offer</span><span class="p">;</span>
+
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">offer</span> <span class="p">(</span>
+	<span class="n">id</span> <span class="nb">SERIAL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+	<span class="n">item_id</span> <span class="nb">BIGINT</span> <span class="nb">UNSIGNED</span> <span class="k">COMMENT</span> <span class="s1">'Ссылка на товар'</span><span class="p">,</span>
+	<span class="n">trader_id</span> <span class="nb">BIGINT</span> <span class="nb">UNSIGNED</span> <span class="k">DEFAULT</span> <span class="k">NULL</span> <span class="k">COMMENT</span> <span class="s1">'Ссылка на трейдера'</span><span class="p">,</span>
+	<span class="n">quantity</span> <span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="k">DEFAULT</span> <span class="k">NULL</span> <span class="k">COMMENT</span> <span class="s1">'Количество товаров'</span><span class="p">,</span>
+	<span class="n">buy</span> <span class="nb">BOOL</span> <span class="k">DEFAULT</span> <span class="k">FALSE</span><span class="p">,</span>
+	<span class="n">sell</span> <span class="nb">BOOL</span> <span class="k">DEFAULT</span> <span class="k">FALSE</span><span class="p">,</span>
+	<span class="n">price</span> <span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="k">DEFAULT</span> <span class="k">NULL</span> <span class="k">COMMENT</span> <span class="s1">'Желаемая цена за единицу'</span><span class="p">,</span>
+	<span class="n">ts</span> <span class="nb">DATETIME</span> <span class="k">DEFAULT</span> <span class="k">CURRENT_TIMESTAMP</span> <span class="k">COMMENT</span> <span class="s1">'Когда была выставлена'</span><span class="p">,</span>
+	<span class="n">is_active</span> <span class="nb">BOOL</span> <span class="k">DEFAULT</span> <span class="k">FALSE</span> <span class="k">COMMENT</span> <span class="s1">'Действует ли еще это предложение'</span>
+<span class="p">)</span> <span class="k">COMMENT</span> <span class="s1">'Сделки'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>так же решил добавить в traders колонку дней рождений birthday</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">trader</span>
+  <span class="k">DROP</span> <span class="k">COLUMN</span> <span class="n">birthday</span><span class="p">;</span>
+
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">trader</span>
+<span class="k">ADD</span> <span class="k">COLUMN</span> <span class="n">birthday</span> <span class="nb">DATE</span> <span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="3-скрипты-создания-отношений">
+<a class="anchor" href="#3-%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D1%8B-%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D1%8F-%D0%BE%D1%82%D0%BD%D0%BE%D1%88%D0%B5%D0%BD%D0%B8%D0%B9" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Скрипты создания отношений</h3>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">USE</span> <span class="n">coursework_portfolio</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>связь один ко многим courtry - currency_used</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">currency_used</span> <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">currency_used_country_fk</span> <span class="k">FOREIGN</span> <span class="k">KEY</span><span class="p">(</span><span class="n">country_id</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="n">country</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>связь один ко многим currency - currency_used</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">currency_used</span>
+<span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">currency_used_currency_fk</span>
+<span class="k">FOREIGN</span> <span class="k">KEY</span><span class="p">(</span><span class="n">currency_id</span><span class="p">)</span>
+<span class="k">REFERENCES</span> <span class="n">currency</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>связь один ко многим currency - currency_rate</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">currency_rate</span> <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">currency_currency_rate_fk</span> <span class="k">FOREIGN</span> <span class="k">KEY</span><span class="p">(</span><span class="n">currency_id</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="n">currency</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">currency_rate</span> <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">currency_currency_rate_base_fk</span> <span class="k">FOREIGN</span> <span class="k">KEY</span><span class="p">(</span><span class="n">base_currency_id</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="n">currency</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>связь один ко многим currency - price</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">price</span> <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">currency_price_fk</span> <span class="k">FOREIGN</span> <span class="k">KEY</span><span class="p">(</span><span class="n">currency_id</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="n">currency</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>связь один ко многим currency - item</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">item</span> <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">currency_item_fk</span> <span class="k">FOREIGN</span> <span class="k">KEY</span><span class="p">(</span><span class="n">currency_id</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="n">currency</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>связь один ко многим price - item</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">price</span> <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">item_price_fk</span> <span class="k">FOREIGN</span> <span class="k">KEY</span><span class="p">(</span><span class="n">item_id</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="n">item</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>связь один ко многим report - item</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">report</span> <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">report_item_fk</span> <span class="k">FOREIGN</span> <span class="k">KEY</span><span class="p">(</span><span class="n">item_id</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="n">item</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>связь один ко многим report - currency</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">report</span> <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">currency_report_fk</span> <span class="k">FOREIGN</span> <span class="k">KEY</span><span class="p">(</span><span class="n">currency_id</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="n">currency</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>связь один ко многим trader - currency</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">trader</span> <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">country_trader_fk</span> <span class="k">FOREIGN</span> <span class="k">KEY</span><span class="p">(</span><span class="n">country_id</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="n">country</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>связь один ко многим trade - trader</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">trade</span> <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">trader_trade_sell_fk</span> <span class="k">FOREIGN</span> <span class="k">KEY</span><span class="p">(</span><span class="n">seller_id</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="n">trader</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>связь один ко многим trade - trader</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">trade</span> <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">trader_trade_buy_fk</span> <span class="k">FOREIGN</span> <span class="k">KEY</span><span class="p">(</span><span class="n">buyer_id</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="n">trader</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>связь один ко многим trade - offer</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">trade</span> <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">offer_trade_fk</span> <span class="k">FOREIGN</span> <span class="k">KEY</span><span class="p">(</span><span class="n">offer_id</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="n">offer</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>связь один ко многим trade - item</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">trade</span> <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">item_trade_fk</span> <span class="k">FOREIGN</span> <span class="k">KEY</span><span class="p">(</span><span class="n">item_id</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="n">item</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>связь один ко многим offer - trader</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">offer</span> <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">trader_offer_fk</span> <span class="k">FOREIGN</span> <span class="k">KEY</span><span class="p">(</span><span class="n">trader_id</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="n">trader</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>связь один ко многим offer - item</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">offer</span> <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">item_offer_fk</span> <span class="k">FOREIGN</span> <span class="k">KEY</span><span class="p">(</span><span class="n">item_id</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="n">item</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>связь один ко многим Current_inventory - trader</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">current_inventory</span> <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">trader_current_inventory_fk</span> <span class="k">FOREIGN</span> <span class="k">KEY</span><span class="p">(</span><span class="n">trader_id</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="n">trader</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>связь один ко многим Current_inventory - item</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">current_inventory</span> <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">item_current_inventory_fk</span> <span class="k">FOREIGN</span> <span class="k">KEY</span><span class="p">(</span><span class="n">item_id</span><span class="p">)</span> <span class="k">REFERENCES</span> <span class="n">item</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="4-создание-erdiagram-для-бд">
+<a class="anchor" href="#4-%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-erdiagram-%D0%B4%D0%BB%D1%8F-%D0%B1%D0%B4" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. Создание ERDiagram для БД</h3>
+
+<p>В результате получилось следующая схема:</p>
+
+<p><img src="images/3_ER_diagram.png" alt=""></p>
 
   </div><!-- from https://github.com/utterance/utterances -->
 <script src="https://utteranc.es/client.js"
