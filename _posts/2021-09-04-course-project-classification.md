@@ -354,6 +354,8 @@ ALTER TABLE current_inventory ADD CONSTRAINT item_current_inventory_fk FOREIGN K
 ### 4. Создание ERDiagram для БД
 
 В результате получилось следующая схема:
+---
+
 ![](/images/ER_diagram.png)
 
 ### 5. Cкрипты наполнения БД данными
