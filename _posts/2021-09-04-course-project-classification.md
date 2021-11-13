@@ -47,7 +47,7 @@ title: Курсовой проект "База данных на MySQL для р
 
 ### 2. Cкрипты создания структуры БД
 
-#### CURRENCIES
+**CURRENCIES**
 
 ~~~~sql
 CREATE DATABASE IF NOT EXISTS coursework_portfolio;
@@ -109,7 +109,7 @@ CREATE TABLE currency(
 ) COMMENT = 'Курс валюты';
 ~~~~
 
-####ITEMS
+**ITEMS**
 
 Таблицы item определяют все товары, доступные для торговли, и их текущий статус. Также здесь записываются все изменения, произошедшие с этими товарами с течением времени.
 
@@ -161,7 +161,7 @@ CREATE TABLE report(
 ) COMMENT = 'Отчет';
 ~~~~
 
-####TRADERS
+**TRADERS**
 
 Таблица трейдеров
 
@@ -354,7 +354,7 @@ ALTER TABLE current_inventory ADD CONSTRAINT item_current_inventory_fk FOREIGN K
 ### 4. Создание ERDiagram для БД
 
 В результате получилось следующая схема:
-![](images/ER_diagram.png)
+![](/images/ER_diagram.png)
 
 ### 5. Cкрипты наполнения БД данными
 
@@ -734,7 +734,7 @@ UPDATE trader SET birthday = CURRENT_DATE() - INTERVAL (FLOOR(20 + RAND() * 60))
 
 Распределение трейдеров по странам
 
-~~~~SQL
+~~~~sql
 CREATE VIEW trader_country AS
 SELECT c.country, COUNT(*) AS number_people FROM trader t JOIN country c ON t.country_id = c.id GROUP BY c.country ;
 ~~~~
@@ -749,7 +749,7 @@ SELECT user_name,  COUNT(o.buy) AS sum_offer_buy FROM trader t JOIN offer o ON t
 
 Распределение количества предложений на продажу по трейдерам
 
-~~~~SQL
+~~~~sql
 DROP VIEW trader_offer_sell;
 CREATE VIEW trader_offer_sell AS
 SELECT user_name,  COUNT(o.sell) AS sum_offer_sell FROM trader t JOIN offer o ON t.id = o.trader_id WHERE o.sell = 1 GROUP BY t.user_name ORDER BY sum_offer_sell DESC;
@@ -765,7 +765,7 @@ SELECT * FROM trader_offer_buy tob  ;
 
 Триггер для проверки что возраст не пустое значение
 
-~~~~SQL
+~~~~sql
 DROP TRIGGER IF EXISTS trader_age;
 
 DELIMITER //
@@ -783,7 +783,7 @@ DELIMITER ;
 
 Триггер для проверки что трейдер совершенолетний
 
-~~~~SQL
+~~~~sql
 DROP TRIGGER IF EXISTS trader_age;
 
 DELIMITER //
@@ -801,7 +801,7 @@ DELIMITER ;
 
 Триггер для проверки что трейдер одновременно не выставляет одну и ту-же позицию сразу на продажу и покупку
 
-~~~~SQL
+~~~~sql
 DROP TRIGGER IF EXISTS trader_age;
 
 DELIMITER //
@@ -819,7 +819,7 @@ DELIMITER ;
 
 Триггер для проверки что трейдер выбрал или покупку или продажу
 
-~~~~SQL
+~~~~sql
 DROP TRIGGER IF EXISTS trader_age;
 
 DELIMITER //
