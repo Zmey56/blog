@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Выпускной проект “Идентификация интернет-пользователей” Week 2 | alex.gladkikh.org</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Выпускной проект “Идентификация интернет-пользователей” Week 2" />
+<meta name="author" content="Zmey56" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Graduation project “Identification of Internet users” Week 2" />
+<meta property="og:description" content="Graduation project “Identification of Internet users” Week 2" />
+<link rel="canonical" href="https://zmey56.github.io/blog//graduation%20project/machine%20learning/stepik/yandex/2019/07/20/project-identification-of-internet-users-week2.html" />
+<meta property="og:url" content="https://zmey56.github.io/blog//graduation%20project/machine%20learning/stepik/yandex/2019/07/20/project-identification-of-internet-users-week2.html" />
+<meta property="og:site_name" content="alex.gladkikh.org" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-07-20T00:00:00-05:00" />
+<script type="application/ld+json">
+{"url":"https://zmey56.github.io/blog//graduation%20project/machine%20learning/stepik/yandex/2019/07/20/project-identification-of-internet-users-week2.html","@type":"BlogPosting","headline":"Выпускной проект “Идентификация интернет-пользователей” Week 2","dateModified":"2019-07-20T00:00:00-05:00","datePublished":"2019-07-20T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://zmey56.github.io/blog//graduation%20project/machine%20learning/stepik/yandex/2019/07/20/project-identification-of-internet-users-week2.html"},"author":{"@type":"Person","name":"Zmey56"},"description":"Graduation project “Identification of Internet users” Week 2","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://zmey56.github.io/blog//feed.xml" title="alex.gladkikh.org" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-183752218-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">alex.gladkikh.org</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a><a class="page-link" href="/search/">Search</a><a class="page-link" href="/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Выпускной проект &quot;Идентификация интернет-пользователей&quot; Week 2</h1><p class="page-description">Graduation project "Identification of Internet users" Week 2</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2019-07-20T00:00:00-05:00" itemprop="datePublished">
+        Jul 20, 2019
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Zmey56</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      12 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/categories/#graduation project">graduation project</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#machine learning">machine learning</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#stepik">stepik</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#yandex">yandex</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/Zmey56/blog/tree/master/_notebooks/2019-07-20-project-identification-of-internet-users-week2.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/Zmey56/blog/master?filepath=_notebooks%2F2019-07-20-project-identification-of-internet-users-week2.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/Zmey56/blog/blob/master/_notebooks/2019-07-20-project-identification-of-internet-users-week2.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#Подготовка-нескольких-обучающих-выборок-для-сравнения">Подготовка нескольких обучающих выборок для сравнения </a></li>
+<li class="toc-entry toc-h2"><a href="#Подготовка-нескольких-обучающих-выборок-для-сравнения">Подготовка нескольких обучающих выборок для сравнения </a></li>
+<li class="toc-entry toc-h2"><a href="#Первичный-анализ-данных,-проверка-гипотез">Первичный анализ данных, проверка гипотез </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2019-07-20-project-identification-of-internet-users-week2.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Неделя 2.</strong> Подготовка и первичный анализ данных</p>
+<p>На второй неделе мы продолжим подготавливать данные для дальнейшего анализа и построения прогнозных моделей. Конкретно, раньше мы определили что сессия – это последовательность из 10 посещенных пользователем сайтов, теперь сделаем длину сессии параметром, и потом при обучении прогнозных моделей выберем лучшую длину сессии. Также мы познакомимся с предобработанными данными и статистически проверим первые гипотезы, связанные с нашими наблюдениями.</p>
+<p>План 2 недели:</p>
+<ul>
+<li>Подготовка нескольких обучающих выборок для сравнения</li>
+<li>Первичный анализ данных, проверка гипотез</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Подготовка-нескольких-обучающих-выборок-для-сравнения">
+<a class="anchor" href="#%D0%9F%D0%BE%D0%B4%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%BA%D0%B0-%D0%BD%D0%B5%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%B8%D1%85-%D0%BE%D0%B1%D1%83%D1%87%D0%B0%D1%8E%D1%89%D0%B8%D1%85-%D0%B2%D1%8B%D0%B1%D0%BE%D1%80%D0%BE%D0%BA-%D0%B4%D0%BB%D1%8F-%D1%81%D1%80%D0%B0%D0%B2%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>Подготовка нескольких обучающих выборок для сравнения<a class="anchor-link" href="#%D0%9F%D0%BE%D0%B4%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%BA%D0%B0-%D0%BD%D0%B5%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%B8%D1%85-%D0%BE%D0%B1%D1%83%D1%87%D0%B0%D1%8E%D1%89%D0%B8%D1%85-%D0%B2%D1%8B%D0%B1%D0%BE%D1%80%D0%BE%D0%BA-%D0%B4%D0%BB%D1%8F-%D1%81%D1%80%D0%B0%D0%B2%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F"> </a>
+</h3>
+<p>Пока мы брали последовательности из 10 сайтов, и это было наобум. Давайте сделаем число сайтов в сессии параметром, чтоб в дальнейшем сравнить модели классификации, обученные на разных выборках – с 5, 7, 10 и 15 сайтами в сессии. Более того, пока мы брали по 10 сайтов подряд, без пересечения. Теперь давайте применим идею скользящего окна – сессии будут перекрываться.</p>
+<p><strong>Пример</strong>: для длины сессии 10 и ширины окна 7 файл из 30 записей породит не 3 сессии, как раньше (1-10, 11-20, 21-30), а 5 (1-10, 8-17, 15-24, 22-30, 29-30). При этом в предпоследней сессии будет один ноль, а в последней – 8 нолей.</p>
+<p>Создадим несколько выборок для разных сочетаний параметров длины сессии и ширины окна. Все они представлены в табличке ниже:</p>
+<p><style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+</style></p>
+<table class="tg">
+  <tr>
+    <th class="tg-031e">session_length -&gt;<br>window_size <br>
+</th>
+    <th class="tg-031e">5</th>
+    <th class="tg-031e">7</th>
+    <th class="tg-031e">10</th>
+    <th class="tg-031e">15</th>
+  </tr>
+  <tr>
+    <td class="tg-031e">5</td>
+    <td class="tg-031e">v</td>
+    <td class="tg-031e">v</td>
+    <td class="tg-031e">v</td>
+    <td class="tg-031e">v</td>
+  </tr>
+  <tr>
+    <td class="tg-031e">7</td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e">v</td>
+    <td class="tg-031e">v</td>
+    <td class="tg-031e">v</td>
+  </tr>
+  <tr>
+    <td class="tg-031e">10</td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"></td>
+    <td class="tg-031e"><font color="green">v</font></td>
+    <td class="tg-031e">v</td>
+  </tr>
+</table>
+<p>Итого должно получиться 18 разреженных матриц – указанные в таблице 9 сочетаний параметров формирования сессий для выборок из 10 и 150 пользователей. При этом 2 выборки мы уже сделали в прошлой части, они соответствуют сочетанию параметров: session_length=10, window_size=10, которые помечены в таблице выше галочкой зеленого цвета (done).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Реализуйте функцию prepare_sparse_train_set_window.</p>
+<p>Аргументы:</p>
+<ul>
+<li>path_to_csv_files – путь к каталогу с csv-файлами</li>
+<li>site_freq_path – путь к pickle-файлу с частотным словарем, полученным в 1 части проекта</li>
+<li>session_length – длина сессии (параметр)</li>
+<li>window_size – ширина окна (параметр)</li>
+</ul>
+<p>Функция должна возвращать 2 объекта:</p>
+<ul>
+<li>разреженную матрицу X_sparse (двухмерная Scipy.sparse.csr_matrix), в которой строки соответствуют сессиям из session_length сайтов, а max(site_id) столбцов – количеству посещений site_id в сессии.</li>
+<li>вектор y (Numpy array) "ответов" в виде ID пользователей, которым принадлежат сессии из X_sparse</li>
+</ul>
+<p>Детали:</p>
+<ul>
+<li>Модифицируйте созданную в 1 части функцию prepare_train_set</li>
+<li>Некоторые сессии могут повторяться – оставьте как есть, не удаляйте дубликаты</li>
+<li>Замеряйте время выполнения итераций цикла с помощью time из time, tqdm из tqdm или с помощью виджета log_progress (статья о нем на Хабрахабре)</li>
+<li>150 файлов из capstone_websites_data/150users/ должны обрабатываться за несколько секунд (в зависимости от входных параметров). Если дольше – не страшно, но знайте, что функцию можно ускорить.</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">pylab</span> 
+<span class="kn">import</span> <span class="nn">collections</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.sparse</span> <span class="k">as</span> <span class="nn">sps</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">glob</span> <span class="kn">import</span> <span class="n">glob</span>
+<span class="kn">from</span> <span class="nn">tqdm.auto</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">csr_matrix</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">timedelta</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">from</span> <span class="nn">statsmodels.stats.proportion</span> <span class="kn">import</span> <span class="n">proportion_confint</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">'ignore'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/usr/local/lib/python3.7/dist-packages/statsmodels/tools/_testing.py:19: FutureWarning: pandas.util.testing is deprecated. Use the functions in the public API at pandas.testing instead.
+  import pandas.util.testing as tm
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Подготовка-нескольких-обучающих-выборок-для-сравнения">
+<a class="anchor" href="#%D0%9F%D0%BE%D0%B4%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%BA%D0%B0-%D0%BD%D0%B5%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%B8%D1%85-%D0%BE%D0%B1%D1%83%D1%87%D0%B0%D1%8E%D1%89%D0%B8%D1%85-%D0%B2%D1%8B%D0%B1%D0%BE%D1%80%D0%BE%D0%BA-%D0%B4%D0%BB%D1%8F-%D1%81%D1%80%D0%B0%D0%B2%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>Подготовка нескольких обучающих выборок для сравнения<a class="anchor-link" href="#%D0%9F%D0%BE%D0%B4%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%BA%D0%B0-%D0%BD%D0%B5%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%B8%D1%85-%D0%BE%D0%B1%D1%83%D1%87%D0%B0%D1%8E%D1%89%D0%B8%D1%85-%D0%B2%D1%8B%D0%B1%D0%BE%D1%80%D0%BE%D0%BA-%D0%B4%D0%BB%D1%8F-%D1%81%D1%80%D0%B0%D0%B2%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">PATH_TO_DATA</span> <span class="o">=</span> <span class="s1">'/content/drive/MyDrive/DATA/Stepik/capstone_user_identification'</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">prepare_sparse_train_set_window</span><span class="p">(</span><span class="n">path_to_csv_files</span><span class="p">,</span> <span class="n">site_freq_path</span><span class="p">,</span> <span class="n">session_length</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">window_size</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    
+    <span class="n">stock_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="p">(</span><span class="n">path_to_csv_files</span><span class="p">))</span>
+    
+    <span class="c1">#создать общий датафрейм со всеми пользователями и сайтами</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">((</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">stock_files</span><span class="p">),</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1">#прочесть файл с именем сайта, идентификационным номером и частотой</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">site_freq_path</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+      <span class="n">df_site_dict</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+    
+    <span class="c1">#create number list site</span>
+    <span class="n">list_all_site</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">user_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1">#user = 1</span>
+    <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">stock_files</span><span class="p">:</span>
+        <span class="n">tmp_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+        <span class="c1">#print(filename[-12:-4])</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">filename</span><span class="p">[</span><span class="o">-</span><span class="mi">12</span><span class="p">:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>
+        <span class="n">list_site</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1">#прочитать отдельно по каждому юзеру сессии и преобразовать сайты в их идентификаторы</span>
+        <span class="k">for</span> <span class="n">site</span> <span class="ow">in</span> <span class="n">tmp_df</span><span class="o">.</span><span class="n">site</span><span class="p">:</span>
+            <span class="n">list_site</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_site_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">site</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="c1">#перебор начала окна в зависимости от его ширины</span>
+        <span class="k">for</span> <span class="n">start</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">list_site</span><span class="p">)</span> <span class="o">+</span> <span class="n">window_size</span><span class="p">),</span> <span class="n">window_size</span><span class="p">):</span>
+            <span class="n">ind_1</span> <span class="o">=</span> <span class="n">start</span>
+            <span class="n">ind_2</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="n">session_length</span> <span class="c1">#параметр для условия</span>
+            <span class="k">if</span> <span class="n">ind_2</span> <span class="o">&lt;=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">list_site</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                <span class="n">sess</span> <span class="o">=</span> <span class="n">list_site</span><span class="p">[</span><span class="n">ind_1</span> <span class="p">:</span> <span class="n">ind_2</span><span class="p">]</span>
+                <span class="n">list_all_site</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sess</span><span class="p">)</span>
+                <span class="n">user_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+            <span class="k">elif</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">list_site</span><span class="p">[</span><span class="n">ind_1</span><span class="p">:])</span> <span class="o">!=</span><span class="mi">0</span><span class="p">):</span>
+                <span class="n">sess</span> <span class="o">=</span> <span class="n">list_site</span><span class="p">[</span><span class="n">ind_1</span><span class="p">:]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">session_length</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_site</span><span class="p">[</span><span class="n">ind_1</span><span class="p">:]))]</span>
+                <span class="n">list_all_site</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sess</span><span class="p">)</span>
+                <span class="n">user_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+        <span class="c1">#user = user + 1</span>
+    
+    <span class="c1">#теперь разряженная матрица</span>
+    <span class="n">X_toy</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">list_all_site</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">X_sparse_toy</span> <span class="o">=</span> <span class="n">csr_matrix</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">X_toy</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">),</span> <span class="n">X_toy</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> \
+                           <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">X_toy</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">X_toy</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))[:,</span> <span class="mi">1</span><span class="p">:]</span>
+    
+    <span class="k">return</span><span class="p">(</span><span class="n">X_sparse_toy</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">user_list</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Применю полученную функцию с параметрами <em>session_length=5</em> и <em>window_size=3</em> к игрушечному примеру. Убедитесь, что все работает как надо.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="n">X_toy_s5_w3</span><span class="p">,</span> <span class="n">y_s5_w3</span> <span class="o">=</span> <span class="n">prepare_sparse_train_set_window</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">'3users/*.csv'</span><span class="p">),</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">'site_freq_3users.pkl'</span><span class="p">),</span> <span class="n">session_length</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">window_size</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0:00:00.022730
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">X_toy_s5_w3</span><span class="o">.</span><span class="n">todense</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>matrix([[0, 3, 1, 0, 0, 0, 1, 0, 0, 0, 0],
+        [1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0],
+        [0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 0],
+        [3, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0],
+        [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 2, 1, 0, 0, 2, 0, 0, 0, 0, 0],
+        [0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+        [2, 2, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+        [3, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+        [1, 0, 0, 2, 1, 0, 0, 0, 0, 0, 1],
+        [1, 1, 0, 2, 0, 0, 0, 0, 0, 0, 0],
+        [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">y_s5_w3</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array(['user0001', 'user0001', 'user0001', 'user0001', 'user0001',
+       'user0002', 'user0002', 'user0003', 'user0003', 'user0003',
+       'user0003', 'user0003'], dtype='&lt;U8')</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Все совпало с представленным примером</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Запущу созданную функцию 16 раз с помощью циклов по числу пользователей num_users (10 или 150), значениям параметра <em>session_length</em> (15, 10, 7 или 5) и значениям параметра <em>window_size</em> (10, 7 или 5). Сериализуйте все 16 разреженных матриц (обучающие выборки) и векторов (метки целевого класса – ID пользователя) в файлы <code>X_sparse_{num_users}users_s{session_length}_w{window_size}.pkl</code> и <code>y_{num_users}users_s{session_length}_w{window_size}.pkl</code>.</p>
+<p>Чтоб убедиться, что мы все далее будем работать с идентичными объектами, запишите в список <em>data_lengths</em> число строк во всех полученных рареженных матрицах (16 значений). Если какие-то будут совпадать, это нормально (можно сообразить, почему).</p>
+<p>На моем ноутбуке этот участок кода отработал за 26 секунд, хотя понятно, что все зависит от эффективности реализации функции <em>prepare_sparse_train_set_window</em> и мощности используемого железа. И честно говоря, моя первая реализация была намного менее эффективной (34 минуты), так что тут у Вас есть возможность оптимизировать свой код.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">itertools</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="n">data_lengths</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">user_tmp</span><span class="o">=</span><span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">num_users</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">150</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">window_size</span><span class="p">,</span> <span class="n">session_length</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">]):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">window_size</span> <span class="o">&lt;=</span> <span class="n">session_length</span><span class="p">)</span> <span class="ow">and</span> <span class="p">((</span><span class="n">window_size</span><span class="p">,</span> <span class="n">session_length</span><span class="p">)</span> <span class="o">!=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">num_users</span> <span class="o">==</span> <span class="mi">10</span><span class="p">:</span>
+                <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">'10users/*.csv'</span><span class="p">)</span>
+                <span class="n">unpickled_df</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">'site_freq_10users.pkl'</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">'150users/*.csv'</span><span class="p">)</span>
+                <span class="n">unpickled_df</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">'site_freq_150users.pkl'</span><span class="p">)</span>   
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"NUM USER = "</span><span class="p">,</span> <span class="n">num_users</span><span class="p">,</span> <span class="s2">" Window Size = "</span><span class="p">,</span> <span class="n">window_size</span><span class="p">,</span> <span class="s2">" Session Length = "</span><span class="p">,</span> <span class="n">session_length</span><span class="p">)</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="p">))</span>
+            <span class="c1">#print(unpickled_df)</span>
+            <span class="n">X_sparse</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">prepare_sparse_train_set_window</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">unpickled_df</span><span class="p">,</span> <span class="n">session_length</span><span class="p">,</span> <span class="n">window_size</span><span class="p">)</span>
+            <span class="n">data_lengths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">X_sparse</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">user_tmp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+            <span class="c1">#print(len(y))</span>
+            
+            <span class="n">file_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">'sparse/X_sparse_</span><span class="si">%d</span><span class="s1">users_s</span><span class="si">%d</span><span class="s1">_w</span><span class="si">%d</span><span class="s1">.pkl'</span> <span class="o">%</span> <span class="p">(</span><span class="n">num_users</span><span class="p">,</span> <span class="n">session_length</span><span class="p">,</span> <span class="n">window_size</span><span class="p">))</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s1">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+                <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">X_sparse</span><span class="p">,</span> <span class="n">fp</span><span class="p">)</span>
+            <span class="n">file_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span><span class="s1">'sparse/y_</span><span class="si">%d</span><span class="s1">users_s</span><span class="si">%d</span><span class="s1">_w</span><span class="si">%d</span><span class="s1">.pkl'</span> <span class="o">%</span> <span class="p">(</span><span class="n">num_users</span><span class="p">,</span> <span class="n">session_length</span><span class="p">,</span> <span class="n">window_size</span><span class="p">))</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span><span class="s1">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+                <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">fp</span><span class="p">)</span>
+                
+            <span class="n">data_lengths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">X_sparse</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            
+            <span class="c1">#print(data_lengths)</span>
+
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>NUM USER =  10  Window Size =  10  Session Length =  15
+0:00:00.003979
+NUM USER =  10  Window Size =  7  Session Length =  15
+0:00:00.457232
+NUM USER =  10  Window Size =  7  Session Length =  10
+0:00:01.009698
+NUM USER =  10  Window Size =  7  Session Length =  7
+0:00:01.452218
+NUM USER =  10  Window Size =  5  Session Length =  15
+0:00:01.917664
+NUM USER =  10  Window Size =  5  Session Length =  10
+0:00:02.484663
+NUM USER =  10  Window Size =  5  Session Length =  7
+0:00:02.953907
+NUM USER =  10  Window Size =  5  Session Length =  5
+0:00:03.404516
+NUM USER =  150  Window Size =  10  Session Length =  15
+0:00:03.863693
+NUM USER =  150  Window Size =  7  Session Length =  15
+0:00:08.548853
+NUM USER =  150  Window Size =  7  Session Length =  10
+0:00:13.495581
+NUM USER =  150  Window Size =  7  Session Length =  7
+0:00:18.213572
+NUM USER =  150  Window Size =  5  Session Length =  15
+0:00:22.648985
+NUM USER =  150  Window Size =  5  Session Length =  10
+0:00:28.012223
+NUM USER =  150  Window Size =  5  Session Length =  7
+0:00:33.058571
+NUM USER =  150  Window Size =  5  Session Length =  5
+0:00:37.866631
+0:00:42.397943
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Важно отметить, что после того, как я отключил tqdm, то время обработки с 1,5 часа упало до 51 секунды.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Запишите в файл <em>answer2_1.txt</em> все числа из списка <em>data_lengths</em> через пробел. Полученный файл будет ответом на 1 вопрос теста.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">write_answer_to_file</span><span class="p">(</span><span class="n">answer</span><span class="p">,</span> <span class="n">file_address</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_address</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">out_f</span><span class="p">:</span>
+        <span class="n">out_f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">answer</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">write_answer_to_file</span><span class="p">(</span><span class="s1">' '</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span> <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">data_lengths</span><span class="p">]),</span> <span class="s1">'answer2_1.txt'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Важно отметить, что на Stepik не принимался ответ через пробел. И пробелы пришлось убрать.</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Первичный-анализ-данных,-проверка-гипотез">
+<a class="anchor" href="#%D0%9F%D0%B5%D1%80%D0%B2%D0%B8%D1%87%D0%BD%D1%8B%D0%B9-%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85,-%D0%BF%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%BA%D0%B0-%D0%B3%D0%B8%D0%BF%D0%BE%D1%82%D0%B5%D0%B7" aria-hidden="true"><span class="octicon octicon-link"></span></a>Первичный анализ данных, проверка гипотез<a class="anchor-link" href="#%D0%9F%D0%B5%D1%80%D0%B2%D0%B8%D1%87%D0%BD%D1%8B%D0%B9-%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85,-%D0%BF%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%BA%D0%B0-%D0%B3%D0%B8%D0%BF%D0%BE%D1%82%D0%B5%D0%B7"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Считаю в DataFrame подготовленный на 1 неделе файл train_data_10users.csv. Далее буду работать с ним.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">train_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">'train_data_10users.csv'</span><span class="p">),</span> 
+                       <span class="n">index_col</span><span class="o">=</span><span class="s1">'session_id'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">train_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>site1</th>
+      <th>site2</th>
+      <th>site3</th>
+      <th>site4</th>
+      <th>site5</th>
+      <th>site6</th>
+      <th>site7</th>
+      <th>site8</th>
+      <th>site9</th>
+      <th>site10</th>
+      <th>user_id</th>
+    </tr>
+    <tr>
+      <th>session_id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>192</td>
+      <td>574</td>
+      <td>133</td>
+      <td>3</td>
+      <td>133</td>
+      <td>133</td>
+      <td>3</td>
+      <td>133</td>
+      <td>203</td>
+      <td>133</td>
+      <td>user0031</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>415</td>
+      <td>193</td>
+      <td>674</td>
+      <td>254</td>
+      <td>133</td>
+      <td>31</td>
+      <td>393</td>
+      <td>3305</td>
+      <td>217</td>
+      <td>55</td>
+      <td>user0031</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>55</td>
+      <td>3</td>
+      <td>55</td>
+      <td>55</td>
+      <td>5</td>
+      <td>293</td>
+      <td>415</td>
+      <td>333</td>
+      <td>897</td>
+      <td>55</td>
+      <td>user0031</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>473</td>
+      <td>3306</td>
+      <td>473</td>
+      <td>55</td>
+      <td>55</td>
+      <td>55</td>
+      <td>55</td>
+      <td>937</td>
+      <td>199</td>
+      <td>123</td>
+      <td>user0031</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>342</td>
+      <td>55</td>
+      <td>5</td>
+      <td>3307</td>
+      <td>258</td>
+      <td>211</td>
+      <td>3308</td>
+      <td>2086</td>
+      <td>675</td>
+      <td>2086</td>
+      <td>user0031</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">train_df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;class 'pandas.core.frame.DataFrame'&gt;
+Int64Index: 14061 entries, 0 to 14060
+Data columns (total 11 columns):
+ #   Column   Non-Null Count  Dtype 
+---  ------   --------------  ----- 
+ 0   site1    14061 non-null  int64 
+ 1   site2    14061 non-null  int64 
+ 2   site3    14061 non-null  int64 
+ 3   site4    14061 non-null  int64 
+ 4   site5    14061 non-null  int64 
+ 5   site6    14061 non-null  int64 
+ 6   site7    14061 non-null  int64 
+ 7   site8    14061 non-null  int64 
+ 8   site9    14061 non-null  int64 
+ 9   site10   14061 non-null  int64 
+ 10  user_id  14061 non-null  object
+dtypes: int64(10), object(1)
+memory usage: 1.3+ MB
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Распределение целевого класса:</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">train_df</span><span class="p">[</span><span class="s1">'user_id'</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>user0128    2796
+user0039    2204
+user0207    1868
+user0127    1712
+user0237    1643
+user0033    1022
+user0050     802
+user0031     760
+user0100     720
+user0241     534
+Name: user_id, dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Посчитаем распределение числа уникальных сайтов в каждой сессии из 10 посещенных подряд сайтов.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">num_unique_sites</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">train_df</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> 
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">train_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">num_unique_sites</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>7     2308
+6     2197
+8     2046
+5     1735
+9     1394
+2     1246
+4     1163
+3      894
+10     651
+1      427
+dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">num_unique_sites</span><span class="p">)</span><span class="o">.</span><span class="n">hist</span><span class="p">();</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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%0A">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Проверю с помощью QQ-плота и критерия Шапиро-Уилка, что эта величина распределена нормально и сделаю вывод. Ответом на второй вопрос в тесте будет файл со словом "YES" или "NO" в зависимости от того, распределено ли нормально число уникальных сайтов в сессии.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">probplot</span><span class="p">(</span><span class="n">num_unique_sites</span><span class="p">,</span> <span class="n">dist</span><span class="o">=</span><span class="s2">"norm"</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="n">pylab</span><span class="p">)</span>
+<span class="n">pylab</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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%0A">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">stat</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">shapiro</span><span class="p">(</span><span class="n">num_unique_sites</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Statistics=</span><span class="si">%.3f</span><span class="s1">, p=</span><span class="si">%.3f</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="n">stat</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span>
+<span class="c1"># interpret</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="k">if</span> <span class="n">p</span> <span class="o">&gt;</span> <span class="n">alpha</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Sample looks Gaussian (fail to reject H0)'</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Sample does not look Gaussian (reject H0)'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Statistics=0.955, p=0.000
+Sample does not look Gaussian (reject H0)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Распределение не является нормальным</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Проверю гипотезу о том, что пользователь хотя бы раз зайдет на сайт, который он уже ранее посетил в сессии из 10 сайтов. Проверю с помощью биномиального критерия для доли, что доля случаев, когда пользователь повторно посетил какой-то сайт (то есть число уникальных сайтов в сессии &lt; 10) велика: больше 95% (необходимо обратите внимание, что альтернатива тому, что доля равна 95% – одностороняя). Ответом на 3 вопрос в тесте будет полученное p-value.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">has_two_similar</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">num_unique_sites</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'int'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">num_unique_sites</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>14061</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">binom_test</span><span class="p">(</span><span class="n">has_two_similar</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="n">has_two_similar</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mf">0.95</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">'greater'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.02207653769072678</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>p-value значение 0,022</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Построю для этой доли 95% доверительный интервал Уилсона. Округлю границу интервала до 3 знаков после запятой.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">wilson_interval</span> <span class="o">=</span> <span class="n">proportion_confint</span><span class="p">(</span><span class="n">has_two_similar</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="n">has_two_similar</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="s1">'wilson'</span><span class="p">)</span>
+<span class="n">wilson_interval</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(0.9501028841411286, 0.9570527377232229)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Интервалы 0,950 и 0,957</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Каков 95%-доверительный интервал для средней частоты появления сайта в выборке? Необходимо построить 95% доверительный интервал для средней частоты появления сайта в выборке (во всей, уже не только для тех сайтов, что были посещены как минимум 1000 раз) на основе bootstrap. Используйте столько же bootstrap-подвыборок, сколько сайтов оказалось в исходной выборке по 10 пользователям. Буду брать подвыборки из посчитанного списка частот посещений сайтов – не надо заново считать эти частоты. Необходимо учесть, что частоту появления нуля (сайт с индексом 0 появлялся там, где сессии были короче 10 сайтов) включать не надо. Округлите границы интервала до 3 знаков после запятой.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p>Bagging (от Bootstrap aggregation) — это один из первых и самых простых видов ансамблей. Он был придуман Ле́о Бре́йманом в 1994 году. Бэггинг основан на статистическом методе бутстрэпа, который позволяет оценивать многие статистики сложных распределений.</p>
+<p>Метод бутстрэпа заключается в следующем. Пусть имеется выборка $\large X$ размера $\large N$. Равномерно возьмем из выборки $\large N$ объектов с возвращением. Это означает, что мы будем $\large N$ раз выбирать произвольный объект выборки (считаем, что каждый объект «достается» с одинаковой вероятностью $\large \frac{1}{N}$), причем каждый раз мы выбираем из всех исходных $\large N$ объектов. Можно представить себе мешок, из которого достают шарики:выбранный на каком-то шаге шарик возвращается обратно в мешок, и следующий выбор опять делается равновероятно из того же числа шариков. Отметим, что из-за возвращения среди них окажутся повторы. Обозначим новую выборку через $\large X_1$. Повторяя процедуру $\large M$ раз, сгенерируем $\large M$ подвыборок $\large X_1, \dots, X_M$. Теперь мы имеем достаточно большое число выборок и можем оценивать различные статистики исходного распределения.<a href="https://habr.com/ru/company/ods/blog/324402/#1-begging">link</a></p>
+</blockquote>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">get_bootstrap_samples</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="mi">56</span><span class="p">):</span>
+    <span class="c1"># функция для генерации подвыборок с помощью бутстрэпа</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">random_seed</span><span class="p">)</span>
+    <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)))</span>
+    <span class="n">samples</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">samples</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">stat_intervals</span><span class="p">(</span><span class="n">stat</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
+    <span class="c1"># функция для интервальной оценки</span>
+    <span class="n">boundaries</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">stat</span><span class="p">,</span> 
+                 <span class="p">[</span><span class="mi">100</span> <span class="o">*</span> <span class="n">alpha</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">,</span> <span class="mi">100</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">)])</span>
+    <span class="k">return</span> <span class="n">boundaries</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">stock_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">'10users/*.csv'</span><span class="p">)))</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">((</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">stock_files</span><span class="p">),</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>timestamp</th>
+      <th>site</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2013-11-15 08:12:07</td>
+      <td>fpdownload2.macromedia.com</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2013-11-15 08:12:17</td>
+      <td>laposte.net</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2013-11-15 08:12:17</td>
+      <td>www.laposte.net</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2013-11-15 08:12:17</td>
+      <td>www.google.com</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2013-11-15 08:12:18</td>
+      <td>www.laposte.net</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">sorted_site</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">collections</span><span class="o">.</span><span class="n">OrderedDict</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">Counter</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">site</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">kv</span><span class="p">:</span> <span class="n">kv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">sorted_site_1000</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">sorted_site</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">&gt;=</span> <span class="mi">1000</span><span class="p">:</span>
+        <span class="n">sorted_site_1000</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">sorted_site_1000</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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%0A">
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">site_freq</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">sorted_site</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">site_mean_scores</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">get_bootstrap_samples</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">site_freq</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">site_freq</span><span class="p">))))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">"95</span><span class="si">% c</span><span class="s2">onfidence interval for the ILEC median repair time:"</span><span class="p">,</span>  <span class="n">stat_intervals</span><span class="p">(</span><span class="n">site_mean_scores</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>95% confidence interval for the ILEC median repair time: [22.53311622 36.08414411]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>В итоге мы получили, что с 95% вероятностью средняя частота сайтов лежит в промежутке между 22,515 и 35,763</strong></p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="Zmey56/blog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/graduation%20project/machine%20learning/stepik/yandex/2019/07/20/project-identification-of-internet-users-week2.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/Zmey56" title="Zmey56"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/Zmey56" title="Zmey56"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
