@@ -1,0 +1,2761 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Graduation project “Identification of Internet users” - Kaggle Inclass User Identification competition. Peer-Review | alex.gladkikh.org</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Graduation project “Identification of Internet users” - Kaggle Inclass User Identification competition. Peer-Review" />
+<meta name="author" content="Zmey56" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Выпускной проект “Идентификация интернет-пользователей” Week 5" />
+<meta property="og:description" content="Выпускной проект “Идентификация интернет-пользователей” Week 5" />
+<link rel="canonical" href="https://zmey56.github.io/blog//graduation%20project/machine%20learning/stepik/yandex/english/2019/08/18/project-identification-of-internet-users-week5.html" />
+<meta property="og:url" content="https://zmey56.github.io/blog//graduation%20project/machine%20learning/stepik/yandex/english/2019/08/18/project-identification-of-internet-users-week5.html" />
+<meta property="og:site_name" content="alex.gladkikh.org" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-08-18T00:00:00-05:00" />
+<script type="application/ld+json">
+{"url":"https://zmey56.github.io/blog//graduation%20project/machine%20learning/stepik/yandex/english/2019/08/18/project-identification-of-internet-users-week5.html","@type":"BlogPosting","headline":"Graduation project “Identification of Internet users” - Kaggle Inclass User Identification competition. Peer-Review","dateModified":"2019-08-18T00:00:00-05:00","datePublished":"2019-08-18T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://zmey56.github.io/blog//graduation%20project/machine%20learning/stepik/yandex/english/2019/08/18/project-identification-of-internet-users-week5.html"},"author":{"@type":"Person","name":"Zmey56"},"description":"Выпускной проект “Идентификация интернет-пользователей” Week 5","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://zmey56.github.io/blog//feed.xml" title="alex.gladkikh.org" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-183752218-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">alex.gladkikh.org</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a><a class="page-link" href="/search/">Search</a><a class="page-link" href="/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Graduation project &quot;Identification of Internet users&quot; - Kaggle Inclass User Identification competition. Peer-Review</h1><p class="page-description">Выпускной проект "Идентификация интернет-пользователей" Week 5</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2019-08-18T00:00:00-05:00" itemprop="datePublished">
+        Aug 18, 2019
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Zmey56</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      13 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/categories/#graduation project">graduation project</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#machine learning">machine learning</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#stepik">stepik</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#yandex">yandex</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#english">english</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/Zmey56/blog/tree/master/_notebooks/2019-08-18-project-identification-of-internet-users-week5.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/Zmey56/blog/master?filepath=_notebooks%2F2019-08-18-project-identification-of-internet-users-week5.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/Zmey56/blog/blob/master/_notebooks/2019-08-18-project-identification-of-internet-users-week5.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#Week-5.-Kaggle-"Catch-Me-If-You-Can"-Competition">Week 5. Kaggle &quot;Catch Me If You Can&quot; Competition </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#Improving-the-model,-building-new-features">Improving the model, building new features </a></li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2019-08-18-project-identification-of-internet-users-week5.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id='Week-5.-Kaggle-"Catch-Me-If-You-Can"-Competition'>
+<a class="anchor" href="#Week-5.-Kaggle-" catch-me-if-you-can aria-hidden="true"><span class="octicon octicon-link"></span></a>Week 5. Kaggle "Catch Me If You Can" Competition<a class="anchor-link" href="#Week-5.-Kaggle-%22Catch-Me-If-You-Can%22-Competition"> </a>
+</h1>
+<p>This week we will recall the concept of stochastic gradient descent and try the Scikit-learn SGDClassifier classifier, which works much faster on large samples than the algorithms we tested in week 4. We will also get acquainted with the data <a href="http://inclass.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2">competition</a> Kaggle for user identification and we will make the first parcels in it.</p>
+<p><strong>In this part of the project, videos of the following lectures of the course "Learning from marked data" may be useful to us:</strong></p>
+<ul>
+<li><a href="https://www.coursera.org/learn/supervised-learning/lecture/xRY50/stokhastichieskii-ghradiientnyi-spusk">Stochastic gradient descent</a></li>
+<li><a href="https://www.coursera.org/learn/supervised-learning/lecture/EBg9t/linieinyie-modieli-sklearn-linear-model-klassifikatsiia">Linear models. Sklearn.linear_model. Classification</a></li>
+</ul>
+<p><strong>We can also go back and view the <a href="https://www.coursera.org/learn/supervised-learning/programming/t2Idc/linieinaia-rieghriessiia-i-stokhastichieskii-ghradiientnyi-spusk">task</a> "Linear regression and stochastic gradient descent" of the 1st week of the 2nd course of specialization.</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
+<span class="c1"># disable any Anaconda warnings</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">'ignore'</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">scipy.sparse</span> <span class="k">as</span> <span class="nn">sps</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">time</span>
+<span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">csr_matrix</span><span class="p">,</span> <span class="n">hstack</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">SGDClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">roc_auc_score</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Counting the data <a href="https://inclass.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2">competitions</a> in the DataFrame train_df and test_df (training and test samples).</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">PATH_TO_DATA</span> <span class="o">=</span> <span class="s1">'/content/drive/MyDrive/DATA/Stepik/catch_me_if_you_can'</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">'/content/drive'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Drive already mounted at /content/drive; to attempt to forcibly remount, call drive.mount("/content/drive", force_remount=True).
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">'train_sessions.csv'</span><span class="p">),</span>
+                       <span class="n">index_col</span><span class="o">=</span><span class="s1">'session_id'</span><span class="p">)</span>
+<span class="n">test_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">'test_sessions.csv'</span><span class="p">),</span>
+                      <span class="n">index_col</span><span class="o">=</span><span class="s1">'session_id'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+  <div id="df-1902b127-cef8-4921-bd04-d7656b1d9f51">
+    <div class="colab-df-container">
+      <div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>site1</th>
+      <th>time1</th>
+      <th>site2</th>
+      <th>time2</th>
+      <th>site3</th>
+      <th>time3</th>
+      <th>site4</th>
+      <th>time4</th>
+      <th>site5</th>
+      <th>time5</th>
+      <th>site6</th>
+      <th>time6</th>
+      <th>site7</th>
+      <th>time7</th>
+      <th>site8</th>
+      <th>time8</th>
+      <th>site9</th>
+      <th>time9</th>
+      <th>site10</th>
+      <th>time10</th>
+      <th>target</th>
+    </tr>
+    <tr>
+      <th>session_id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>718</td>
+      <td>2014-02-20 10:02:45</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>890</td>
+      <td>2014-02-22 11:19:50</td>
+      <td>941.0</td>
+      <td>2014-02-22 11:19:50</td>
+      <td>3847.0</td>
+      <td>2014-02-22 11:19:51</td>
+      <td>941.0</td>
+      <td>2014-02-22 11:19:51</td>
+      <td>942.0</td>
+      <td>2014-02-22 11:19:51</td>
+      <td>3846.0</td>
+      <td>2014-02-22 11:19:51</td>
+      <td>3847.0</td>
+      <td>2014-02-22 11:19:52</td>
+      <td>3846.0</td>
+      <td>2014-02-22 11:19:52</td>
+      <td>1516.0</td>
+      <td>2014-02-22 11:20:15</td>
+      <td>1518.0</td>
+      <td>2014-02-22 11:20:16</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>14769</td>
+      <td>2013-12-16 16:40:17</td>
+      <td>39.0</td>
+      <td>2013-12-16 16:40:18</td>
+      <td>14768.0</td>
+      <td>2013-12-16 16:40:19</td>
+      <td>14769.0</td>
+      <td>2013-12-16 16:40:19</td>
+      <td>37.0</td>
+      <td>2013-12-16 16:40:19</td>
+      <td>39.0</td>
+      <td>2013-12-16 16:40:19</td>
+      <td>14768.0</td>
+      <td>2013-12-16 16:40:20</td>
+      <td>14768.0</td>
+      <td>2013-12-16 16:40:21</td>
+      <td>14768.0</td>
+      <td>2013-12-16 16:40:22</td>
+      <td>14768.0</td>
+      <td>2013-12-16 16:40:24</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>782</td>
+      <td>2014-03-28 10:52:12</td>
+      <td>782.0</td>
+      <td>2014-03-28 10:52:42</td>
+      <td>782.0</td>
+      <td>2014-03-28 10:53:12</td>
+      <td>782.0</td>
+      <td>2014-03-28 10:53:42</td>
+      <td>782.0</td>
+      <td>2014-03-28 10:54:12</td>
+      <td>782.0</td>
+      <td>2014-03-28 10:54:42</td>
+      <td>782.0</td>
+      <td>2014-03-28 10:55:12</td>
+      <td>782.0</td>
+      <td>2014-03-28 10:55:42</td>
+      <td>782.0</td>
+      <td>2014-03-28 10:56:12</td>
+      <td>782.0</td>
+      <td>2014-03-28 10:56:42</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>22</td>
+      <td>2014-02-28 10:53:05</td>
+      <td>177.0</td>
+      <td>2014-02-28 10:55:22</td>
+      <td>175.0</td>
+      <td>2014-02-28 10:55:22</td>
+      <td>178.0</td>
+      <td>2014-02-28 10:55:23</td>
+      <td>177.0</td>
+      <td>2014-02-28 10:55:23</td>
+      <td>178.0</td>
+      <td>2014-02-28 10:55:59</td>
+      <td>175.0</td>
+      <td>2014-02-28 10:55:59</td>
+      <td>177.0</td>
+      <td>2014-02-28 10:55:59</td>
+      <td>177.0</td>
+      <td>2014-02-28 10:57:06</td>
+      <td>178.0</td>
+      <td>2014-02-28 10:57:11</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-1902b127-cef8-4921-bd04-d7656b1d9f51')" title="Convert this dataframe to an interactive table." style="display:none;">
+        
+  &lt;svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px"&gt;
+    <path d="M0 0h24v24H0V0z" fill="none"></path>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"></path><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"></path>
+  &lt;/svg&gt;
+      </button>
+      
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-1902b127-cef8-4921-bd04-d7656b1d9f51 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-1902b127-cef8-4921-bd04-d7656b1d9f51');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+  
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Let's combine the training and test samples – this will be needed to bring them together later to a sparse format.</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_test_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">train_df</span><span class="p">,</span> <span class="n">test_df</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the training sample we see the following signs:</p>
+<ul>
+<li>site1 - index of the first visited site in the session</li>
+<li>time1 – time of visiting the first site in the session</li>
+<li>...</li>
+<li>site10 - index of the 10th visited site in the session</li>
+<li>time10 – time of visiting the 10th site in the session</li>
+<li>user_id - user ID</li>
+</ul>
+<p>User sessions are allocated in such a way that they cannot be longer than half an hour or 10 sites. That is, the session is considered over either when the user visited 10 sites in a row, or when the session took more than 30 minutes.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Let's look at the statistics of the signs.</strong></p>
+<p>Skips occur where sessions are short (less than 10 sites). For example, if a person visited on January 1, 2015 <em>vk.com </em> at 20:01, then <em>yandex.ru </em> at 20:29, then <em>google.com </em> at 20:33, then its first session will consist of only two sites (site1 - site ID <em>vk.com </em>, time1 - 2015-01-01 20:01:00, site2 - site ID <em>yandex.ru </em>, time2 – 2015-01-01 20:29:00, other signs are NaN), and starting from <em>google.com </em> a new session will start because more than 30 minutes have already passed since the visit <em>vk.com</em>.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;class 'pandas.core.frame.DataFrame'&gt;
+Int64Index: 253561 entries, 1 to 253561
+Data columns (total 21 columns):
+ #   Column  Non-Null Count   Dtype  
+---  ------  --------------   -----  
+ 0   site1   253561 non-null  int64  
+ 1   time1   253561 non-null  object 
+ 2   site2   250098 non-null  float64
+ 3   time2   250098 non-null  object 
+ 4   site3   246919 non-null  float64
+ 5   time3   246919 non-null  object 
+ 6   site4   244321 non-null  float64
+ 7   time4   244321 non-null  object 
+ 8   site5   241829 non-null  float64
+ 9   time5   241829 non-null  object 
+ 10  site6   239495 non-null  float64
+ 11  time6   239495 non-null  object 
+ 12  site7   237297 non-null  float64
+ 13  time7   237297 non-null  object 
+ 14  site8   235224 non-null  float64
+ 15  time8   235224 non-null  object 
+ 16  site9   233084 non-null  float64
+ 17  time9   233084 non-null  object 
+ 18  site10  231052 non-null  float64
+ 19  time10  231052 non-null  object 
+ 20  target  253561 non-null  int64  
+dtypes: float64(9), int64(2), object(10)
+memory usage: 42.6+ MB
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+  <div id="df-e1df1b3b-bc60-4acf-a9b6-606cd8fb691e">
+    <div class="colab-df-container">
+      <div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>site1</th>
+      <th>time1</th>
+      <th>site2</th>
+      <th>time2</th>
+      <th>site3</th>
+      <th>time3</th>
+      <th>site4</th>
+      <th>time4</th>
+      <th>site5</th>
+      <th>time5</th>
+      <th>site6</th>
+      <th>time6</th>
+      <th>site7</th>
+      <th>time7</th>
+      <th>site8</th>
+      <th>time8</th>
+      <th>site9</th>
+      <th>time9</th>
+      <th>site10</th>
+      <th>time10</th>
+    </tr>
+    <tr>
+      <th>session_id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>29</td>
+      <td>2014-10-04 11:19:53</td>
+      <td>35.0</td>
+      <td>2014-10-04 11:19:53</td>
+      <td>22.0</td>
+      <td>2014-10-04 11:19:54</td>
+      <td>321.0</td>
+      <td>2014-10-04 11:19:54</td>
+      <td>23.0</td>
+      <td>2014-10-04 11:19:54</td>
+      <td>2211.0</td>
+      <td>2014-10-04 11:19:54</td>
+      <td>6730.0</td>
+      <td>2014-10-04 11:19:54</td>
+      <td>21.0</td>
+      <td>2014-10-04 11:19:54</td>
+      <td>44582.0</td>
+      <td>2014-10-04 11:20:00</td>
+      <td>15336.0</td>
+      <td>2014-10-04 11:20:00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>782</td>
+      <td>2014-07-03 11:00:28</td>
+      <td>782.0</td>
+      <td>2014-07-03 11:00:53</td>
+      <td>782.0</td>
+      <td>2014-07-03 11:00:58</td>
+      <td>782.0</td>
+      <td>2014-07-03 11:01:06</td>
+      <td>782.0</td>
+      <td>2014-07-03 11:01:09</td>
+      <td>782.0</td>
+      <td>2014-07-03 11:01:10</td>
+      <td>782.0</td>
+      <td>2014-07-03 11:01:23</td>
+      <td>782.0</td>
+      <td>2014-07-03 11:01:29</td>
+      <td>782.0</td>
+      <td>2014-07-03 11:01:30</td>
+      <td>782.0</td>
+      <td>2014-07-03 11:01:53</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>55</td>
+      <td>2014-12-05 15:55:12</td>
+      <td>55.0</td>
+      <td>2014-12-05 15:55:13</td>
+      <td>55.0</td>
+      <td>2014-12-05 15:55:14</td>
+      <td>55.0</td>
+      <td>2014-12-05 15:56:15</td>
+      <td>55.0</td>
+      <td>2014-12-05 15:56:16</td>
+      <td>55.0</td>
+      <td>2014-12-05 15:56:17</td>
+      <td>55.0</td>
+      <td>2014-12-05 15:56:18</td>
+      <td>55.0</td>
+      <td>2014-12-05 15:56:19</td>
+      <td>1445.0</td>
+      <td>2014-12-05 15:56:33</td>
+      <td>1445.0</td>
+      <td>2014-12-05 15:56:36</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1023</td>
+      <td>2014-11-04 10:03:19</td>
+      <td>1022.0</td>
+      <td>2014-11-04 10:03:19</td>
+      <td>50.0</td>
+      <td>2014-11-04 10:03:20</td>
+      <td>222.0</td>
+      <td>2014-11-04 10:03:21</td>
+      <td>202.0</td>
+      <td>2014-11-04 10:03:21</td>
+      <td>3374.0</td>
+      <td>2014-11-04 10:03:22</td>
+      <td>50.0</td>
+      <td>2014-11-04 10:03:22</td>
+      <td>48.0</td>
+      <td>2014-11-04 10:03:22</td>
+      <td>48.0</td>
+      <td>2014-11-04 10:03:23</td>
+      <td>3374.0</td>
+      <td>2014-11-04 10:03:23</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>301</td>
+      <td>2014-05-16 15:05:31</td>
+      <td>301.0</td>
+      <td>2014-05-16 15:05:32</td>
+      <td>301.0</td>
+      <td>2014-05-16 15:05:33</td>
+      <td>66.0</td>
+      <td>2014-05-16 15:05:39</td>
+      <td>67.0</td>
+      <td>2014-05-16 15:05:40</td>
+      <td>69.0</td>
+      <td>2014-05-16 15:05:40</td>
+      <td>70.0</td>
+      <td>2014-05-16 15:05:40</td>
+      <td>68.0</td>
+      <td>2014-05-16 15:05:40</td>
+      <td>71.0</td>
+      <td>2014-05-16 15:05:40</td>
+      <td>167.0</td>
+      <td>2014-05-16 15:05:44</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-e1df1b3b-bc60-4acf-a9b6-606cd8fb691e')" title="Convert this dataframe to an interactive table." style="display:none;">
+        
+  &lt;svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px"&gt;
+    <path d="M0 0h24v24H0V0z" fill="none"></path>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"></path><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"></path>
+  &lt;/svg&gt;
+      </button>
+      
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-e1df1b3b-bc60-4acf-a9b6-606cd8fb691e button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-e1df1b3b-bc60-4acf-a9b6-606cd8fb691e');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+  
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;class 'pandas.core.frame.DataFrame'&gt;
+Int64Index: 82797 entries, 1 to 82797
+Data columns (total 20 columns):
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   site1   82797 non-null  int64  
+ 1   time1   82797 non-null  object 
+ 2   site2   81308 non-null  float64
+ 3   time2   81308 non-null  object 
+ 4   site3   80075 non-null  float64
+ 5   time3   80075 non-null  object 
+ 6   site4   79182 non-null  float64
+ 7   time4   79182 non-null  object 
+ 8   site5   78341 non-null  float64
+ 9   time5   78341 non-null  object 
+ 10  site6   77566 non-null  float64
+ 11  time6   77566 non-null  object 
+ 12  site7   76840 non-null  float64
+ 13  time7   76840 non-null  object 
+ 14  site8   76151 non-null  float64
+ 15  time8   76151 non-null  object 
+ 16  site9   75484 non-null  float64
+ 17  time9   75484 non-null  object 
+ 18  site10  74806 non-null  float64
+ 19  time10  74806 non-null  object 
+dtypes: float64(9), int64(1), object(10)
+memory usage: 13.3+ MB
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>In the training sample there are 2297 sessions of one user (Alice) and 251264 sessions of other users, not Alice. The class imbalance is very strong, and looking at the proportion of correct answers (accuracy) is not indicative.</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_df</span><span class="p">[</span><span class="s1">'target'</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0    251264
+1      2297
+Name: target, dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>So far, we will use only the indexes of visited sites for the forecast. The indexes were numbered from 1, so we'll replace the omissions with zeros.</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_test_df_sites</span> <span class="o">=</span> <span class="n">train_test_df</span><span class="p">[[</span><span class="s1">'site</span><span class="si">%d</span><span class="s1">'</span> <span class="o">%</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)]]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'int'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_test_df_sites</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+  <div id="df-fac5efcc-a752-46a5-9060-666ba72c0828">
+    <div class="colab-df-container">
+      <div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>site1</th>
+      <th>site2</th>
+      <th>site3</th>
+      <th>site4</th>
+      <th>site5</th>
+      <th>site6</th>
+      <th>site7</th>
+      <th>site8</th>
+      <th>site9</th>
+      <th>site10</th>
+    </tr>
+    <tr>
+      <th>session_id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>718</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>890</td>
+      <td>941</td>
+      <td>3847</td>
+      <td>941</td>
+      <td>942</td>
+      <td>3846</td>
+      <td>3847</td>
+      <td>3846</td>
+      <td>1516</td>
+      <td>1518</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>14769</td>
+      <td>39</td>
+      <td>14768</td>
+      <td>14769</td>
+      <td>37</td>
+      <td>39</td>
+      <td>14768</td>
+      <td>14768</td>
+      <td>14768</td>
+      <td>14768</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>782</td>
+      <td>782</td>
+      <td>782</td>
+      <td>782</td>
+      <td>782</td>
+      <td>782</td>
+      <td>782</td>
+      <td>782</td>
+      <td>782</td>
+      <td>782</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>22</td>
+      <td>177</td>
+      <td>175</td>
+      <td>178</td>
+      <td>177</td>
+      <td>178</td>
+      <td>175</td>
+      <td>177</td>
+      <td>177</td>
+      <td>178</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>570</td>
+      <td>21</td>
+      <td>570</td>
+      <td>21</td>
+      <td>21</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>803</td>
+      <td>23</td>
+      <td>5956</td>
+      <td>17513</td>
+      <td>37</td>
+      <td>21</td>
+      <td>803</td>
+      <td>17514</td>
+      <td>17514</td>
+      <td>17514</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>22</td>
+      <td>21</td>
+      <td>29</td>
+      <td>5041</td>
+      <td>14422</td>
+      <td>23</td>
+      <td>21</td>
+      <td>5041</td>
+      <td>14421</td>
+      <td>14421</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>668</td>
+      <td>940</td>
+      <td>942</td>
+      <td>941</td>
+      <td>941</td>
+      <td>942</td>
+      <td>940</td>
+      <td>23</td>
+      <td>21</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>3700</td>
+      <td>229</td>
+      <td>570</td>
+      <td>21</td>
+      <td>229</td>
+      <td>21</td>
+      <td>21</td>
+      <td>21</td>
+      <td>2336</td>
+      <td>2044</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-fac5efcc-a752-46a5-9060-666ba72c0828')" title="Convert this dataframe to an interactive table." style="display:none;">
+        
+  &lt;svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px"&gt;
+    <path d="M0 0h24v24H0V0z" fill="none"></path>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"></path><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"></path>
+  &lt;/svg&gt;
+      </button>
+      
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-fac5efcc-a752-46a5-9060-666ba72c0828 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-fac5efcc-a752-46a5-9060-666ba72c0828');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+  
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Let's create sparse matrices <em>X_train_sparse</em> and <em>X_test_sparse</em> in the same way as we did earlier. We use the combined matrix <em>train_test_df_sites</em>, then divide it back into the training and test parts.</strong></p>
+<p>It should be noted that we have zeros in less than 10 sites in sessions, so the first sign (how many times 0 was caught) is different in meaning from the rest (how many times a site with the index $i$ was caught). Therefore, we will delete the first column of the sparse matrix.</p>
+<p><strong>Let's separate the answers in the training sample into a separate vector <em>y</em>.</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">to_sparse</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="sd">"""Transformation of the matrix from dense to sparse.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        X (numpy.ndarray): The original (dense) matrix.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        scipy.sparse.csr.csr_matrix: Sparse matrix.</span>
+<span class="sd">    </span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">csr_matrix</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">),</span>
+                       <span class="n">X</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+                       <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))[:,</span> <span class="mi">1</span><span class="p">:]</span>
+
+
+<span class="n">train_test_sparse</span> <span class="o">=</span> <span class="n">to_sparse</span><span class="p">(</span><span class="n">train_test_df_sites</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">X_train_sparse</span> <span class="o">=</span> <span class="n">train_test_sparse</span><span class="p">[:</span><span class="n">train_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">X_test_sparse</span> <span class="o">=</span> <span class="n">train_test_sparse</span><span class="p">[</span><span class="n">train_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">train_df</span><span class="o">.</span><span class="n">target</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong><font color="red">Question 1. </font> Output the dimensions of the matrices <em>X_train_sparse</em> and <em>X_test_sparse</em> – 4 numbers on one line separated by a space: the number of rows and columns of the matrix <em>X_train_sparse</em>, then the number of rows and columns of the matrix <em>X_test_sparse</em>.</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">X_train_sparse</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">" - "</span><span class="p">,</span> <span class="n">X_train_sparse</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s2">" - "</span><span class="p">,</span> <span class="n">X_test_sparse</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">" - "</span><span class="p">,</span> <span class="n">X_test_sparse</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>253561  -  48371  -  82797  -  48371
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Save the objects <em>X_train_sparse</em>, <em>X_test_sparse</em> and <em>y</em> to the pickle files (the latter to the file <em>kaggle_data/train_target.pkl</em>).</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">'X_train_sparse.pkl'</span><span class="p">),</span> <span class="s1">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">X_train_sparse_pkl</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">X_train_sparse</span><span class="p">,</span> <span class="n">X_train_sparse_pkl</span><span class="p">,</span> <span class="n">protocol</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">'X_test_sparse.pkl'</span><span class="p">),</span> <span class="s1">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">X_test_sparse_pkl</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">X_test_sparse</span><span class="p">,</span> <span class="n">X_test_sparse_pkl</span><span class="p">,</span> <span class="n">protocol</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">'train_target.pkl'</span><span class="p">),</span> <span class="s1">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">train_target_pkl</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">train_target_pkl</span><span class="p">,</span> <span class="n">protocol</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Let's divide the training sample into 2 parts in the proportion of 7/3, and without mixing. The initial data is ordered by time, the test sample is clearly separated by time from the training one, we will observe the same here.</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_share</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="o">.</span><span class="mi">7</span> <span class="o">*</span> <span class="n">X_train_sparse</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span> <span class="o">=</span> <span class="n">X_train_sparse</span><span class="p">[:</span><span class="n">train_share</span><span class="p">,</span> <span class="p">:],</span> <span class="n">y</span><span class="p">[:</span><span class="n">train_share</span><span class="p">]</span>
+<span class="n">X_valid</span><span class="p">,</span> <span class="n">y_valid</span>  <span class="o">=</span> <span class="n">X_train_sparse</span><span class="p">[</span><span class="n">train_share</span><span class="p">:,</span> <span class="p">:],</span> <span class="n">y</span><span class="p">[</span><span class="n">train_share</span><span class="p">:]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Create an object 'sklearn.linear_model.SGDClassifier' with a logistic loss function and the parameter <em>random_state</em>=17. We will leave the other parameters by default. Let's train the model on the sample <code>(X_train, y_train)</code>.</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sgd_logit</span> <span class="o">=</span> <span class="n">SGDClassifier</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">'log'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">17</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">sgd_logit</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>SGDClassifier(loss='log', n_jobs=-1, random_state=17)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Let's make a forecast in the form of predicted probabilities that this is Alice's session, on a deferred sample <em>(X_valid, y_valid)</em>.</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">logit_valid_pred_proba</span> <span class="o">=</span> <span class="n">sgd_logit</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_valid</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong><font color="red">Question 2. </font> Let's calculate the ROC AUC of a logistic regression trained using stochastic gradient descent on a deferred sample. Round it up to 3 digits after the separator.</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">roc_auc_score</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">logit_valid_pred_proba</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]),</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.934</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Let's make a forecast in the form of predicted probabilities of being assigned to class 1 for the test sample using the same <em>sgd_logit</em>, trained already on the entire training sample (and not by 70%).</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
+<span class="n">sgd_logit</span> <span class="o">=</span> <span class="n">SGDClassifier</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">'log'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">17</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">sgd_logit</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_sparse</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">logit_test_pred_proba</span> <span class="o">=</span> <span class="n">sgd_logit</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test_sparse</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>CPU times: user 775 ms, sys: 104 ms, total: 879 ms
+Wall time: 777 ms
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>We will write the answers to a file and send it to Kaggle. Let's give our team (of one person) on Kaggle a talking name - according to the template "[YDF &amp; MIPT] Coursera_Username", so that we can easily identify our answer on the <a href="https://inclass.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2/leaderboard/public">leaderboard</a>.</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">write_to_submission_file</span><span class="p">(</span><span class="n">predicted_labels</span><span class="p">,</span> <span class="n">out_file</span><span class="p">,</span>
+                             <span class="n">target</span><span class="o">=</span><span class="s1">'target'</span><span class="p">,</span> <span class="n">index_label</span><span class="o">=</span><span class="s2">"session_id"</span><span class="p">):</span>
+    <span class="c1"># turn predictions into data frame and save as csv file</span>
+    <span class="n">predicted_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">predicted_labels</span><span class="p">,</span>
+                                <span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">predicted_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span>
+                                <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">target</span><span class="p">])</span>
+    <span class="n">predicted_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">out_file</span><span class="p">,</span> <span class="n">index_label</span><span class="o">=</span><span class="n">index_label</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">write_to_submission_file</span><span class="p">(</span><span class="n">logit_test_pred_proba</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">'prediction_2.csv'</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Improving-the-model,-building-new-features">
+<a class="anchor" href="#Improving-the-model,-building-new-features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Improving the model, building new features<a class="anchor-link" href="#Improving-the-model,-building-new-features"> </a>
+</h2>
+<p><strong>Ways to improve</strong></p>
+<ul>
+<li>Use previously constructed features to improve the model (you can check them on a smaller sample of 150 users by separating one of the users from the rest – it's faster)</li>
+<li>Adjust model parameters (for example, regularization coefficients)</li>
+<li>If the power allows (or you have enough patience), you can try mixing (blending) the responses of the boosting and linear model. <a href="http://mlwave.com/kaggle-ensembling-guide/">Here</a> one of the most famous tutorials on mixing algorithm responses, also good <a href="https://alexanderdyakonov.wordpress.com/2017/03/10/c%D1%82%D0%B5%D0%BA%D0%B8%D0%BD%D0%B3-stacking-%D0%B8-%D0%B1%D0%BB%D0%B5%D0%BD%D0%B4%D0%B8%D0%BD%D0%B3-blending">article</a> Alexandra Diakonova</li>
+<li>Please note that the competition also provides the initial data on the web pages visited by Alice and the other 1557 users (<em>train.zip </em>). Based on this data, you can form your own training sample.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Let's create such a sign, which will be a number of the form YYYY MM from the date when the session took place, for example 201407 -- 2014 and 7 month. Thus, we will take into account the monthly linear trend for the entire period of the data provided.</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_test_df_ver_2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">train_df</span><span class="p">,</span> <span class="n">test_df</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_test_df_sites_ver_2</span> <span class="o">=</span> <span class="n">train_test_df_ver_2</span><span class="p">[[</span><span class="s1">'site</span><span class="si">%d</span><span class="s1">'</span> <span class="o">%</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)]]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'int'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_test_df_time_ver_2</span> <span class="o">=</span> <span class="n">train_test_df_ver_2</span><span class="p">[[</span><span class="s1">'time</span><span class="si">%d</span><span class="s1">'</span> <span class="o">%</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)]]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'datetime64[ns]'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">new_feat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">train_test_df_time_ver_2</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">morning</span><span class="p">(</span><span class="n">hour</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">hour</span> <span class="o">&lt;=</span> <span class="mi">11</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span> 
+        <span class="k">return</span> <span class="mi">0</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">new_feat</span><span class="p">[</span><span class="s1">'year_month'</span><span class="p">]</span> <span class="o">=</span> <span class="n">train_test_df_time_ver_2</span><span class="p">[</span><span class="s1">'time1'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">ts</span><span class="p">:</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">ts</span><span class="o">.</span><span class="n">year</span> <span class="o">+</span> <span class="n">ts</span><span class="o">.</span><span class="n">month</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">new_feat</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+  <div id="df-76681d31-0c19-4ef0-a089-3d2a86a61d70">
+    <div class="colab-df-container">
+      <div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year_month</th>
+    </tr>
+    <tr>
+      <th>session_id</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>201402</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>201402</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>201312</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>201403</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>201402</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-76681d31-0c19-4ef0-a089-3d2a86a61d70')" title="Convert this dataframe to an interactive table." style="display:none;">
+        
+  &lt;svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px"&gt;
+    <path d="M0 0h24v24H0V0z" fill="none"></path>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"></path><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"></path>
+  &lt;/svg&gt;
+      </button>
+      
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-76681d31-0c19-4ef0-a089-3d2a86a61d70 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-76681d31-0c19-4ef0-a089-3d2a86a61d70');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+  
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">new_feat</span><span class="p">[</span><span class="s1">'year_month_scaled'</span><span class="p">]</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">new_feat</span><span class="p">[</span><span class="s1">'year_month'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Let's add two new signs: start_hour and morning.</strong></p>
+<p><strong>The start_hour attribute is the hour at which the session started (from 0 to 23), and the morning binary attribute is 1 if the session started in the morning and 0 if the session started later (we will assume that morning is if start_hour is 11 or less).</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">new_feat</span><span class="p">[</span><span class="s1">'start_hour'</span><span class="p">]</span> <span class="o">=</span> <span class="n">train_test_df_time_ver_2</span><span class="p">[</span><span class="s1">'time1'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">ts</span><span class="p">:</span> <span class="n">ts</span><span class="o">.</span><span class="n">hour</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">new_feat</span><span class="p">[</span><span class="s1">'morning'</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_feat</span><span class="p">[</span><span class="s1">'start_hour'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">morning</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">new_feat</span> <span class="o">=</span> <span class="n">new_feat</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">'year_month'</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+  <div id="df-b8bff33c-9d70-4cdd-82a2-cd9c25d862e9">
+    <div class="colab-df-container">
+      <div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year_month_scaled</th>
+      <th>start_hour</th>
+      <th>morning</th>
+    </tr>
+    <tr>
+      <th>session_id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>0.476232</td>
+      <td>10</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.476232</td>
+      <td>11</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-1.800775</td>
+      <td>16</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.501532</td>
+      <td>10</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.476232</td>
+      <td>10</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-b8bff33c-9d70-4cdd-82a2-cd9c25d862e9')" title="Convert this dataframe to an interactive table." style="display:none;">
+        
+  &lt;svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px"&gt;
+    <path d="M0 0h24v24H0V0z" fill="none"></path>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"></path><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"></path>
+  &lt;/svg&gt;
+      </button>
+      
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-b8bff33c-9d70-4cdd-82a2-cd9c25d862e9 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-b8bff33c-9d70-4cdd-82a2-cd9c25d862e9');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+  
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_test_df_sites_new_feat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">train_test_df_sites_ver_2</span><span class="p">,</span> <span class="n">new_feat</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_test_df_sites_new_feat</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+  <div id="df-5cf92eab-4d33-4368-afb7-bc7110caf3b7">
+    <div class="colab-df-container">
+      <div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>site1</th>
+      <th>site2</th>
+      <th>site3</th>
+      <th>site4</th>
+      <th>site5</th>
+      <th>site6</th>
+      <th>site7</th>
+      <th>site8</th>
+      <th>site9</th>
+      <th>site10</th>
+      <th>year_month_scaled</th>
+      <th>start_hour</th>
+      <th>morning</th>
+    </tr>
+    <tr>
+      <th>session_id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>718</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.476232</td>
+      <td>10</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>890</td>
+      <td>941</td>
+      <td>3847</td>
+      <td>941</td>
+      <td>942</td>
+      <td>3846</td>
+      <td>3847</td>
+      <td>3846</td>
+      <td>1516</td>
+      <td>1518</td>
+      <td>0.476232</td>
+      <td>11</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>14769</td>
+      <td>39</td>
+      <td>14768</td>
+      <td>14769</td>
+      <td>37</td>
+      <td>39</td>
+      <td>14768</td>
+      <td>14768</td>
+      <td>14768</td>
+      <td>14768</td>
+      <td>-1.800775</td>
+      <td>16</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>782</td>
+      <td>782</td>
+      <td>782</td>
+      <td>782</td>
+      <td>782</td>
+      <td>782</td>
+      <td>782</td>
+      <td>782</td>
+      <td>782</td>
+      <td>782</td>
+      <td>0.501532</td>
+      <td>10</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>22</td>
+      <td>177</td>
+      <td>175</td>
+      <td>178</td>
+      <td>177</td>
+      <td>178</td>
+      <td>175</td>
+      <td>177</td>
+      <td>177</td>
+      <td>178</td>
+      <td>0.476232</td>
+      <td>10</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-5cf92eab-4d33-4368-afb7-bc7110caf3b7')" title="Convert this dataframe to an interactive table." style="display:none;">
+        
+  &lt;svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px"&gt;
+    <path d="M0 0h24v24H0V0z" fill="none"></path>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"></path><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"></path>
+  &lt;/svg&gt;
+      </button>
+      
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-5cf92eab-4d33-4368-afb7-bc7110caf3b7 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-5cf92eab-4d33-4368-afb7-bc7110caf3b7');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+  
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_test_sparse</span> <span class="o">=</span> <span class="n">to_sparse</span><span class="p">(</span><span class="n">train_test_df_sites_new_feat</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">X_train_sparse_new_feat</span> <span class="o">=</span> <span class="n">train_test_sparse</span><span class="p">[:</span><span class="n">train_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">X_test_sparse_new_feat</span> <span class="o">=</span> <span class="n">train_test_sparse</span><span class="p">[</span><span class="n">train_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_share</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="o">.</span><span class="mi">7</span> <span class="o">*</span> <span class="n">X_train_sparse</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span> <span class="o">=</span> <span class="n">X_train_sparse_new_feat</span><span class="p">[:</span><span class="n">train_share</span><span class="p">,</span> <span class="p">:],</span> <span class="n">y</span><span class="p">[:</span><span class="n">train_share</span><span class="p">]</span>
+<span class="n">X_valid</span><span class="p">,</span> <span class="n">y_valid</span>  <span class="o">=</span> <span class="n">X_train_sparse_new_feat</span><span class="p">[</span><span class="n">train_share</span><span class="p">:,</span> <span class="p">:],</span> <span class="n">y</span><span class="p">[</span><span class="n">train_share</span><span class="p">:]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sgd_logit</span> <span class="o">=</span> <span class="n">SGDClassifier</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">'log'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">17</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">sgd_logit</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>SGDClassifier(loss='log', n_jobs=-1, random_state=17)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">logit_valid_pred_proba</span> <span class="o">=</span> <span class="n">sgd_logit</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_valid</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">logit_valid_pred_proba</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]),</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.96</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
+<span class="n">sgd_logit</span> <span class="o">=</span> <span class="n">SGDClassifier</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">'log'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">17</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">sgd_logit</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_sparse_new_feat</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">logit_test_pred_proba</span> <span class="o">=</span> <span class="n">sgd_logit</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test_sparse_new_feat</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>CPU times: user 1.05 s, sys: 77.9 ms, total: 1.13 s
+Wall time: 1.19 s
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">write_to_submission_file</span><span class="p">(</span><span class="n">logit_test_pred_proba</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">'prediction_new_feat_2.csv'</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>My best achievement last time on the leaderboard was score 0.92159. This time we have reached the score 0.91881</strong></p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="Zmey56/blog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/graduation%20project/machine%20learning/stepik/yandex/english/2019/08/18/project-identification-of-internet-users-week5.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/Zmey56" target="_blank" title="Zmey56"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/Zmey56" target="_blank" title="Zmey56"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
