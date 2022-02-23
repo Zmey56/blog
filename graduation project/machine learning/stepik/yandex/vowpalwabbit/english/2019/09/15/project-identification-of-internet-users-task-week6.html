@@ -1,0 +1,1898 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Graduation project “Identification of Internet users” - Vowpal Wabbit. Tutorial + Programming Assignment | alex.gladkikh.org</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Graduation project “Identification of Internet users” - Vowpal Wabbit. Tutorial + Programming Assignment" />
+<meta name="author" content="Zmey56" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Выпускной проект “Идентификация интернет-пользователей” Week 6" />
+<meta property="og:description" content="Выпускной проект “Идентификация интернет-пользователей” Week 6" />
+<link rel="canonical" href="https://zmey56.github.io/blog//graduation%20project/machine%20learning/stepik/yandex/vowpalwabbit/english/2019/09/15/project-identification-of-internet-users-task-week6.html" />
+<meta property="og:url" content="https://zmey56.github.io/blog//graduation%20project/machine%20learning/stepik/yandex/vowpalwabbit/english/2019/09/15/project-identification-of-internet-users-task-week6.html" />
+<meta property="og:site_name" content="alex.gladkikh.org" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-09-15T00:00:00-05:00" />
+<script type="application/ld+json">
+{"url":"https://zmey56.github.io/blog//graduation%20project/machine%20learning/stepik/yandex/vowpalwabbit/english/2019/09/15/project-identification-of-internet-users-task-week6.html","@type":"BlogPosting","headline":"Graduation project “Identification of Internet users” - Vowpal Wabbit. Tutorial + Programming Assignment","dateModified":"2019-09-15T00:00:00-05:00","datePublished":"2019-09-15T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://zmey56.github.io/blog//graduation%20project/machine%20learning/stepik/yandex/vowpalwabbit/english/2019/09/15/project-identification-of-internet-users-task-week6.html"},"author":{"@type":"Person","name":"Zmey56"},"description":"Выпускной проект “Идентификация интернет-пользователей” Week 6","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://zmey56.github.io/blog//feed.xml" title="alex.gladkikh.org" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-183752218-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">alex.gladkikh.org</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a><a class="page-link" href="/search/">Search</a><a class="page-link" href="/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Graduation project &quot;Identification of Internet users&quot; - Vowpal Wabbit. Tutorial + Programming Assignment</h1><p class="page-description">Выпускной проект "Идентификация интернет-пользователей" Week 6</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2019-09-15T00:00:00-05:00" itemprop="datePublished">
+        Sep 15, 2019
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Zmey56</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      16 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/categories/#graduation project">graduation project</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#machine learning">machine learning</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#stepik">stepik</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#yandex">yandex</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#VowpalWabbit">VowpalWabbit</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#english">english</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/Zmey56/blog/tree/master/_notebooks/2019-09-15-project-identification-of-internet-users-task-week6.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/Zmey56/blog/master?filepath=_notebooks%2F2019-09-15-project-identification-of-internet-users-task-week6.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/Zmey56/blog/blob/master/_notebooks/2019-09-15-project-identification-of-internet-users-task-week6.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#Week-6.-Vowpal-Wabbit.-Tutorial-+-Programming-Assignment">Week 6. Vowpal Wabbit. Tutorial + Programming Assignment </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#Part-1.-Article-about-Vowpal-Wabbit">Part 1. Article about Vowpal Wabbit </a></li>
+<li class="toc-entry toc-h2"><a href="#Part-2.-Applying-Vowpal-Wabbit-to-Site-Visit-Data">Part 2. Applying Vowpal Wabbit to Site Visit Data </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#2.1.-Data-preparation">2.1. Data preparation </a></li>
+<li class="toc-entry toc-h3"><a href="#2.2.-Validation-by-deferred-sampling">2.2. Validation by deferred sampling </a></li>
+<li class="toc-entry toc-h3"><a href="#2.3.-Валидация-по-тестовой-выборке-(Public-Leaderboard)">2.3. Валидация по тестовой выборке (Public Leaderboard) </a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2019-09-15-project-identification-of-internet-users-task-week6.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Week-6.-Vowpal-Wabbit.-Tutorial-+-Programming-Assignment">
+<a class="anchor" href="#Week-6.-Vowpal-Wabbit.-Tutorial-+-Programming-Assignment" aria-hidden="true"><span class="octicon octicon-link"></span></a>Week 6. Vowpal Wabbit. Tutorial + Programming Assignment<a class="anchor-link" href="#Week-6.-Vowpal-Wabbit.-Tutorial-+-Programming-Assignment"> </a>
+</h1>
+<p>This week we will get acquainted with the popular Vowpal Wabbit library and try it on site visit data.</p>
+<p><strong>6 week plan:</strong></p>
+<ul>
+<li>Part 1. Article on Vowpal Wabbit</li>
+<li>Part 2. Application of Vowpal Wabbit to Site Visit data</li>
+<li>2.1. Data Preparation</li>
+<li>2.2. Validation by Deferred Sampling</li>
+<li>2.3. Validation by test Sampling (Public Leaderboard)</li>
+</ul>
+<p><strong>In this part of the project, videos of the following lectures of the course "Learning from marked data" may be useful to us:</strong></p>
+<ul>
+<li><a href="https://www.coursera.org/learn/supervised-learning/lecture/xRY50/stokhastichieskii-ghradiientnyi-spusk">Stochastic gradient спуск</a></li>
+<li><a href="https://www.coursera.org/learn/supervised-learning/lecture/EBg9t/linieinyie-modieli-sklearn-linear-model-klassifikatsiia">Linear models. <code>sklearn.linear_model</code>. Классификация</a></li>
+</ul>
+<p>[Presentation] will also be useful(<a href="https://github.com/esokolov/ml-course-msu/blob/master/ML15/lecture-notes/Sem08_vw.pdf">https://github.com/esokolov/ml-course-msu/blob/master/ML15/lecture-notes/Sem08_vw.pdf</a> ) lecturer of specialization Evgeny Sokolov. And, of course, <a href="https://github.com/JohnLangford/vowpal_wabbit/wiki">documentation</a> Vowpal Wabbit.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Part-1.-Article-about-Vowpal-Wabbit">
+<a class="anchor" href="#Part-1.-Article-about-Vowpal-Wabbit" aria-hidden="true"><span class="octicon octicon-link"></span></a>Part 1. Article about Vowpal Wabbit<a class="anchor-link" href="#Part-1.-Article-about-Vowpal-Wabbit"> </a>
+</h2>
+<p>Let's read <a href="http://habrahabr.ru/company/tods/blog/326418/">the article</a> about Vowpal Wabbit on Habra from the OpenDataScience open course series on machine learning. We can download <a href="https://github.com/Yorko/mlcourse_open/blob/master/jupyter_russian/topic08_sgd_hashing_vowpal_wabbit/topic8_sgd_hashing_vowpal_wabbit.ipynb">notebook</a>, attached to the article, view the code, study it and change it. This is the only way to deal with Vowpal Wabbit.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Part-2.-Applying-Vowpal-Wabbit-to-Site-Visit-Data">
+<a class="anchor" href="#Part-2.-Applying-Vowpal-Wabbit-to-Site-Visit-Data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Part 2. Applying Vowpal Wabbit to Site Visit Data<a class="anchor-link" href="#Part-2.-Applying-Vowpal-Wabbit-to-Site-Visit-Data"> </a>
+</h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.1.-Data-preparation">
+<a class="anchor" href="#2.1.-Data-preparation" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.1. Data preparation<a class="anchor-link" href="#2.1.-Data-preparation"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Next, let's look at Vowpal Wabbit in action. However, in the task of our competition for binary classification of web sessions, we will not notice a difference - both in quality and in speed (although you can check). Therefore, we will demonstrate all the agility of VW in the task of classification into 400 classes. The initial data is still the same, but 400 users have been allocated, and the task of identifying them is being solved. Download the data <a href="https://www.kaggle.com/anton11/trainsessions">from here</a>, <a href="https://www.kaggle.com/c/identify-me-if-you-can4/submit">and here we will fill in the result</a> - files <code>train_sessions_400users.csv</code> and <code>test_sessions_400users.csv</code>.</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.sparse</span> <span class="k">as</span> <span class="nn">sps</span>
+<span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">csr_matrix</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span><span class="p">,</span> <span class="n">SGDClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">preprocessing</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">PATH_TO_DATA</span> <span class="o">=</span> <span class="s1">'/content/drive/MyDrive/DATA/Stepik/Kaggle'</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Let's upload the training and test samples. It can be noticed that the test sessions here are clearly separated in time from the sessions in the training sample.</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">train_df_400</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span><span class="s1">'train_sessions_400users.csv'</span><span class="p">),</span> 
+                           <span class="n">index_col</span><span class="o">=</span><span class="s1">'session_id'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">test_df_400</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span><span class="s1">'test_sessions_400users.csv'</span><span class="p">),</span> 
+                           <span class="n">index_col</span><span class="o">=</span><span class="s1">'session_id'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">test_df_400</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(46473, 20)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">train_df_400</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+  <div id="df-366ab81a-d3bc-4a92-a854-53a547ab7afd">
+    <div class="colab-df-container">
+      <div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>site1</th>
+      <th>time1</th>
+      <th>site2</th>
+      <th>time2</th>
+      <th>site3</th>
+      <th>time3</th>
+      <th>site4</th>
+      <th>time4</th>
+      <th>site5</th>
+      <th>time5</th>
+      <th>site6</th>
+      <th>time6</th>
+      <th>site7</th>
+      <th>time7</th>
+      <th>site8</th>
+      <th>time8</th>
+      <th>site9</th>
+      <th>time9</th>
+      <th>site10</th>
+      <th>time10</th>
+      <th>user_id</th>
+    </tr>
+    <tr>
+      <th>session_id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>23713</td>
+      <td>2014-03-24 15:22:40</td>
+      <td>23720.0</td>
+      <td>2014-03-24 15:22:48</td>
+      <td>23713.0</td>
+      <td>2014-03-24 15:22:48</td>
+      <td>23713.0</td>
+      <td>2014-03-24 15:22:54</td>
+      <td>23720.0</td>
+      <td>2014-03-24 15:22:54</td>
+      <td>23713.0</td>
+      <td>2014-03-24 15:22:55</td>
+      <td>23713.0</td>
+      <td>2014-03-24 15:23:01</td>
+      <td>23713.0</td>
+      <td>2014-03-24 15:23:03</td>
+      <td>23713.0</td>
+      <td>2014-03-24 15:23:04</td>
+      <td>23713.0</td>
+      <td>2014-03-24 15:23:05</td>
+      <td>653</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>8726</td>
+      <td>2014-04-17 14:25:58</td>
+      <td>8725.0</td>
+      <td>2014-04-17 14:25:59</td>
+      <td>665.0</td>
+      <td>2014-04-17 14:25:59</td>
+      <td>8727.0</td>
+      <td>2014-04-17 14:25:59</td>
+      <td>45.0</td>
+      <td>2014-04-17 14:25:59</td>
+      <td>8725.0</td>
+      <td>2014-04-17 14:26:01</td>
+      <td>45.0</td>
+      <td>2014-04-17 14:26:01</td>
+      <td>5320.0</td>
+      <td>2014-04-17 14:26:18</td>
+      <td>5320.0</td>
+      <td>2014-04-17 14:26:47</td>
+      <td>5320.0</td>
+      <td>2014-04-17 14:26:48</td>
+      <td>198</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>303</td>
+      <td>2014-03-21 10:12:24</td>
+      <td>19.0</td>
+      <td>2014-03-21 10:12:36</td>
+      <td>303.0</td>
+      <td>2014-03-21 10:12:54</td>
+      <td>303.0</td>
+      <td>2014-03-21 10:13:01</td>
+      <td>303.0</td>
+      <td>2014-03-21 10:13:24</td>
+      <td>303.0</td>
+      <td>2014-03-21 10:13:36</td>
+      <td>303.0</td>
+      <td>2014-03-21 10:13:54</td>
+      <td>309.0</td>
+      <td>2014-03-21 10:14:01</td>
+      <td>303.0</td>
+      <td>2014-03-21 10:14:06</td>
+      <td>303.0</td>
+      <td>2014-03-21 10:14:24</td>
+      <td>34</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1359</td>
+      <td>2013-12-13 09:52:28</td>
+      <td>925.0</td>
+      <td>2013-12-13 09:54:34</td>
+      <td>1240.0</td>
+      <td>2013-12-13 09:54:34</td>
+      <td>1360.0</td>
+      <td>2013-12-13 09:54:34</td>
+      <td>1344.0</td>
+      <td>2013-12-13 09:54:34</td>
+      <td>1359.0</td>
+      <td>2013-12-13 09:54:34</td>
+      <td>1346.0</td>
+      <td>2013-12-13 09:54:34</td>
+      <td>1345.0</td>
+      <td>2013-12-13 09:54:34</td>
+      <td>1344.0</td>
+      <td>2013-12-13 09:58:19</td>
+      <td>1345.0</td>
+      <td>2013-12-13 09:58:19</td>
+      <td>601</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>11</td>
+      <td>2013-11-26 12:35:29</td>
+      <td>85.0</td>
+      <td>2013-11-26 12:35:31</td>
+      <td>52.0</td>
+      <td>2013-11-26 12:35:31</td>
+      <td>85.0</td>
+      <td>2013-11-26 12:35:32</td>
+      <td>11.0</td>
+      <td>2013-11-26 12:35:32</td>
+      <td>52.0</td>
+      <td>2013-11-26 12:35:32</td>
+      <td>11.0</td>
+      <td>2013-11-26 12:37:03</td>
+      <td>85.0</td>
+      <td>2013-11-26 12:37:03</td>
+      <td>10.0</td>
+      <td>2013-11-26 12:37:03</td>
+      <td>85.0</td>
+      <td>2013-11-26 12:37:04</td>
+      <td>273</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-366ab81a-d3bc-4a92-a854-53a547ab7afd')" title="Convert this dataframe to an interactive table." style="display:none;">
+        
+  &lt;svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px"&gt;
+    <path d="M0 0h24v24H0V0z" fill="none"></path>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"></path><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"></path>
+  &lt;/svg&gt;
+      </button>
+      
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-366ab81a-d3bc-4a92-a854-53a547ab7afd button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-366ab81a-d3bc-4a92-a854-53a547ab7afd');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+  
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>We see that there are 182793 sessions in the training sample, 46473 in the test sample, and the sessions really belong to 400 different users.</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">train_df_400</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">test_df_400</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">train_df_400</span><span class="p">[</span><span class="s1">'user_id'</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>((182793, 21), (46473, 20), 400)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Vowpal Wabbit likes class labels to be distributed from 1 to K, where K is the number of classes in the classification problem (in our case, 400). Therefore, we will have to use LabelEncoder, and then add +1 (Label Encoder translates labels into the range from 0 to K-1). Then it will be necessary to apply the reverse transformation.</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">train_df_400</span><span class="o">.</span><span class="n">user_id</span>
+<span class="n">class_encoder</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">y_for_vw</span> <span class="o">=</span> <span class="n">class_encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Next, we will compare VW with SGDClassifier and with logistic regression. All these models need input data preprocessing. Let's prepare sparse matrices for sklearn models, as we did in part 5:</strong></p>
+<ul>
+<li>combine training and test samples</li>
+<li>we will select only sites (signs from 'site1' to 'site10')</li>
+<li>replace the omissions with zeros (our sites were numbered from 0)</li>
+<li>we will translate into a sparse csr_matrix format</li>
+<li>let's break back into the training and test parts</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">train_test_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">train_df_400</span><span class="p">,</span> <span class="n">test_df_400</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">sites</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'site'</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)]</span>
+<span class="n">train_test_df_sites</span> <span class="o">=</span> <span class="n">train_test_df</span><span class="p">[</span><span class="n">sites</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">train_test_df_sites</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">train_test_df_sites</span> <span class="o">=</span> <span class="n">train_test_df_sites</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">idx_split</span> <span class="o">=</span> <span class="n">train_df_400</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">train_test_sparse</span> <span class="o">=</span> <span class="n">csr_matrix</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">train_test_df_sites</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">),</span>
+                          <span class="n">train_test_df_sites</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+                          <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">train_test_df_sites</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">train_test_df_sites</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))[:,</span> <span class="mi">1</span><span class="p">:]</span>
+<span class="n">X_train_sparse</span> <span class="o">=</span> <span class="n">train_test_sparse</span><span class="p">[:</span><span class="n">idx_split</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">X_test_sparse</span> <span class="o">=</span> <span class="n">train_test_sparse</span><span class="p">[</span><span class="n">idx_split</span><span class="p">:,</span> <span class="p">:]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">train_df_400</span><span class="p">[</span><span class="s1">'user_id'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.2.-Validation-by-deferred-sampling">
+<a class="anchor" href="#2.2.-Validation-by-deferred-sampling" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.2. Validation by deferred sampling<a class="anchor-link" href="#2.2.-Validation-by-deferred-sampling"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Let's select the training (70%) and deferred (30%) parts of the original training sample. We do not mix the data, we take into account that the sessions are sorted by time.</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">train_share</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="o">.</span><span class="mi">7</span> <span class="o">*</span> <span class="n">train_df_400</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">train_df_part</span> <span class="o">=</span> <span class="n">train_df_400</span><span class="p">[</span><span class="n">sites</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="n">train_share</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">valid_df</span> <span class="o">=</span> <span class="n">train_df_400</span><span class="p">[</span><span class="n">sites</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_share</span><span class="p">:,</span> <span class="p">:]</span>
+<span class="n">X_train_part_sparse</span> <span class="o">=</span> <span class="n">X_train_sparse</span><span class="p">[:</span><span class="n">train_share</span><span class="p">,</span> <span class="p">:]</span>
+<span class="n">X_valid_sparse</span> <span class="o">=</span> <span class="n">X_train_sparse</span><span class="p">[</span><span class="n">train_share</span><span class="p">:,</span> <span class="p">:]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">y_train_part</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:</span><span class="n">train_share</span><span class="p">]</span>
+<span class="n">y_valid</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">train_share</span><span class="p">:]</span>
+<span class="n">y_train_part_for_vw</span> <span class="o">=</span> <span class="n">y_for_vw</span><span class="p">[:</span><span class="n">train_share</span><span class="p">]</span>
+<span class="n">y_valid_for_vw</span> <span class="o">=</span> <span class="n">y_for_vw</span><span class="p">[</span><span class="n">train_share</span><span class="p">:]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>We implement a function, <code>arrays_to_vw</code>, which translates the training sample into the Vowpal Wabbit format.</strong></p>
+<p>Entrance:</p>
+<ul>
+<li>X - matrix `NumPy' (training sample)</li>
+<li>y (optional) - response vector (<code>NumPy</code>). Optional, since we will process the test matrix with the same function</li>
+<li>train - flag, True in the case of a training sample, False in the case of a test sample</li>
+<li>out_file – the path to the file .vw to which the recording will be made</li>
+</ul>
+<p>Details:</p>
+<ul>
+<li>it is necessary to go through all the rows of the matrix <code>X</code> and write down all the values separated by a space, first adding the necessary class label from the vector <code>y</code> and the separator sign <code>|</code>
+</li>
+<li>in the test sample, in place of the labels of the target class, you can write arbitrary, for example, 1</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">arrays_to_vw</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">out_file</span><span class="o">=</span><span class="s1">'tmp.vw'</span><span class="p">):</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan_to_num</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">out_file</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+            <span class="n">string</span> <span class="o">=</span>  <span class="s1">' '</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+            <span class="k">if</span> <span class="n">y</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" | "</span> <span class="o">+</span> <span class="n">string</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="s2">" | "</span> <span class="o">+</span> <span class="n">string</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Let's apply the written function to the part of the training sample <code>(train_df_part, y_train_part_for_vw)</code>, to the deferred sample <code>(valid_df, y_valid_for_vw)</code>, to the entire training sample and to the entire test sample. It should be noted that our method accepts matrices and vectors <code>NumPy</code> as input</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="o">%%</span><span class="n">time</span>
+
+<span class="n">arrays_to_vw</span><span class="p">(</span><span class="n">train_df_part</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">y_train_part_for_vw</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span><span class="s1">'train_part.vw'</span><span class="p">))</span>
+<span class="n">arrays_to_vw</span><span class="p">(</span><span class="n">valid_df</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">y_valid_for_vw</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span><span class="s1">'valid.vw'</span><span class="p">))</span>
+<span class="n">arrays_to_vw</span><span class="p">(</span><span class="n">train_df_400</span><span class="p">[</span><span class="n">sites</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">y_for_vw</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span><span class="s1">'train.vw'</span><span class="p">))</span>
+<span class="n">arrays_to_vw</span><span class="p">(</span><span class="n">test_df_400</span><span class="p">[</span><span class="n">sites</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span><span class="s1">'test.vw'</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(127955, 10)
+(54838, 10)
+(182793, 10)
+(46473, 10)
+CPU times: user 4.03 s, sys: 22.6 ms, total: 4.05 s
+Wall time: 4.16 s
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Let's check the result</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="err">!</span><span class="n">head</span> <span class="o">-</span><span class="mi">3</span> <span class="err">$</span><span class="n">PATH_TO_DATA</span><span class="o">/</span><span class="n">train_part</span><span class="o">.</span><span class="n">vw</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>262 | 23713 23720 23713 23713 23720 23713 23713 23713 23713 23713
+82 | 8726 8725 665 8727 45 8725 45 5320 5320 5320
+16 | 303 19 303 303 303 303 303 309 303 303
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="err">!</span><span class="n">head</span> <span class="o">-</span><span class="mi">3</span>  <span class="err">$</span><span class="n">PATH_TO_DATA</span><span class="o">/</span><span class="n">valid</span><span class="o">.</span><span class="n">vw</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>4 | 7 923 923 923 11 924 7 924 838 7
+160 | 91 198 11 11 302 91 668 311 310 91
+312 | 27085 848 118 118 118 118 11 118 118 118
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="err">!</span><span class="n">head</span> <span class="o">-</span><span class="mi">3</span> <span class="err">$</span><span class="n">PATH_TO_DATA</span><span class="o">/</span><span class="n">test</span><span class="o">.</span><span class="n">vw</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1 | 9 304 308 307 91 308 312 300 305 309
+1 | 838 504 68 11 838 11 838 886 27 305
+1 | 190 192 8 189 191 189 190 2375 192 8
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Let's train the Vowpal Wabbit model on a sample of train_part.vw. We indicate that the classification problem with 400 classes (--oaa) is being solved, we will make 3 passes through the sample (--passes). Let's set some cache file (--cache_file, you can just specify the -c flag), so VW will be faster to do all the next passes after the first one (the last cache file is deleted using the -k argument). We also specify the value of the parameter b=26. This is the number of bits used for hashing, in this case you need more than 18 by default. Finally, specify random_seed=17. We are not changing the other parameters yet.</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">train_part_vw</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">'train_part.vw'</span><span class="p">)</span>
+<span class="n">valid_vw</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">'valid.vw'</span><span class="p">)</span>
+<span class="n">train_vw</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">'train.vw'</span><span class="p">)</span>
+<span class="n">test_vw</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">'test.vw'</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">'vw_model.vw'</span><span class="p">)</span>
+<span class="n">pred</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">'vw_pred.csv'</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="o">%%</span><span class="n">time</span>
+<span class="err">!</span><span class="n">vw</span> <span class="o">--</span><span class="n">oaa</span> <span class="mi">400</span> <span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">drive</span><span class="o">/</span><span class="n">MyDrive</span><span class="o">/</span><span class="n">DATA</span><span class="o">/</span><span class="n">Stepik</span><span class="o">/</span><span class="n">Kaggle</span><span class="o">/</span><span class="n">train_part</span><span class="o">.</span><span class="n">vw</span> <span class="o">--</span><span class="n">passes</span> <span class="mi">3</span> <span class="o">-</span><span class="n">c</span> <span class="o">-</span><span class="n">k</span> <span class="o">-</span><span class="n">b</span> <span class="mi">26</span> <span class="o">--</span><span class="n">random_seed</span> <span class="mi">17</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">drive</span><span class="o">/</span><span class="n">MyDrive</span><span class="o">/</span><span class="n">DATA</span><span class="o">/</span><span class="n">Stepik</span><span class="o">/</span><span class="n">Kaggle</span><span class="o">/</span><span class="n">vw_model</span><span class="o">.</span><span class="n">vw</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>final_regressor = /content/drive/MyDrive/DATA/Stepik/Kaggle/vw_model.vw
+Num weight bits = 26
+learning rate = 0.5
+initial_t = 0
+power_t = 0.5
+decay_learning_rate = 1
+tcmalloc: large alloc 1073741824 bytes == 0x5596c0ee8000 @  0x7f0c99005001 0x7f0c98ba1b5f 0x7f0c98bafa21 0x7f0c98c52e00 0x7f0c98c40be3 0x7f0c98c48395 0x7f0c98c48c44 0x5596be56c237 0x5596be56ba8b 0x7f0c981c0bf7 0x5596be56c05a
+creating cache_file = /content/drive/MyDrive/DATA/Stepik/Kaggle/train_part.vw.cache
+Reading datafile = /content/drive/MyDrive/DATA/Stepik/Kaggle/train_part.vw
+num sources = 1
+average  since         example        example  current  current  current
+loss     last          counter         weight    label  predict features
+1.000000 1.000000            1            1.0      262        1       11
+1.000000 1.000000            2            2.0       82      262       11
+1.000000 1.000000            4            4.0      241      262       11
+1.000000 1.000000            8            8.0      352      262       11
+1.000000 1.000000           16           16.0      135       16       11
+1.000000 1.000000           32           32.0       71      112       11
+0.968750 0.937500           64           64.0      358      231       11
+0.976562 0.984375          128          128.0      348      346       11
+0.941406 0.906250          256          256.0      202      202       11
+0.947266 0.953125          512          512.0       30        1       11
+0.925781 0.904297         1024         1024.0       36      290       11
+0.908203 0.890625         2048         2048.0       21      128       11
+0.880127 0.852051         4096         4096.0       80      229       11
+0.856323 0.832520         8192         8192.0      307      356       11
+0.828003 0.799683        16384        16384.0       59      193       11
+0.795441 0.762878        32768        32768.0      262       30       11
+0.760468 0.725494        65536        65536.0      171      238       11
+0.724008 0.724008       131072       131072.0        6        6       11 h
+0.697339 0.670672       262144       262144.0       12       12       11 h
+
+finished run
+number of examples per pass = 115160
+passes used = 3
+weighted example sum = 345480.000000
+weighted label sum = 0.000000
+average loss = 0.661352 h
+total feature number = 3800280
+CPU times: user 249 ms, sys: 48.4 ms, total: 297 ms
+Wall time: 34 s
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Let's write down the forecasts on the valid sample.vw in vw_valid_phead.csv.</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="o">%%</span><span class="n">time</span>
+<span class="err">!</span><span class="n">vw</span> <span class="o">-</span><span class="n">i</span> <span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">drive</span><span class="o">/</span><span class="n">MyDrive</span><span class="o">/</span><span class="n">DATA</span><span class="o">/</span><span class="n">Stepik</span><span class="o">/</span><span class="n">Kaggle</span><span class="o">/</span><span class="n">vw_model</span><span class="o">.</span><span class="n">vw</span> <span class="o">-</span><span class="n">t</span> <span class="o">-</span><span class="n">d</span> <span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">drive</span><span class="o">/</span><span class="n">MyDrive</span><span class="o">/</span><span class="n">DATA</span><span class="o">/</span><span class="n">Stepik</span><span class="o">/</span><span class="n">Kaggle</span><span class="o">/</span><span class="n">valid</span><span class="o">.</span><span class="n">vw</span> <span class="o">-</span><span class="n">p</span> <span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">drive</span><span class="o">/</span><span class="n">MyDrive</span><span class="o">/</span><span class="n">DATA</span><span class="o">/</span><span class="n">Stepik</span><span class="o">/</span><span class="n">Kaggle</span><span class="o">/</span><span class="n">vw_valid_pred</span><span class="o">.</span><span class="n">csv</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>only testing
+predictions = /content/drive/MyDrive/DATA/Stepik/Kaggle/vw_valid_pred.csv
+Num weight bits = 26
+learning rate = 0.5
+initial_t = 0
+power_t = 0.5
+using no cache
+Reading datafile = /content/drive/MyDrive/DATA/Stepik/Kaggle/valid.vw
+num sources = 1
+average  since         example        example  current  current  current
+loss     last          counter         weight    label  predict features
+1.000000 1.000000            1            1.0        4      188       11
+1.000000 1.000000            2            2.0      160      220       11
+0.750000 0.500000            4            4.0      143      143       11
+0.750000 0.750000            8            8.0      247      247       11
+0.687500 0.625000           16           16.0      341       30       11
+0.593750 0.500000           32           32.0      237      237       11
+0.609375 0.625000           64           64.0      178      178       11
+0.640625 0.671875          128          128.0      132      228       11
+0.656250 0.671875          256          256.0       14       14       11
+0.646484 0.636719          512          512.0      370      370       11
+0.663086 0.679688         1024         1024.0      189      189       11
+0.655762 0.648438         2048         2048.0      311      311       11
+0.657227 0.658691         4096         4096.0      195      318       11
+0.660156 0.663086         8192         8192.0      171      195       11
+0.657654 0.655151        16384        16384.0      362       51       11
+0.655121 0.652588        32768        32768.0      248      248       11
+
+finished run
+number of examples per pass = 54838
+passes used = 1
+weighted example sum = 54838.000000
+weighted label sum = 0.000000
+average loss = 0.654583
+total feature number = 603218
+CPU times: user 87 ms, sys: 31.6 ms, total: 119 ms
+Wall time: 11.3 s
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>We count the forecasts of kaggle_data/vw_valid_phead.csv from the file and look at the proportion of correct answers on the deferred part.</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">vw_valid</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">'vw_valid_pred.csv'</span><span class="p">),</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'The percentage of correct responses on the deferred sample for Vowpal Wabbit: </span><span class="si">%f</span><span class="s1">'</span> <span class="o">%</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_valid_for_vw</span><span class="p">,</span> 
+                                                                                             <span class="n">vw_valid</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The percentage of correct responses on the deferred sample for Vowpal Wabbit: 0.345417
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Now we will train SGDClassifier (3 sample passes, logistic loss function) and LogisticRegression on 70% of the sparse training sample – (X_train_part_sparse, y_train_part), make a forecast for the delayed sample (X_valid_sparse, y_valid) and calculate the proportion of correct answers. Logistic regression will not be trained quickly – this is normal. We will specify random_state=17, n_jobs=-1 everywhere. For SGDClassifier, we will also specify max_iter=3.</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">logit</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">17</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">sgd_logit</span> <span class="o">=</span>  <span class="n">SGDClassifier</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">'log'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">17</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="o">%%</span><span class="n">time</span>
+<span class="n">logit</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_part_sparse</span><span class="p">,</span> <span class="n">y_train_part</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>CPU times: user 1.86 s, sys: 289 ms, total: 2.14 s
+Wall time: 5min 57s
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>LogisticRegression(n_jobs=-1, random_state=17)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="o">%%</span><span class="n">time</span>
+<span class="n">sgd_logit</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_part_sparse</span><span class="p">,</span> <span class="n">y_train_part</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>CPU times: user 24.6 s, sys: 6.5 ms, total: 24.6 s
+Wall time: 24.5 s
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/usr/local/lib/python3.7/dist-packages/sklearn/linear_model/_stochastic_gradient.py:700: ConvergenceWarning: Maximum number of iteration reached before convergence. Consider increasing max_iter to improve the fit.
+  ConvergenceWarning,
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>SGDClassifier(loss='log', max_iter=3, random_state=17)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong><font color="red">Question 1. </font> Calculate the proportion of correct answers on the deferred sample for Vowpal Wabbit, round to 3 decimal places.</strong></p>
+<p><strong><font color="red">Question 2. </font> Calculate the proportion of correct answers on the deferred sample for SGD, round to 3 decimal places.</strong></p>
+<p><strong><font color="red">Question 3. </font> Calculate the proportion of correct answers on the deferred sample for logistic regression, round to 3 decimal places.</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">vw_valid_acc</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_valid_for_vw</span><span class="p">,</span> <span class="n">vw_valid</span><span class="p">)</span>
+<span class="n">sgd_valid_acc</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">sgd_logit</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_valid_sparse</span><span class="p">))</span>
+<span class="n">logit_valid_acc</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_valid</span><span class="p">,</span> <span class="n">logit</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_valid_sparse</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">write_answer_to_file</span><span class="p">(</span><span class="n">answer</span><span class="p">,</span> <span class="n">file_address</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_address</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">out_f</span><span class="p">:</span>
+        <span class="n">out_f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">answer</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">write_answer_to_file</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">vw_valid_acc</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">'answer6_1.txt'</span><span class="p">))</span>
+<span class="n">write_answer_to_file</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">sgd_valid_acc</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">'answer6_2.txt'</span><span class="p">))</span>
+<span class="n">write_answer_to_file</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">logit_valid_acc</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">'answer6_3.txt'</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.3.-Валидация-по-тестовой-выборке-(Public-Leaderboard)">
+<a class="anchor" href="#2.3.-%D0%92%D0%B0%D0%BB%D0%B8%D0%B4%D0%B0%D1%86%D0%B8%D1%8F-%D0%BF%D0%BE-%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B9-%D0%B2%D1%8B%D0%B1%D0%BE%D1%80%D0%BA%D0%B5-(Public-Leaderboard)" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.3. Валидация по тестовой выборке (Public Leaderboard)<a class="anchor-link" href="#2.3.-%D0%92%D0%B0%D0%BB%D0%B8%D0%B4%D0%B0%D1%86%D0%B8%D1%8F-%D0%BF%D0%BE-%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B9-%D0%B2%D1%8B%D0%B1%D0%BE%D1%80%D0%BA%D0%B5-(Public-Leaderboard)"> </a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Let's train a VW model with the same parameters on the entire training sample - train.vw.</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="o">%%</span><span class="n">time</span>
+<span class="err">!</span><span class="n">vw</span> <span class="o">--</span><span class="n">oaa</span> <span class="mi">400</span> <span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">drive</span><span class="o">/</span><span class="n">MyDrive</span><span class="o">/</span><span class="n">DATA</span><span class="o">/</span><span class="n">Stepik</span><span class="o">/</span><span class="n">Kaggle</span><span class="o">/</span><span class="n">train</span><span class="o">.</span><span class="n">vw</span> <span class="o">--</span><span class="n">passes</span> <span class="mi">3</span> <span class="o">-</span><span class="n">c</span> <span class="o">-</span><span class="n">k</span> <span class="o">-</span><span class="n">b</span> <span class="mi">26</span> <span class="o">--</span><span class="n">random_seed</span> <span class="mi">17</span> <span class="o">-</span><span class="n">f</span> <span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">drive</span><span class="o">/</span><span class="n">MyDrive</span><span class="o">/</span><span class="n">DATA</span><span class="o">/</span><span class="n">Stepik</span><span class="o">/</span><span class="n">Kaggle</span><span class="o">/</span><span class="n">vw_model</span><span class="o">.</span><span class="n">vw</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>final_regressor = /content/drive/MyDrive/DATA/Stepik/Kaggle/vw_model.vw
+Num weight bits = 26
+learning rate = 0.5
+initial_t = 0
+power_t = 0.5
+decay_learning_rate = 1
+tcmalloc: large alloc 1073741824 bytes == 0x56465f178000 @  0x7f5207ec5001 0x7f5207a61b5f 0x7f5207a6fa21 0x7f5207b12e00 0x7f5207b00be3 0x7f5207b08395 0x7f5207b08c44 0x56465e302237 0x56465e301a8b 0x7f5207080bf7 0x56465e30205a
+creating cache_file = /content/drive/MyDrive/DATA/Stepik/Kaggle/train.vw.cache
+Reading datafile = /content/drive/MyDrive/DATA/Stepik/Kaggle/train.vw
+num sources = 1
+average  since         example        example  current  current  current
+loss     last          counter         weight    label  predict features
+1.000000 1.000000            1            1.0      262        1       11
+1.000000 1.000000            2            2.0       82      262       11
+1.000000 1.000000            4            4.0      241      262       11
+1.000000 1.000000            8            8.0      352      262       11
+1.000000 1.000000           16           16.0      135       16       11
+1.000000 1.000000           32           32.0       71      112       11
+0.968750 0.937500           64           64.0      358      231       11
+0.976562 0.984375          128          128.0      348      346       11
+0.941406 0.906250          256          256.0      202      202       11
+0.947266 0.953125          512          512.0       30        1       11
+0.925781 0.904297         1024         1024.0       36      290       11
+0.908203 0.890625         2048         2048.0       21      128       11
+0.880127 0.852051         4096         4096.0       80      229       11
+0.856323 0.832520         8192         8192.0      307      356       11
+0.828003 0.799683        16384        16384.0       59      193       11
+0.795441 0.762878        32768        32768.0      262       30       11
+0.760468 0.725494        65536        65536.0      171      238       11
+0.725319 0.690170       131072       131072.0      180      159       11
+0.692989 0.692989       262144       262144.0       88      221       11 h
+
+finished run
+number of examples per pass = 164514
+passes used = 3
+weighted example sum = 493542.000000
+weighted label sum = 0.000000
+average loss = 0.642595 h
+total feature number = 5428962
+CPU times: user 368 ms, sys: 49.4 ms, total: 417 ms
+Wall time: 44.5 s
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Let's make a forecast for the test sample.</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="o">%%</span><span class="n">time</span>
+<span class="err">!</span><span class="n">vw</span> <span class="o">-</span><span class="n">t</span> <span class="o">-</span><span class="n">d</span> <span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">drive</span><span class="o">/</span><span class="n">MyDrive</span><span class="o">/</span><span class="n">DATA</span><span class="o">/</span><span class="n">Stepik</span><span class="o">/</span><span class="n">Kaggle</span><span class="o">/</span><span class="n">test</span><span class="o">.</span><span class="n">vw</span> <span class="o">-</span><span class="n">i</span> <span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">drive</span><span class="o">/</span><span class="n">MyDrive</span><span class="o">/</span><span class="n">DATA</span><span class="o">/</span><span class="n">Stepik</span><span class="o">/</span><span class="n">Kaggle</span><span class="o">/</span><span class="n">vw_model</span><span class="o">.</span><span class="n">vw</span> <span class="o">-</span><span class="n">p</span> <span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">drive</span><span class="o">/</span><span class="n">MyDrive</span><span class="o">/</span><span class="n">DATA</span><span class="o">/</span><span class="n">Stepik</span><span class="o">/</span><span class="n">Kaggle</span><span class="o">/</span><span class="n">vw_test_pred</span><span class="o">.</span><span class="n">csv</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>only testing
+predictions = /content/drive/MyDrive/DATA/Stepik/Kaggle/vw_test_pred.csv
+Num weight bits = 26
+learning rate = 0.5
+initial_t = 0
+power_t = 0.5
+using no cache
+Reading datafile = /content/drive/MyDrive/DATA/Stepik/Kaggle/test.vw
+num sources = 1
+average  since         example        example  current  current  current
+loss     last          counter         weight    label  predict features
+1.000000 1.000000            1            1.0        1       90       11
+1.000000 1.000000            2            2.0        1       21       11
+1.000000 1.000000            4            4.0        1      265       11
+1.000000 1.000000            8            8.0        1      137       11
+1.000000 1.000000           16           16.0        1      273       11
+1.000000 1.000000           32           32.0        1      384       11
+1.000000 1.000000           64           64.0        1      139       11
+1.000000 1.000000          128          128.0        1       85       11
+1.000000 1.000000          256          256.0        1       25       11
+0.994141 0.988281          512          512.0        1      364       11
+0.990234 0.986328         1024         1024.0        1      202       11
+0.992188 0.994141         2048         2048.0        1      181       11
+0.993652 0.995117         4096         4096.0        1       21       11
+0.994629 0.995605         8192         8192.0        1      137       11
+0.995300 0.995972        16384        16384.0        1      326       11
+0.994568 0.993835        32768        32768.0        1       10       11
+
+finished run
+number of examples per pass = 46473
+passes used = 1
+weighted example sum = 46473.000000
+weighted label sum = 0.000000
+average loss = 0.994642
+total feature number = 511203
+CPU times: user 109 ms, sys: 24.4 ms, total: 134 ms
+Wall time: 10.8 s
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Let's write the forecast to a file, apply the reverse conversion of labels (there was a LabelEncoder and then +1 in the label) and send the solution to Kaggle.</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">write_to_submission_file</span><span class="p">(</span><span class="n">predicted_labels</span><span class="p">,</span> <span class="n">out_file</span><span class="p">,</span>
+                             <span class="n">target</span><span class="o">=</span><span class="s1">'user_id'</span><span class="p">,</span> <span class="n">index_label</span><span class="o">=</span><span class="s2">"session_id"</span><span class="p">):</span>
+    <span class="c1"># turn predictions into data frame and save as csv file</span>
+    <span class="n">predicted_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">predicted_labels</span><span class="p">,</span>
+                                <span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">predicted_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span>
+                                <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">target</span><span class="p">])</span>
+    <span class="n">predicted_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">out_file</span><span class="p">,</span> <span class="n">index_label</span><span class="o">=</span><span class="n">index_label</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">vw_pred</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'/content/drive/MyDrive/DATA/Stepik/Kaggle/vw_test_pred.csv'</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">vw_subm</span> <span class="o">=</span> <span class="n">class_encoder</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="n">vw_pred</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">write_to_submission_file</span><span class="p">(</span><span class="n">vw_subm</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">'/content/drive/MyDrive/DATA/Stepik/Kaggle/vw_pred_kaggle.csv'</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Let's do the same for SGD and logistic regression.</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">sgd_logit</span> <span class="o">=</span> <span class="n">SGDClassifier</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">'log'</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">17</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">sgd_logit</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_part_sparse</span><span class="p">,</span> <span class="n">y_train_part</span><span class="p">)</span>
+<span class="n">sgd_logit_test_pred</span> <span class="o">=</span> <span class="n">sgd_logit</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_sparse</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/usr/local/lib/python3.7/dist-packages/sklearn/linear_model/_stochastic_gradient.py:700: ConvergenceWarning: Maximum number of iteration reached before convergence. Consider increasing max_iter to improve the fit.
+  ConvergenceWarning,
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">logit</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">17</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">solver</span> <span class="o">=</span> <span class="s1">'lbfgs'</span><span class="p">)</span>
+<span class="n">logit</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_sparse</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">logit_test_pred</span> <span class="o">=</span> <span class="n">logit</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_sparse</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">write_to_submission_file</span><span class="p">(</span><span class="n">sgd_logit_test_pred</span><span class="p">,</span> 
+                         <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">'/content/drive/MyDrive/DATA/Stepik/Kaggle/sgd_pred.csv'</span><span class="p">))</span>
+<span class="n">write_to_submission_file</span><span class="p">(</span><span class="n">logit_test_pred</span><span class="p">,</span> 
+                         <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">'/content/drive/MyDrive/DATA/Stepik/Kaggle/logit_pred.csv'</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's look at the proportion of correct answers on the public part (public leaderboard) of the test sample <a href="https://www.kaggle.com/c/identify-me-if-you-can4">this</a> competitions.</p>
+<p><strong><font color="red">Question 4. </font> What is the proportion of correct answers on the public part of the test sample (public leaderboard) for Vowpal Wabbit?</strong></p>
+<p><strong><font color="red">Question 5. </font> What is the proportion of correct answers on the public part of the test sample (public leaderboard) for SGD?</strong></p>
+<p><strong><font color="red">Question 6. </font> What is the proportion of correct answers on the public part of the test sample (public leaderboard) for logistic regression?</strong></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">vw_lb_score</span><span class="p">,</span> <span class="n">sgd_lb_score</span><span class="p">,</span> <span class="n">logit_lb_score</span> <span class="o">=</span> <span class="mf">0.18164</span><span class="p">,</span> <span class="mf">0.16994</span><span class="p">,</span> <span class="mf">0.19060</span>
+
+<span class="n">write_answer_to_file</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">vw_lb_score</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span><span class="s1">'answer6_4.txt'</span><span class="p">))</span>
+<span class="n">write_answer_to_file</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">sgd_lb_score</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span><span class="s1">'answer6_5.txt'</span><span class="p">))</span>
+<span class="n">write_answer_to_file</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">logit_lb_score</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span><span class="s1">'answer6_6.txt'</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Logistic regression showed the best result among the other two algorithms Vowpal Wabbit and SGD, but more time is spent on its training. SGD showed the worst result, but nevertheless he learns quickly. Vowpal Wabbit showed higher quality than SGD.</strong></p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="Zmey56/blog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/graduation%20project/machine%20learning/stepik/yandex/vowpalwabbit/english/2019/09/15/project-identification-of-internet-users-task-week6.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/Zmey56" target="_blank" title="Zmey56"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/Zmey56" target="_blank" title="Zmey56"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
