@@ -4,9 +4,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Курсовой проект по стоимости квартиры | alex.gladkikh.org</title>
+<title>Course project on the cost of an apartment | alex.gladkikh.org</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Курсовой проект по стоимости квартиры" />
+<meta property="og:title" content="Course project on the cost of an apartment" />
 <meta name="author" content="Zmey56" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Course project on the cost of an apartment" />
@@ -17,7 +17,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-10-10T00:00:00-05:00" />
 <script type="application/ld+json">
-{"url":"https://zmey56.github.io/blog//course%20project/machine%20learning/classification/geekbrain/2021/10/10/course-project-regression-flat-price.html","@type":"BlogPosting","headline":"Курсовой проект по стоимости квартиры","dateModified":"2021-10-10T00:00:00-05:00","datePublished":"2021-10-10T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://zmey56.github.io/blog//course%20project/machine%20learning/classification/geekbrain/2021/10/10/course-project-regression-flat-price.html"},"author":{"@type":"Person","name":"Zmey56"},"description":"Course project on the cost of an apartment","@context":"https://schema.org"}</script>
+{"url":"https://zmey56.github.io/blog//course%20project/machine%20learning/classification/geekbrain/2021/10/10/course-project-regression-flat-price.html","@type":"BlogPosting","headline":"Course project on the cost of an apartment","dateModified":"2021-10-10T00:00:00-05:00","datePublished":"2021-10-10T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://zmey56.github.io/blog//course%20project/machine%20learning/classification/geekbrain/2021/10/10/course-project-regression-flat-price.html"},"author":{"@type":"Person","name":"Zmey56"},"description":"Course project on the cost of an apartment","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://zmey56.github.io/blog//feed.xml" title="alex.gladkikh.org" /><!-- the google_analytics_id gets auto inserted from the config file -->
 
@@ -78,7 +78,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Курсовой проект по стоимости квартиры</h1><p class="page-description">Course project on the cost of an apartment</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-10-10T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Course project on the cost of an apartment</h1><p class="page-description">Course project on the cost of an apartment</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-10-10T00:00:00-05:00" itemprop="datePublished">
         Oct 10, 2021
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -134,20 +134,20 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
-<li class="toc-entry toc-h1"><a href="#1.-Загружаю-данные">1. Загружаю данные </a></li>
-<li class="toc-entry toc-h1"><a href="#2.-Визуальный-анализ-данных">2. Визуальный анализ данных </a></li>
-<li class="toc-entry toc-h1"><a href="#3.-Подготовка-данных">3. Подготовка данных </a>
+<li class="toc-entry toc-h1"><a href="#1.-Uploading-data">1. Uploading data </a></li>
+<li class="toc-entry toc-h1"><a href="#2.-Visual-data-analysis">2. Visual data analysis </a></li>
+<li class="toc-entry toc-h1"><a href="#3.-Data-preparation">3. Data preparation </a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#3.1-Приведение-типов">3.1 Приведение типов </a></li>
-<li class="toc-entry toc-h3"><a href="#3.2.-Пропущенные-значения">3.2. Пропущенные значения </a></li>
-<li class="toc-entry toc-h3"><a href="#3.3.-Обработка-аномальных-значений">3.3. Обработка аномальных значений </a></li>
-<li class="toc-entry toc-h3"><a href="#3.4.-Обработка-уникальных-значений">3.4. Обработка уникальных значений </a></li>
-<li class="toc-entry toc-h3"><a href="#3.5.-Построение-новых-признаков">3.5. Построение новых признаков </a></li>
+<li class="toc-entry toc-h3"><a href="#3.1-Type-conversion">3.1 Type conversion </a></li>
+<li class="toc-entry toc-h3"><a href="#3.2.-Missing-values">3.2. Missing values </a></li>
+<li class="toc-entry toc-h3"><a href="#3.3.-Processing-of-abnormal-values">3.3. Processing of abnormal values </a></li>
+<li class="toc-entry toc-h3"><a href="#3.4.-Processing-unique-values">3.4. Processing unique values </a></li>
+<li class="toc-entry toc-h3"><a href="#3.5.-Building-new-features">3.5. Building new features </a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h1"><a href="#4.-Анализ">4. Анализ </a>
+<li class="toc-entry toc-h1"><a href="#4.-Analysis">4. Analysis </a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#4.1.-Отбор-признаков">4.1. Отбор признаков </a></li>
+<li class="toc-entry toc-h3"><a href="#4.1.-Selection-of-features">4.1. Selection of features </a></li>
 </ul>
 </li>
 </ul><!--
@@ -162,11 +162,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Текста будет немного, в основном решениие. Несмотря на негативный кай я считаю отзыв преподавателя - среди 60 однокурсников занял 2 место, а на kaggle 67 место из 487. Так что уважаемый преподаватель наверное что-то я улучшил удалось, а вы просто видимо загружены большим количеством контрольных и не смогли подробно разобрать. Но цитату Вашу привожу без изменений - может кому понадобиться:</p>
-<blockquote>
-<p>Вы добавили графики, не стали отбирать лучшие признаки и проверяли точность модели только на кагле. ник AlexTUT56? ваших новых признаков нет, схемы для валидации модели нет.
-блокнот, что мы разбирали на вебинаре, был дан как основа. либо вы предлагаете свое оригинальное решение, либо улучшаете существующее. улучшить не удалось.</p>
-</blockquote>
+<p>There won't be much text, mostly a solution. I took 2nd place among 60 classmates, and 67th place out of 487 on kaggle.</p>
 
 </div>
 </div>
@@ -262,39 +258,39 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="1.-Загружаю-данные">
-<a class="anchor" href="#1.-%D0%97%D0%B0%D0%B3%D1%80%D1%83%D0%B6%D0%B0%D1%8E-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Загружаю данные<a class="anchor-link" href="#1.-%D0%97%D0%B0%D0%B3%D1%80%D1%83%D0%B6%D0%B0%D1%8E-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5"> </a>
+<h1 id="1.-Uploading-data">
+<a class="anchor" href="#1.-Uploading-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Uploading data<a class="anchor-link" href="#1.-Uploading-data"> </a>
 </h1>
-<p><strong>Описание датасета</strong></p>
+<p><strong>Description of the dataset</strong></p>
 <ul>
 <li>
-<strong>Id</strong> - идентификационный номер квартиры</li>
+<strong>Id</strong> - apartment identification number</li>
 <li>
-<strong>DistrictId</strong> - идентификационный номер района</li>
+<strong>DistrictId</strong> - identification number of the district</li>
 <li>
-<strong>Rooms</strong> - количество комнат</li>
+<strong>Rooms</strong> - number of rooms</li>
 <li>
-<strong>Square</strong> - площадь</li>
+<strong>Square</strong> - Square</li>
 <li>
-<strong>LifeSquare</strong> - жилая площадь</li>
+<strong>Life Square</strong> - living area</li>
 <li>
-<strong>KitchenSquare</strong> - площадь кухни</li>
+<strong>KitchenSquare</strong> - kitchen area</li>
 <li>
-<strong>Floor</strong> - этаж</li>
+<strong>Floor</strong> - floor</li>
 <li>
-<strong>HouseFloor</strong> - количество этажей в доме</li>
+<strong>House Floor</strong> - number of floors in the house</li>
 <li>
-<strong>HouseYear</strong> - год постройки дома</li>
+<strong>House Year</strong> - the year the house was built</li>
 <li>
-<strong>Ecology_1, Ecology_2, Ecology_3</strong> - экологические показатели местности</li>
+<strong>Ecology_1, Ecology_2, Ecology_3</strong> - environmental indicators of the area</li>
 <li>
-<strong>Social_1, Social_2, Social_3</strong> - социальные показатели местности</li>
+<strong>Social_1, Social_2, Social_3</strong> - social indicators of the area</li>
 <li>
-<strong>Healthcare_1, Helthcare_2</strong> - показатели местности, связанные с охраной здоровья</li>
+<strong>Healthcare_1, Healthcare_2</strong> - terrain indicators related to health protection</li>
 <li>
-<strong>Shops_1, Shops_2</strong> - показатели, связанные с наличием магазинов, торговых центров</li>
+<strong>Shops_1, Shops_2</strong> - indicators related to the availability of stores, shopping centers</li>
 <li>
-<strong>Price</strong> - цена квартиры</li>
+<strong>Price</strong> - apartment price</li>
 </ul>
 
 </div>
@@ -743,8 +739,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="2.-Визуальный-анализ-данных">
-<a class="anchor" href="#2.-%D0%92%D0%B8%D0%B7%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Визуальный анализ данных<a class="anchor-link" href="#2.-%D0%92%D0%B8%D0%B7%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85"> </a>
+<h1 id="2.-Visual-data-analysis">
+<a class="anchor" href="#2.-Visual-data-analysis" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Visual data analysis<a class="anchor-link" href="#2.-Visual-data-analysis"> </a>
 </h1>
 </div>
 </div>
@@ -752,7 +748,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Воспользуюсь вариантом предложенным на уроке и собственными мыслями. Первым шагом познакомимся с данными. Построим их гистограммы, а тех, которых не много - box-plot.</p>
+<p>I will use the option offered in the lesson and my own thoughts. The first step is to get acquainted with the data. Let's build their histograms, and those that are not many - boxplot.</p>
 
 </div>
 </div>
@@ -965,8 +961,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="3.-Подготовка-данных">
-<a class="anchor" href="#3.-%D0%9F%D0%BE%D0%B4%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%BA%D0%B0-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Подготовка данных<a class="anchor-link" href="#3.-%D0%9F%D0%BE%D0%B4%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%BA%D0%B0-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85"> </a>
+<h1 id="3.-Data-preparation">
+<a class="anchor" href="#3.-Data-preparation" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Data preparation<a class="anchor-link" href="#3.-Data-preparation"> </a>
 </h1>
 </div>
 </div>
@@ -974,7 +970,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Для подготовки воспользуюсь примером из урока</p>
+<p>To prepare, I will use an example from the lesson</p>
 
 </div>
 </div>
@@ -982,8 +978,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.1-Приведение-типов">
-<a class="anchor" href="#3.1-%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D1%82%D0%B8%D0%BF%D0%BE%D0%B2" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.1 Приведение типов<a class="anchor-link" href="#3.1-%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D1%82%D0%B8%D0%BF%D0%BE%D0%B2"> </a>
+<h3 id="3.1-Type-conversion">
+<a class="anchor" href="#3.1-Type-conversion" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.1 Type conversion<a class="anchor-link" href="#3.1-Type-conversion"> </a>
 </h3>
 </div>
 </div>
@@ -1418,8 +1414,8 @@ memory usage: 1.8+ MB
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.2.-Пропущенные-значения">
-<a class="anchor" href="#3.2.-%D0%9F%D1%80%D0%BE%D0%BF%D1%83%D1%89%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5-%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D1%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.2. Пропущенные значения<a class="anchor-link" href="#3.2.-%D0%9F%D1%80%D0%BE%D0%BF%D1%83%D1%89%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5-%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D1%8F"> </a>
+<h3 id="3.2.-Missing-values">
+<a class="anchor" href="#3.2.-Missing-values" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.2. Missing values<a class="anchor-link" href="#3.2.-Missing-values"> </a>
 </h3>
 </div>
 </div>
@@ -1916,8 +1912,8 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.3.-Обработка-аномальных-значений">
-<a class="anchor" href="#3.3.-%D0%9E%D0%B1%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0-%D0%B0%D0%BD%D0%BE%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D1%85-%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B9" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.3. Обработка аномальных значений<a class="anchor-link" href="#3.3.-%D0%9E%D0%B1%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0-%D0%B0%D0%BD%D0%BE%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D1%85-%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B9"> </a>
+<h3 id="3.3.-Processing-of-abnormal-values">
+<a class="anchor" href="#3.3.-Processing-of-abnormal-values" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.3. Processing of abnormal values<a class="anchor-link" href="#3.3.-Processing-of-abnormal-values"> </a>
 </h3>
 </div>
 </div>
@@ -2431,8 +2427,8 @@ Name: Rooms, dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.4.-Обработка-уникальных-значений">
-<a class="anchor" href="#3.4.-%D0%9E%D0%B1%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0-%D1%83%D0%BD%D0%B8%D0%BA%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D1%85-%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B9" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.4. Обработка уникальных значений<a class="anchor-link" href="#3.4.-%D0%9E%D0%B1%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0-%D1%83%D0%BD%D0%B8%D0%BA%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D1%85-%D0%B7%D0%BD%D0%B0%D1%87%D0%B5%D0%BD%D0%B8%D0%B9"> </a>
+<h3 id="3.4.-Processing-unique-values">
+<a class="anchor" href="#3.4.-Processing-unique-values" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.4. Processing unique values<a class="anchor-link" href="#3.4.-Processing-unique-values"> </a>
 </h3>
 </div>
 </div>
@@ -2775,8 +2771,8 @@ Name: Rooms, dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.5.-Построение-новых-признаков">
-<a class="anchor" href="#3.5.-%D0%9F%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BD%D0%BE%D0%B2%D1%8B%D1%85-%D0%BF%D1%80%D0%B8%D0%B7%D0%BD%D0%B0%D0%BA%D0%BE%D0%B2" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.5. Построение новых признаков<a class="anchor-link" href="#3.5.-%D0%9F%D0%BE%D1%81%D1%82%D1%80%D0%BE%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BD%D0%BE%D0%B2%D1%8B%D1%85-%D0%BF%D1%80%D0%B8%D0%B7%D0%BD%D0%B0%D0%BA%D0%BE%D0%B2"> </a>
+<h3 id="3.5.-Building-new-features">
+<a class="anchor" href="#3.5.-Building-new-features" aria-hidden="true"><span class="octicon octicon-link"></span></a>3.5. Building new features<a class="anchor-link" href="#3.5.-Building-new-features"> </a>
 </h3>
 </div>
 </div>
@@ -3455,8 +3451,8 @@ Name: HouseFloor_cat, dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="4.-Анализ">
-<a class="anchor" href="#4.-%D0%90%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. Анализ<a class="anchor-link" href="#4.-%D0%90%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7"> </a>
+<h1 id="4.-Analysis">
+<a class="anchor" href="#4.-Analysis" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. Analysis<a class="anchor-link" href="#4.-Analysis"> </a>
 </h1>
 </div>
 </div>
@@ -3464,8 +3460,8 @@ Name: HouseFloor_cat, dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="4.1.-Отбор-признаков">
-<a class="anchor" href="#4.1.-%D0%9E%D1%82%D0%B1%D0%BE%D1%80-%D0%BF%D1%80%D0%B8%D0%B7%D0%BD%D0%B0%D0%BA%D0%BE%D0%B2" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.1. Отбор признаков<a class="anchor-link" href="#4.1.-%D0%9E%D1%82%D0%B1%D0%BE%D1%80-%D0%BF%D1%80%D0%B8%D0%B7%D0%BD%D0%B0%D0%BA%D0%BE%D0%B2"> </a>
+<h3 id="4.1.-Selection-of-features">
+<a class="anchor" href="#4.1.-Selection-of-features" aria-hidden="true"><span class="octicon octicon-link"></span></a>4.1. Selection of features<a class="anchor-link" href="#4.1.-Selection-of-features"> </a>
 </h3>
 </div>
 </div>
@@ -3554,7 +3550,6 @@ Name: HouseFloor_cat, dtype: int64</pre>
                  <span class="s1">'Helthcare_2'</span><span class="p">,</span>
                  <span class="s1">'Shops_1'</span><span class="p">,</span>
                  <span class="s1">'Shops_2'</span><span class="p">,</span>
-                 <span class="c1">#'Price',</span>
                  <span class="s1">'DistrictSize'</span><span class="p">,</span>
                  <span class="s1">'PriceOneRoomByDistrict'</span><span class="p">,</span>
                  <span class="s1">'RoomSquare'</span><span class="p">,</span>
