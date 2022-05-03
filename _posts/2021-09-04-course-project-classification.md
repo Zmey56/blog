@@ -21,7 +21,7 @@ According to the task presented, I needed to come up with a topic and create a d
 
 *Examples: describe the data storage model of a popular website: kinopoisk, booking.com , wikipedia, online store, geekbrains, public services...*
 
-I took [the article] as a basis (https://vertabelo.com/blog/a-data-model-for-trading-stocks-funds-and-cryptocurrencies /) posted on a foreign source. It shows the basic scheme. It remains only to translate it into SQL. First of all, the translation of the theory.
+I took [the article](https://vertabelo.com/blog/a-data-model-for-trading-stocks-funds-and-cryptocurrencies/) as a basis posted on a foreign source. It shows the basic scheme. It remains only to translate it into SQL. First of all, the translation of the theory.
 
 Trading cryptocurrencies, buying stocks and the like are extremely popular these days, as it is perceived as an easy profit. Prices are currently rising, but we can't know when that will change. On the other hand, we know that this will happen at some point. But we are not here to make financial forecasts. Instead, we'll talk about a data model that can be used to support trading in cryptocurrencies and financial instruments such as stocks or fund stocks.
 
@@ -361,7 +361,7 @@ The result is the following scheme:
 
 ### 5. Scripts for filling the database with data
 
-The filling was done through a popular site for generating fake data [Dummy Data for MYSQL Database] (http://filldb.info /)
+The filling was done through a popular site for generating fake data [Dummy Data for MYSQL Database](http://filldb.info /)
 
 ~~~~sql
 CREATE DATABASE coursework_portfolio;
