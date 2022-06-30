@@ -171,7 +171,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">yfinance</span> <span class="k">as</span> <span class="nn">yf</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">yfinance</span> <span class="k">as</span> <span class="nn">yf</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
@@ -193,7 +193,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">cryptocurrency</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'BTC-USD'</span><span class="p">,</span> <span class="s1">'ETH-USD'</span><span class="p">,</span> <span class="s1">'USDT-USD'</span><span class="p">,</span> <span class="s1">'XRP-USD'</span><span class="p">,</span> <span class="s1">'LTC-USD'</span><span class="p">,</span> <span class="s1">'BCH-USD'</span><span class="p">,</span> <span class="s1">'ADA-USD'</span><span class="p">,</span> <span class="s1">'BNB-USD'</span><span class="p">,</span> <span class="s1">'LINK-USD'</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cryptocurrency</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'BTC-USD'</span><span class="p">,</span> <span class="s1">'ETH-USD'</span><span class="p">,</span> <span class="s1">'USDT-USD'</span><span class="p">,</span> <span class="s1">'XRP-USD'</span><span class="p">,</span> <span class="s1">'LTC-USD'</span><span class="p">,</span> <span class="s1">'BCH-USD'</span><span class="p">,</span> <span class="s1">'ADA-USD'</span><span class="p">,</span> <span class="s1">'BNB-USD'</span><span class="p">,</span> <span class="s1">'LINK-USD'</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -210,7 +210,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">data</span><span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">cryptocurrency</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="s2">"2018-01-01"</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">"2020-12-31"</span><span class="p">)[</span><span class="s1">'Close'</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">cryptocurrency</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="s2">"2018-01-01"</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">"2020-12-31"</span><span class="p">)[</span><span class="s1">'Close'</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -241,7 +241,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -462,7 +462,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">))</span>
 
 <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">'BTC-USD'</span><span class="p">],</span> <span class="s1">'tab:blue'</span> <span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'BTC'</span><span class="p">)</span>
@@ -530,7 +530,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">return_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">return_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
 <span class="n">return_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
@@ -752,7 +752,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">var_matrix</span> <span class="o">=</span> <span class="n">return_data</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">var_matrix</span> <span class="o">=</span> <span class="n">return_data</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span>
 <span class="n">var_matrix</span>
 </pre></div>
 
@@ -1010,7 +1010,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">port_return</span> <span class="o">=</span> <span class="p">[]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">port_return</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="c1"># Initialize an empty list for storing the portfolio volatility</span>
 <span class="n">port_volatility</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1042,7 +1042,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="k">for</span> <span class="n">port</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_portfolio</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">port</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_portfolio</span><span class="p">):</span>
   <span class="c1"># Randomly generate weigh combination</span>
   <span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">num_assets</span><span class="p">)</span>
   <span class="c1"># Normalize weight so that they sum to 1</span>
@@ -1070,7 +1070,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">portfolio</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Returns'</span><span class="p">:</span> <span class="n">port_return</span><span class="p">,</span><span class="s1">'Volatility'</span><span class="p">:</span> <span class="n">port_volatility</span><span class="p">}</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">portfolio</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Returns'</span><span class="p">:</span> <span class="n">port_return</span><span class="p">,</span><span class="s1">'Volatility'</span><span class="p">:</span> <span class="n">port_volatility</span><span class="p">}</span>
 
 <span class="k">for</span> <span class="n">counter</span><span class="p">,</span> <span class="n">symbol</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()):</span>
   <span class="n">portfolio</span><span class="p">[</span><span class="n">symbol</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span><span class="p">[</span><span class="n">counter</span><span class="p">]</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">port_weights</span><span class="p">]</span>
@@ -1090,7 +1090,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">portfolios_V1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">portfolio</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">portfolios_V1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">portfolio</span><span class="p">)</span>
 <span class="n">portfolios_V1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
@@ -1312,7 +1312,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">rf</span> <span class="o">=</span> <span class="mf">0.02</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rf</span> <span class="o">=</span> <span class="mf">0.02</span>
 <span class="n">min_vol_port</span> <span class="o">=</span> <span class="n">portfolios_V1</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">portfolios_V1</span><span class="p">[</span><span class="s1">'Volatility'</span><span class="p">]</span><span class="o">.</span><span class="n">idxmin</span><span class="p">()]</span>
 <span class="n">optimal_risky_port</span> <span class="o">=</span> <span class="n">portfolios_V1</span><span class="o">.</span><span class="n">iloc</span><span class="p">[((</span><span class="n">portfolios_V1</span><span class="p">[</span><span class="s1">'Returns'</span><span class="p">]</span><span class="o">-</span><span class="n">rf</span><span class="p">)</span><span class="o">/</span><span class="n">portfolios_V1</span><span class="p">[</span><span class="s1">'Volatility'</span><span class="p">])</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()]</span>
 <span class="n">max_ret_port</span> <span class="o">=</span> <span class="n">portfolios_V1</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">portfolios_V1</span><span class="p">[</span><span class="s1">'Returns'</span><span class="p">]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()]</span>
@@ -1332,7 +1332,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">weights_min_vol</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">min_vol_port</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">weights_min_vol</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">min_vol_port</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
 
 <span class="c1">#weights in a portfolio with max Sharpe Ratio</span>
 <span class="n">weights_opt_sr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">optimal_risky_port</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
@@ -1363,7 +1363,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">df_weights</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">portfolios_V1</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_weights</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">portfolios_V1</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
 <span class="n">df_weights</span> <span class="o">=</span> <span class="n">df_weights</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">min_vol_port</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">"Minimum Volatility"</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 <span class="n">df_weights</span> <span class="o">=</span> <span class="n">df_weights</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">max_ret_port</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">"Maximum Returns"</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 <span class="n">df_weights</span> <span class="o">=</span> <span class="n">df_weights</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">optimal_risky_port</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">"Maximum Sharpe Ratio"</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
@@ -1391,7 +1391,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">array_returns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">return_data</span><span class="o">.</span><span class="n">dropna</span><span class="p">())</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">array_returns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">return_data</span><span class="o">.</span><span class="n">dropna</span><span class="p">())</span>
 <span class="n">array_cov</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">var_matrix</span><span class="p">)</span>
 </pre></div>
 
@@ -1409,7 +1409,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">mean_returns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">array_returns</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mean_returns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">array_returns</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1426,7 +1426,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">portfolios_V1_div</span> <span class="o">=</span> <span class="n">portfolios_V1</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">portfolios_V1_div</span> <span class="o">=</span> <span class="n">portfolios_V1</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -1443,7 +1443,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">div_ratio</span> <span class="o">=</span> <span class="p">[]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">div_ratio</span> <span class="o">=</span> <span class="p">[]</span>
 </pre></div>
 
     </div>
@@ -1460,7 +1460,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">portfolios_V1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">portfolios_V1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
   <span class="n">weight_vector</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">portfolios_V1</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">])[</span><span class="mi">2</span><span class="p">:]</span>
   <span class="n">portfolio_risk</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">weight_vector</span><span class="p">,</span><span class="n">array_cov</span><span class="p">)),</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">weight_vector</span><span class="p">)))</span>
   <span class="n">ann_portfolio_risk</span> <span class="o">=</span> <span class="n">portfolio_risk</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">252</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
@@ -1487,7 +1487,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">portfolios_V1_div</span><span class="p">[</span><span class="s1">'Diversification Ratio'</span><span class="p">]</span> <span class="o">=</span> <span class="n">div_ratio</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">portfolios_V1_div</span><span class="p">[</span><span class="s1">'Diversification Ratio'</span><span class="p">]</span> <span class="o">=</span> <span class="n">div_ratio</span>
 </pre></div>
 
     </div>
@@ -1504,7 +1504,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">div_port</span> <span class="o">=</span> <span class="n">portfolios_V1_div</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">portfolios_V1_div</span><span class="p">[</span><span class="s1">'Diversification Ratio'</span><span class="p">]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">div_port</span> <span class="o">=</span> <span class="n">portfolios_V1_div</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">portfolios_V1_div</span><span class="p">[</span><span class="s1">'Diversification Ratio'</span><span class="p">]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()]</span>
 <span class="n">df_weights</span> <span class="o">=</span> <span class="n">df_weights</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">div_port</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">"Maximum Diversification"</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 </pre></div>
 
@@ -1522,7 +1522,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">div_port</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">div_port</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -1555,7 +1555,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">weights_div</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">portfolios_V1_div</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">portfolios_V1_div</span><span class="p">[</span><span class="s1">'Diversification Ratio'</span><span class="p">]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()][</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">weights_div</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">portfolios_V1_div</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">portfolios_V1_div</span><span class="p">[</span><span class="s1">'Diversification Ratio'</span><span class="p">]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()][</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -1580,7 +1580,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">df_weights</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_weights</span>
 </pre></div>
 
     </div>
@@ -1787,7 +1787,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">df_weights_circle</span> <span class="o">=</span> <span class="n">df_weights</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">'Returns'</span><span class="p">,</span> <span class="s1">'Volatility'</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_weights_circle</span> <span class="o">=</span> <span class="n">df_weights</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">'Returns'</span><span class="p">,</span> <span class="s1">'Volatility'</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1804,7 +1804,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">df_weights_circle</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_weights_circle</span>
 </pre></div>
 
     </div>
@@ -1993,13 +1993,13 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">color_pie</span> <span class="o">=</span>  <span class="p">[</span><span class="s1">'Grey'</span><span class="p">,</span> <span class="s1">'Purple'</span><span class="p">,</span> <span class="s1">'Blue'</span><span class="p">,</span> <span class="s1">'Green'</span><span class="p">,</span> <span class="s1">'Orange'</span><span class="p">,</span> <span class="s1">'Red'</span><span class="p">,</span> <span class="s1">'Yellow'</span><span class="p">,</span> <span class="s1">'magenta'</span><span class="p">,</span> <span class="s1">'cyan'</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">color_pie</span> <span class="o">=</span>  <span class="p">[</span><span class="s1">'Grey'</span><span class="p">,</span> <span class="s1">'Purple'</span><span class="p">,</span> <span class="s1">'Blue'</span><span class="p">,</span> <span class="s1">'Green'</span><span class="p">,</span> <span class="s1">'Orange'</span><span class="p">,</span> <span class="s1">'Red'</span><span class="p">,</span> <span class="s1">'Yellow'</span><span class="p">,</span> <span class="s1">'magenta'</span><span class="p">,</span> <span class="s1">'cyan'</span><span class="p">]</span>
 <span class="n">color_pie_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">df_weights_circle</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">color_pie</span><span class="p">))</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">row</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df_weights_circle</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()):</span>
-  <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">i</span><span class="o">%</span><span class="mi">2</span><span class="p">]</span>
+  <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">i</span><span class="o">%</span><span class="k">2</span>]
   <span class="n">row</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="n">row</span><span class="o">.</span><span class="n">gt</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">*</span> <span class="o">.</span><span class="mi">01</span><span class="p">)]</span>
   <span class="n">ax</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">row</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="n">color_pie_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">row</span><span class="o">.</span><span class="n">index</span><span class="p">],</span> <span class="n">startangle</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
   <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
@@ -2053,7 +2053,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">data_2021</span><span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">cryptocurrency</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="s2">"2020-12-31"</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">"2021-12-31"</span><span class="p">)[</span><span class="s1">'Adj Close'</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_2021</span><span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">cryptocurrency</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="s2">"2020-12-31"</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">"2021-12-31"</span><span class="p">)[</span><span class="s1">'Adj Close'</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -2084,7 +2084,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">data_2021</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_2021</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -2297,7 +2297,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">return_data_2021</span> <span class="o">=</span> <span class="n">data_2021</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">return_data_2021</span> <span class="o">=</span> <span class="n">data_2021</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
 <span class="n">cum_daily_return</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">return_data_2021</span><span class="p">)</span><span class="o">.</span><span class="n">cumprod</span><span class="p">()</span>
 </pre></div>
 
@@ -2315,7 +2315,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">var_matrix_2021</span> <span class="o">=</span> <span class="n">return_data_2021</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">var_matrix_2021</span> <span class="o">=</span> <span class="n">return_data_2021</span><span class="o">.</span><span class="n">cov</span><span class="p">()</span>
 <span class="n">var_matrix_2021</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
@@ -2525,7 +2525,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">individual_rets_2021</span> <span class="o">=</span> <span class="n">data_2021</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">'Y'</span><span class="p">)</span><span class="o">.</span><span class="n">last</span><span class="p">()</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">individual_rets_2021</span> <span class="o">=</span> <span class="n">data_2021</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">'Y'</span><span class="p">)</span><span class="o">.</span><span class="n">last</span><span class="p">()</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -2542,7 +2542,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">result_2021</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result_2021</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -2559,7 +2559,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">df_weights_circle</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">df_weights_circle</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
   <span class="n">weight</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df_weights_circle</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
   <span class="n">ret</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">weight</span><span class="p">,</span> <span class="n">individual_rets_2021</span><span class="p">))</span>
   <span class="n">vol</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">weight</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">var_matrix</span><span class="o">*</span><span class="mi">252</span><span class="p">,</span><span class="n">weight</span><span class="p">)))</span> 
@@ -2581,7 +2581,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">result_2021</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result_2021</span>
 </pre></div>
 
     </div>
@@ -2743,7 +2743,7 @@ window.onload = wrap_img;
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-python"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 
 <span class="p">(</span><span class="n">cum_daily_return</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">weights_min_vol</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span> <span class="o">=</span> <span class="s1">'Minimum volatility'</span><span class="p">)</span>
 <span class="p">(</span><span class="n">cum_daily_return</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">weights_opt_sr</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span> <span class="o">=</span> <span class="s1">'Maximum Sharp'</span><span class="p">)</span>
