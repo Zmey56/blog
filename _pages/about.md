@@ -3,7 +3,7 @@ layout: page
 title: About Me
 permalink: /about/
 ---
-Hi, I'm [Alexander Gladkikh](https://www.linkedin.com/in/alsgladkikh/), and I made my own website on GitHub dedicated to my Hobbies: Machine learning, Deep Learning, and algorithmic trading.
+Hi, I'm [Alexander Gladkikh](https://www.linkedin.com/in/alsgladkikh/), and I made my own website on GitHub dedicated to my projects in Data Analytic, Machine learning, Deep Learning, and algorithmic trading.
 
 Participated in research at the scientific Institute in the following areas: psychology of behavior, physiology of nutrition, exposure to extreme temperatures and high pressure. I have a patent for an invention, and I am the author of more than 30 scientific papers. Participated in decommissioning of the radioactive waste storage facility, liquidation of the Soviet legacy, preparation of materials for environmental impact assessment and environmental expertise. Throughout my time, I have been studying the psychology of safe behavior and, thanks to my passion, additionally supervised the areas of digitalization in the field of occupational safety.
 
