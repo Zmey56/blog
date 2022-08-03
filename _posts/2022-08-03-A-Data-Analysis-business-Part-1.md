@@ -38,103 +38,103 @@ After that, we get to the window of work with the schedule, which is typical for
 
 In the Time range floor we click on no filter. We choose the previous.
 
-![](/images/Pic5.png)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Pic5.png)
 
 In the second step, we select the previous month and press **apply**.
 
-![](/images/Pic6.png)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Pic6.png)
 
 To calculate, go to the metrics field, go to the simple tab, select the user_id column and for *count_dictinct* and click **save**.
 
-![](/images/Pic7.png)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Pic7.png)
 
 After that in the big window we press **run query**. As a result, we get the first graph.
 
-![](/images/Pic8.png)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Pic8.png)
 
 After a little edit the name of the legend again by going to the metric and clicking on the pencil. Let's call our data - unique users.
 
-![](/images/Pic9.png)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Pic9.png)
 
 Next, save our graph to the dashboard by clicking save and entering the name of the graph and the dashboard where you want to save it.
 
-![](/images/Pic10.png)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Pic10.png)
 
 Now you can either repeat all the previous steps or in the same graph in the time green field change the period to weeks. Now we will get the number of unique users by weeks.
 
-![](/images/Pic11.png)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Pic11.png)
 
 Now, when saving, select Save as and name our graph as WAU
 
-![](/images/Pic12.png)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Pic12.png)
 
 With the monthly schedule, you must explicitly set the time interval. This is done by selecting Range Type - Custom and Start - Specific Data/Time. After that, select the date.
 
-![](/images/Pic13.png)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Pic13.png)
 
 We also save the graph on the dashboard as a MAU. Now we have three graphs on our dashboard.
 
-![](/images/Pic14.png)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Pic14.png)
 
 In the dashboard itself, we'll add a subheading, Audience Data, which will allow our data not to get mixed up.
 
-![](/images/Pic15.png)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Pic15.png)
 
 With the help of these graphs we have answered the first question - "how much? Now, since our users are interacting, we can go deeper and look at the target metrics. Let's do the same steps as before, choose the same linear graph. But now the construction method itself will be different. We will consider the development of the previous month. Let's select the user_id field again, but now we will do it with count instead of count_distinct.
 
-![](/images/Pic16.png)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Pic16.png)
 
 And in the group by field select the action column
 
-![](/images/Pic17.png)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Pic17.png)
 
 As a result, we get a graph on which the seasonality is already visually noticeable and we can draw initial conclusions from it. Let's save it, as well as the previous graphs, to our dashboard. Let's add a separator on the dashboard using the header - the main events.
 
-![](/images/Pic18.png)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Pic18.png)
 
 Next, let's move on to the construction of one of the main metrics - CTR. This is the primary metric that demonstrates the ratio of ad impressions to clicks on it. From the group by field delete all the values for grouping, and in the metrics field go to the tab custom sql and enter the code shown in the picture.
 
-![](/images/Pic19.png)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Pic19.png)
 
 Then we save the resulting graph to our dashboard.
 
-![](/images/Pic20.png)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Pic20.png)
 
 Now let's make a chart on the top views. To do this, go to charts, but now select table - table.
 
-![](/images/Pic21.png)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Pic21.png)
 
 After that, we will add three metrics using custom SQL and one using a standard function:
 
-![](/images/Pic22.png)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Pic22.png)
 
-![](/images/Pic23.png)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Pic23.png)
 
-![](/images/Pic24.png)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Pic24.png)
 
-![](/images/Pic25.png)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Pic25.png)
 
 We can say that we have taken the first step in the work of the analyst and now we can present information that can be visually evaluated by every specialist, regardless of direction.
 
-![](/images/Pic26.png)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Pic26.png)
 
 In order to make it easier to use the resulting graphs, let's add a filter. It will allow, if we need private statistics, not to go to each graph to make adjustments, but to perform this action directly on the dashboard. 
 
 As usual, go to chart and select Tools - Filter Box.
 
-![](/images/Pic27.png)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Pic27.png)
 
 In the filters field, let's select the type of operating system and the gender of our users as an example.
 
-![](/images/Pic28.png)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Pic28.png)
 
 And also select the possibility of selecting a time interval on the filter.
 
-![](/images/Pic29.png)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Pic29.png)
 
 Then we save the resulting filter to the dashboard and rearrange the graphs in the way that looks best to us visually. I got the following result as an example:
 
-![](/images/Pic30.png)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Pic30.png)
 
 We can say that we got the basic graphs by which we can visually evaluate our application on a daily basis. But this seemed to me not enough and I decided to add some more graphs. But to build them, I had to create sql queries to the database to get the required characteristics.
 
@@ -146,7 +146,7 @@ FROM simulator_20220520.feed_actions AS a
 JOIN simulator_20220520.message_actions AS b ON a.user_id = b.user_id
 ~~~~
 
-![](/images/Pic31.png)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Pic31.png)
 
 The next step, respectively, is to graph the users who only use the newsfeed.
 
@@ -156,7 +156,7 @@ FROM simulator_20220520.feed_actions AS a
 WHERE user_id NOT IN (SELECT user_id FROM simulator_20220520.message_actions AS b)
 ~~~~
 
-![](/images/Pic32.png)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Pic32.png)
 
 And the last step is to highlight the number of new users each day. Here you need to get the first date for each user in the sql query when you create the query, which will allow you to count the new users for individual days.
 
@@ -167,11 +167,11 @@ GROUP BY user_id
 ORDER BY 1, 2
 ~~~~
 
-![](/images/Pic33.png)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Pic33.png)
 
 As a result, we got a dashboard that can be used by any specialist in our companies and conduct visual analysis. From the graphs you can already make conclusions about the presence of seasonality, ups and downs, which will need to be more detailed, which we will do as an example in the next article.
 
-![](/images/Pic34.png)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Pic34.png)
 
 This concludes the first part, the rest will be in the next publications.
 
