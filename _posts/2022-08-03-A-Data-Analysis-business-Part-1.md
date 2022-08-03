@@ -22,7 +22,7 @@ Our first step is to create dashboards, from which we can already visually do th
 
 The first dashboard will be called Newsfeed - basic.
 
-![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/pic_first.png)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Pic1.png)
 
 We will start to fill it with graphs. So click on the plus sign in the upper right corner and you will see a menu. From it select the chart.
 
