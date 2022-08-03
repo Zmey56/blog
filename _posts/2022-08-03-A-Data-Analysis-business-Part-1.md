@@ -24,6 +24,8 @@ The first dashboard will be called Newsfeed - basic.
 
 ![](/images/pic_secon.png)
 
+![]({{site.baseurl}}/_posts/images/images/pic_secon.png "Lets go up!")
+
 We will start to fill it with graphs. So click on the plus sign in the upper right corner and you will see a menu. From it select the chart.
 
 ![](/images/pic_secon.png)
