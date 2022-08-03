@@ -22,9 +22,9 @@ Our first step is to create dashboards, from which we can already visually do th
 
 The first dashboard will be called Newsfeed - basic.
 
-![](/images/Pic1.png)
+![](/images/pic_first.png)
 
-![](/images/ER_diagram.png)
+![](/images/pic_first.png)
 
 We will start to fill it with graphs. So click on the plus sign in the upper right corner and you will see a menu. From it select the chart.
 
