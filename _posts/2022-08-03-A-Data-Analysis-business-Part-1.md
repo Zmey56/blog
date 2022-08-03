@@ -24,6 +24,8 @@ The first dashboard will be called Newsfeed - basic.
 
 ![](/images/Pic1.png)
 
+![](/images/ER_diagram.png)
+
 We will start to fill it with graphs. So click on the plus sign in the upper right corner and you will see a menu. From it select the chart.
 
 ![](/images/Pic2.png)
