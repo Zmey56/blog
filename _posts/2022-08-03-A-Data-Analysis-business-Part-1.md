@@ -22,21 +22,19 @@ Our first step is to create dashboards, from which we can already visually do th
 
 The first dashboard will be called Newsfeed - basic.
 
-![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/pic_secon.png)
-
-![]({{site.baseurl}}_posts/images/pic_secon.png "Lets go up!")
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/pic_first.png)
 
 We will start to fill it with graphs. So click on the plus sign in the upper right corner and you will see a menu. From it select the chart.
 
-![](/images/pic_secon.png)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/pic_secon.png)
 
 Next, go to the window where we need to select the table for analysis and type of chart. Usually for the analyst it is necessary to study the changes in the data over time. As they said in the lectures - it's important for the analyst to answer the first question - "How much?" To do this, you can use metrics of user activity for a specific period: per day (daily active users - DAU), per week (weekly active users - WAU) or per month (monthly active users - MAU). That's why we choose: Evolution - Line Chart and click in the lower right corner create new chart.
 
-![](/images/Pic3.png)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Pic3.png)
 
 After that, we get to the window of work with the schedule, which is typical for many BI systems:
 
-![](/images/Pic4.png)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Pic4.png)
 
 In the Time range floor we click on no filter. We choose the previous.
 
