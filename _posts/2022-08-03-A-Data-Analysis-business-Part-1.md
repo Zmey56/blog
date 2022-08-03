@@ -22,7 +22,7 @@ Our first step is to create dashboards, from which we can already visually do th
 
 The first dashboard will be called Newsfeed - basic.
 
-![](images/pic_secon.png)
+![image](https://github.com/Zmey56/blog/blob/master/_posts/images/pic_secon.png)
 
 ![]({{site.baseurl}}_posts/images/pic_secon.png "Lets go up!")
 
