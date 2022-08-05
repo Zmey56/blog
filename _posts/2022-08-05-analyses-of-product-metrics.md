@@ -125,7 +125,7 @@ ORDER BY diff_1 DESC,  day_0 DESC
 
 As a result , we get the following table:
 
-![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Analyses_of_Product_Metrics/img_12.jpeg)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Analyses_of_Product_Metrics/img_12.png)
 
 From it it becomes clear to us that the drop on this day is due to the lack of active users from large cities. Then this data can be transferred to the technical department or the department of attracting and retaining customers.
 The last step is to create a graph that shows an active audience from the point of view of new, old and departed users:
@@ -172,7 +172,7 @@ group by this_week, previous_week, status
 
 To build a chart, select VISUALIZATION TYPE - Time-series Bar Chart. In TIMECOLUMN we will choose this_week, and in TIMEGRAIN - Day. As a metric, we choose the aggregating function - AVG by num_users and group it by status. And as a result, we will have the following graph:
 
-![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Analyses_of_Product_Metrics/img_13.jpeg)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Analyses_of_Product_Metrics/img_13.png)
 
 This concludes the article on Analyses of Product Metrics. The next article will be devoted to A/B testing.
 
