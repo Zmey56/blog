@@ -13,8 +13,6 @@ In many publications on the Internet, you can find posts that there is little us
 ![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Analyses_of_Product_Metrics/img_1.png)
 
 There are two types of users in our news feed usage data: those who came through paid traffic source = 'ads', and those who came through organic channels source = 'organic'. Our task is to analyze and compare the Retention of these two groups of users.
-This time we will build a graph - heat map. We also need to make a request to the database, the response to which will contain the date of the first use of our application by the user and how many days he had interest.
-There are two types of users in our news feed usage data: those who came through paid traffic source = 'ads', and those who came through organic channels source = 'organic'. Our task is to analyze and compare the Retention of these two groups of users.
 This time we will build a graph - heat map. We also need to make a request to the database, the response to which will contain the date of the first use of our application by the user and how many days he had interest. The requests are of the same type, only the source changes. The selection of twenty days is connected with the fact that our schedule is visually readable.
 
 ~~~~sql

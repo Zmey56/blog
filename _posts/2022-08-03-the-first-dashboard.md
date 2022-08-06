@@ -2,9 +2,9 @@
 toc: true
 layout: post
 comments: true
-description: "A Data Analysis in Business Part 1"
+description: "The First Dashboard"
 categories: [data analysis, mysql, superset, BI]
-title: "A Data Analysis in Business Part 1"
+title: "The First Dashboard"
 ---
 I worked for a long time in large enterprises, in medicine and science in the roles of Data Analyst and Data Science. In February I had to leave the country I was living in, and I started looking for jobs as a Data Analyst or Data Science in various companies. But I faced the problem that even after completing test tasks, I was rejected with the wording that I had no commercial experience. After that I decided to take an internship - courses to understand the difference between the statistics I used and the ones used by other companies. It turned out that there were no differences. But I decided to share with you my projects, which I performed on these courses-internship. Maybe they will help someone not to get confused and understand where to start in the new place of work.
 
