@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Building an ETL-Pipeline (Airflow) | alex.gladkikh.org</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Building an ETL-Pipeline (Airflow)" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Building an ETL-Pipeline (Airflow)" />
+<meta property="og:description" content="Building an ETL-Pipeline (Airflow)" />
+<link rel="canonical" href="https://zmey56.github.io/blog//data%20analysis/mysql/airflow/etl/2022/08/19/Building-ETL-Pipeline-Airflow.html" />
+<meta property="og:url" content="https://zmey56.github.io/blog//data%20analysis/mysql/airflow/etl/2022/08/19/Building-ETL-Pipeline-Airflow.html" />
+<meta property="og:site_name" content="alex.gladkikh.org" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-08-19T00:00:00-05:00" />
+<script type="application/ld+json">
+{"url":"https://zmey56.github.io/blog//data%20analysis/mysql/airflow/etl/2022/08/19/Building-ETL-Pipeline-Airflow.html","@type":"BlogPosting","headline":"Building an ETL-Pipeline (Airflow)","dateModified":"2022-08-19T00:00:00-05:00","datePublished":"2022-08-19T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://zmey56.github.io/blog//data%20analysis/mysql/airflow/etl/2022/08/19/Building-ETL-Pipeline-Airflow.html"},"description":"Building an ETL-Pipeline (Airflow)","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://zmey56.github.io/blog//feed.xml" title="alex.gladkikh.org" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-183752218-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">alex.gladkikh.org</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a><a class="page-link" href="/search/">Search</a><a class="page-link" href="/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Building an ETL-Pipeline (Airflow)</h1><p class="page-description">Building an ETL-Pipeline (Airflow)</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-08-19T00:00:00-05:00" itemprop="datePublished">
+        Aug 19, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      8 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/categories/#data analysis">data analysis</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#mysql">mysql</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#Airflow">Airflow</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#ETL">ETL</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+</ul><p>I continue my publications on analytics:</p>
+
+<ul>
+  <li><a href="https://alex.gladkikh.org/data%20analysis/mysql/superset/bi/2022/08/03/the-first-dashboard.html">A Data Analysis in business - BI system and visualisation</a></li>
+  <li><a href="https://alex.gladkikh.org/data%20analysis/mysql/superset/bi/2022/08/05/analyses-of-product-metrics.html">Analyses of Product Metrics</a></li>
+  <li><a href="https://alex.gladkikh.org/data%20analysis/ab-test/aa-test/2022/08/09/aa-test-article.html">А/B-tests - Part 1/3(AA-test)</a></li>
+  <li><a href="https://alex.gladkikh.org/data%20analysis/ab-test/aa-test/2022/08/11/ab-test-article.html">А/B-tests - Part 2/3(AB-test)</a></li>
+  <li><a href="https://alex.gladkikh.org/data%20analysis/ab-test/metrics/2022/08/15/ab-test-article-metrics.html">A/B-tests - Part 3/3 (relationship metrics)</a></li>
+</ul>
+
+<p>Airflow is a library that allows you to work with the schedule and monitoring of tasks performed, similar to GitLab CI/CD. This tool is designed to solve ETL problems (Extract-&gt;Transform-&gt;Load).
+The Airflow interface looks like this:</p>
+
+<p><img src="https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Airflow_1/dags.png" alt="image"></p>
+
+<p>DAG is the main unit of work with Airflow. DAG stands for Directed Acyclic Graph. 
+A <strong>graph</strong> is a set of points (vertices, nodes) that are connected by a set of lines (edges, arcs).</p>
+
+<p><img src="https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Airflow_1/graph_theory.png" alt="image"></p>
+
+<p>A <strong>directed</strong> graph, also called a digraph, is a graph in which the edges have a direction.</p>
+
+<p><img src="https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Airflow_1/Unknow.png" alt="image"></p>
+
+<p>Graphs are called <strong>acyclic</strong> when in some directed graphs the development of the process can develop in a strictly defined direction - it is impossible to return back to the same element if you have already left it.</p>
+
+<p><img src="https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Airflow_1/acyclik.png" alt="image"></p>
+
+<p>Let’s go back to Airflow. The main page lists all available DAGs and, the All, Active and Paused tabs allow you to filter DAGs according to their execution status. Each DAG has a switch that is responsible for whether the DAG is active or not, then comes the name, owner, information about launches and their states, schedule (in Cron format), information on the last completed tasks and some hotkeys for working with the DAG: launch instantly, restart and delete.
+If you open a specific DAG, you can see more information about it:If you open a specific DAG, you can see more information about it:</p>
+
+<p><img src="https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Airflow_1/specific_dag.png" alt="image"></p>
+
+<p>Here you can visualize the DAG, look at its schedule, the duration of the execution of “small” tasks, the number of DAG launches, as well as other interesting things.
+The “tree” display of the DAG is convenient because you can track the history of tasks in the DAG:</p>
+
+<p><img src="https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Airflow_1/tree.png" alt="image"></p>
+
+<p>If something is broken (the task is highlighted not in green, but in some other color), you can click on it and open logs in the selected menu. This will allow you to track down what caused the breakdown.</p>
+
+<p><img src="https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Airflow_1/log.png" alt="image"></p>
+
+<p>An Airflow installation generally consists of the following components:</p>
+<ul>
+  <li>A <em>scheduler</em>, which handles both triggering scheduled workflows, and submitting <em>Tasks</em> to the executor to run.</li>
+  <li>An <em>executor</em>, which handles running tasks. In the default Airflow installation, this runs everything inside the scheduler, but most production-suitable executors actually push task execution out to workers.</li>
+  <li>A <em>webserver</em>, which presents a handy user interface to inspect, trigger and debug the behaviour of DAGs and tasks.</li>
+  <li>A folder of DAG <em>files</em>, read by the scheduler and executor (and any workers the executor has)</li>
+  <li>A <em>metadata database</em>, used by the scheduler, executor and webserver to store state.</li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Airflow_1/arch_diag_basic.png" alt="image"></p>
+
+<p>The <em>Task flow API</em> is an add - on that first appeared in AirFlow version 2.0, greatly simplifying the process of writing DAGs.
+The main elements that we can now work with are <a href="https://www.geeksforgeeks.org/decorators-in-python/">decorators</a>. Now, when we define our function in Python, we can mark it with the decorators <em>@dag()</em> and <em>@task()</em> - this way we let the interpreter know that it is working with a DAG or task.
+In order to use the Task Flow API, you must also import the corresponding functions.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">airflow.decorators</span> <span class="kn">import</span> <span class="n">dag</span><span class="p">,</span> <span class="n">task</span>
+</code></pre></div></div>
+
+<p>To create a DAG, now it is enough to create a function inside which there are other task functions, and write the appropriate decorator <em>@dag</em> in front of it.
+An example might look like this:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">default_args</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'owner'</span><span class="p">:</span> <span class="s">'a.gladkikh8'</span><span class="p">,</span>
+    <span class="s">'depends_on_past'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+    <span class="s">'retries'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s">'retry_delay'</span><span class="p">:</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+    <span class="s">'start_date'</span><span class="p">:</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+<span class="p">}</span>
+
+<span class="c1"># DAG start interval
+</span><span class="n">schedule_interval</span> <span class="o">=</span> <span class="s">'0 23 * * *'</span>
+
+<span class="o">@</span><span class="n">dag</span><span class="p">(</span><span class="n">default_args</span><span class="o">=</span><span class="n">default_args</span><span class="p">,</span> <span class="n">schedule_interval</span><span class="o">=</span><span class="n">schedule_interval</span><span class="p">,</span> <span class="n">catchup</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">top_10_airflow_2</span><span class="p">():</span>
+  <span class="k">pass</span>
+</code></pre></div></div>
+
+<p>We can also pass default_args arguments to the <em>@dag</em> decorator. These arguments define the behavior of our DAGs. You can also set others, including <em>schedule_interval</em>, which sets the frequency and time of the process.
+To create a task, add a new function to the -DAG function, which we mark with the decorator <em>@task()</em>.
+Parameters can also be passed to the <em>@task()</em> decorator. For example, retries indicates the number of repetitions of the DAG, if for some reason it did not work, and retry_delay indicates the time interval between these repetitions:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="o">@</span><span class="n">dag</span><span class="p">(</span>
+    <span class="n">schedule_interval</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+    <span class="n">start_date</span><span class="o">=</span><span class="n">pendulum</span><span class="p">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">tz</span><span class="o">=</span><span class="s">"UTC"</span><span class="p">),</span>
+    <span class="n">catchup</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+    <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s">'example'</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">example_dag_decorator</span><span class="p">(</span><span class="n">email</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s">'example@example.com'</span><span class="p">):</span>
+    <span class="s">"""
+    DAG to send server IP to email.
+
+    :param email: Email to send IP to. Defaults to example@example.com.
+    """</span>
+    <span class="n">get_ip</span> <span class="o">=</span> <span class="n">GetRequestOperator</span><span class="p">(</span><span class="n">task_id</span><span class="o">=</span><span class="s">'get_ip'</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="s">"http://httpbin.org/get"</span><span class="p">)</span>
+
+    <span class="o">@</span><span class="n">task</span><span class="p">(</span><span class="n">multiple_outputs</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">prepare_email</span><span class="p">(</span><span class="n">raw_json</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+        <span class="n">external_ip</span> <span class="o">=</span> <span class="n">raw_json</span><span class="p">[</span><span class="s">'origin'</span><span class="p">]</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s">'subject'</span><span class="p">:</span> <span class="s">f'Server connected from </span><span class="si">{</span><span class="n">external_ip</span><span class="si">}</span><span class="s">'</span><span class="p">,</span>
+            <span class="s">'body'</span><span class="p">:</span> <span class="s">f'Seems like today your server executing Airflow is connected from IP </span><span class="si">{</span><span class="n">external_ip</span><span class="si">}</span><span class="s">&lt;br&gt;'</span><span class="p">,</span>
+        <span class="p">}</span>
+
+    <span class="n">email_info</span> <span class="o">=</span> <span class="n">prepare_email</span><span class="p">(</span><span class="n">get_ip</span><span class="p">.</span><span class="n">output</span><span class="p">)</span>
+
+    <span class="n">EmailOperator</span><span class="p">(</span>
+        <span class="n">task_id</span><span class="o">=</span><span class="s">'send_email'</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="n">email</span><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="n">email_info</span><span class="p">[</span><span class="s">'subject'</span><span class="p">],</span> <span class="n">html_content</span><span class="o">=</span><span class="n">email_info</span><span class="p">[</span><span class="s">'body'</span><span class="p">]</span>
+    <span class="p">)</span>
+
+
+<span class="n">dag</span> <span class="o">=</span> <span class="n">example_dag_decorator</span><span class="p">()</span>
+
+</code></pre></div></div>
+
+<p>Separately, I want to make a digression on the decryption of the parameters passed during DAG initialization:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">default_args</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'owner'</span><span class="p">:</span> <span class="s">'your_name'</span><span class="p">,</span> <span class="c1"># Owner of the operation 
+</span>    <span class="s">'depends_on_past'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span> <span class="c1"># Dependence on past launches
+</span>
+    <span class="s">'retries'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="c1"># Number of attempts to perform DAG
+</span>    <span class="s">'retry_delay'</span><span class="p">:</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span> <span class="c1"># The interval between restarts
+</span>
+    <span class="s">'email'</span><span class="p">:</span> <span class="s">''</span><span class="p">,</span> <span class="c1"># Email for notifications 
+</span>    <span class="s">'email_on_failure'</span><span class="p">:</span> <span class="s">''</span><span class="p">,</span> <span class="c1"># Mail for error notifications
+</span>    <span class="s">'email_on_retry'</span><span class="p">:</span> <span class="s">''</span><span class="p">,</span> <span class="c1"># Mail for restart notifications
+</span>
+    <span class="s">'retry_exponential_backoff'</span><span class="p">:</span> <span class="s">''</span><span class="p">,</span> <span class="c1"># To establish exponential time between restarts
+</span>    <span class="s">'max_retry_delay'</span><span class="p">:</span> <span class="s">''</span><span class="p">,</span> <span class="c1"># Maximum amount of time to restart
+</span>
+    <span class="s">'start_date'</span><span class="p">:</span> <span class="s">''</span><span class="p">,</span> <span class="c1"># Дата начала выполнения DAG
+</span>    <span class="s">'end_date'</span><span class="p">:</span> <span class="s">''</span><span class="p">,</span> <span class="c1"># Date of completion of DAG execution
+</span>
+    <span class="s">'on_failure_callback'</span><span class="p">:</span> <span class="s">''</span><span class="p">,</span> <span class="c1"># Run the function if the DAG has fallen
+</span>    <span class="s">'on_success_callback'</span><span class="p">:</span> <span class="s">''</span><span class="p">,</span> <span class="c1"># Run the function if the DAG is executed
+</span>    <span class="s">'on_retry_callback'</span><span class="p">:</span> <span class="s">''</span><span class="p">,</span> <span class="c1"># Run the function if the DAG has gone to restart
+</span>    <span class="s">'on_execute_callback'</span><span class="p">:</span> <span class="s">''</span><span class="p">,</span> <span class="c1"># Run the function if the DAG has started executing
+</span>     <span class="c1"># Задать документацию
+</span>    <span class="s">'doc'</span><span class="p">:</span> <span class="s">''</span><span class="p">,</span>
+    <span class="s">'doc_md'</span><span class="p">:</span> <span class="s">''</span><span class="p">,</span>
+    <span class="s">'doc_rst'</span><span class="p">:</span> <span class="s">''</span><span class="p">,</span>
+    <span class="s">'doc_json'</span><span class="p">:</span> <span class="s">''</span><span class="p">,</span>
+    <span class="s">'doc_yaml'</span><span class="p">:</span> <span class="s">''</span>
+<span class="p">}</span>
+
+<span class="n">schedule_interval</span> <span class="o">=</span> <span class="s">'0 12 * * *'</span> <span class="c1"># cron expression, you can also use '@daily', '@weekly', and timedelta
+</span><span class="n">dag</span> <span class="o">=</span> <span class="n">DAG</span><span class="p">(</span><span class="s">'DAG_name'</span>
+</code></pre></div></div>
+
+<p>At the end, I will present my DAG hosted in airflow, which transmits data for the previous days. DAG logic:</p>
+
+<ol>
+  <li>Processes two tables in parallel. In feed_actions, the number of views and likes of content is calculated for each user. In message_actions, for each user, it counts how many messages he receives and sends, how many people he writes to, how many people write to him. Each unloading is in a separate task.</li>
+  <li>From the resulting table, it counts all metrics by gender, age and OS. Makes three different cars for each slice.</li>
+  <li>Writes the final data with all metrics to a separate table in ClickHouse.</li>
+  <li>Every day the table is updated with new data.</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">pandahouse</span> <span class="k">as</span> <span class="n">ph</span>
+
+<span class="kn">from</span> <span class="nn">airflow</span> <span class="kn">import</span> <span class="n">DAG</span>
+<span class="kn">from</span> <span class="nn">airflow.operators.python_operator</span> <span class="kn">import</span> <span class="n">PythonOperator</span> <span class="c1"># Так как мы пишет такси в питоне
+</span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+<span class="kn">from</span> <span class="nn">airflow.decorators</span> <span class="kn">import</span> <span class="n">dag</span><span class="p">,</span> <span class="n">task</span>
+<span class="kn">from</span> <span class="nn">airflow.operators.python</span> <span class="kn">import</span> <span class="n">get_current_context</span>
+
+
+<span class="n">default_args</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'owner'</span><span class="p">:</span> <span class="s">'a-gladkikh-8'</span><span class="p">,</span>
+    <span class="s">'depends_on_past'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span> 
+    <span class="s">'retries'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> 
+    <span class="s">'retry_delay'</span><span class="p">:</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>  
+    <span class="s">'start_date'</span><span class="p">:</span> <span class="n">datetime</span> <span class="p">(</span><span class="mi">2022</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">schedule_interval</span> <span class="o">=</span> <span class="s">'0 12 * * *'</span>
+
+<span class="n">connection_rw</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'host'</span><span class="p">:</span> <span class="s">'https://clickhouse.lab.karpov.courses'</span><span class="p">,</span>
+    <span class="s">'password'</span><span class="p">:</span> <span class="s">'656e2b0c9c'</span><span class="p">,</span>
+    <span class="s">'user'</span><span class="p">:</span> <span class="s">'student-rw'</span><span class="p">,</span>
+    <span class="s">'database'</span><span class="p">:</span> <span class="s">'test'</span><span class="p">}</span>
+
+<span class="n">connection_ro</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'host'</span><span class="p">:</span> <span class="s">'https://clickhouse.lab.karpov.courses'</span><span class="p">,</span>
+    <span class="s">'password'</span><span class="p">:</span> <span class="s">'dpo_python_2020'</span><span class="p">,</span>
+    <span class="s">'user'</span><span class="p">:</span> <span class="s">'student'</span><span class="p">,</span>
+    <span class="s">'database'</span><span class="p">:</span> <span class="s">'simulator'</span><span class="p">}</span>
+
+<span class="o">@</span><span class="n">dag</span><span class="p">(</span><span class="n">default_args</span><span class="o">=</span><span class="n">default_args</span><span class="p">,</span> <span class="n">schedule_interval</span><span class="o">=</span><span class="n">schedule_interval</span><span class="p">,</span> <span class="n">catchup</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">report_zmey56_table</span><span class="p">():</span>
+
+    <span class="o">@</span><span class="n">task</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">get_feed_action</span><span class="p">():</span>
+        <span class="n">views_and_likes_per_user</span> <span class="o">=</span> <span class="s">"""
+        SELECT
+            toDate(time) event_date,
+            user_id,
+            gender,
+            multiIf(age &lt; 18, '&lt;18',
+                    age &gt;= 18 and age &lt; 20, '18-19',
+                    age &gt;= 20 and age &lt; 30, '20-29',
+                    age &gt;= 30 and age &lt; 40, '30-39',
+                    age &gt;= 40 and age &lt; 50, '40-49',
+                    age &gt;= 50 and age &lt; 50, '50-49',
+                     '&gt;60')  age,
+            os,
+            countIf(action, action='like') likes,
+            countIf(action, action='view') views
+        FROM 
+        simulator_20220620.feed_actions
+        where toDate(time) = yesterday()
+        group by event_date,user_id,gender,age,os
+        """</span>
+        <span class="k">return</span> <span class="n">ph</span><span class="p">.</span><span class="n">read_clickhouse</span><span class="p">(</span><span class="n">query</span><span class="o">=</span><span class="n">views_and_likes_per_user</span><span class="p">,</span> <span class="n">connection</span><span class="o">=</span><span class="n">connection_ro</span><span class="p">)</span>
+    <span class="o">@</span><span class="n">task</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">get_message_action</span><span class="p">():</span>
+        <span class="n">recive_and_send_message_per_user</span> <span class="o">=</span> <span class="s">"""
+        with send as(
+        select
+            toDate(time) event_date,
+            user_id,
+            gender,
+            multiIf(age &lt; 18, '&lt;18',
+                    age &gt;= 18 and age &lt; 20, '18-19',
+                    age &gt;= 20 and age &lt; 30, '20-29',
+                    age &gt;= 30 and age &lt; 40, '30-39',
+                    age &gt;= 40 and age &lt; 50, '40-49',
+                    age &gt;= 50 and age &lt; 50, '50-49',
+                     '&gt;60')  age,
+            os,
+            count(*) messages_sent,
+            uniqExact(reciever_id) users_sent
+        FROM 
+        simulator_20220620.message_actions
+        where toDate(time) = yesterday()
+        group by event_date,user_id,gender,age,os),
+
+        recieve as(
+        select
+            toDate(time) event_date,
+            reciever_id,
+            count(*) messages_received,
+            uniqExact(user_id) users_received
+        FROM 
+        simulator_20220620.message_actions
+        where toDate(time) = yesterday()
+        group by event_date, reciever_id)
+
+        select 
+            event_date,
+            user_id,
+            gender,
+            age,
+            os,
+            messages_sent,
+            users_sent,
+            messages_received,
+            users_received
+        from send
+        left join  recieve on send.user_id = recieve.reciever_id
+        """</span>
+        <span class="k">return</span> <span class="n">ph</span><span class="p">.</span><span class="n">read_clickhouse</span><span class="p">(</span><span class="n">query</span><span class="o">=</span><span class="n">recive_and_send_message_per_user</span><span class="p">,</span> <span class="n">connection</span><span class="o">=</span><span class="n">connection_ro</span><span class="p">)</span>
+    <span class="o">@</span><span class="n">task</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="n">df_1</span><span class="p">,</span> <span class="n">df_2</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">df_1</span><span class="p">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_2</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s">'outer'</span><span class="p">).</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="o">@</span><span class="n">task</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">age_group</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">df</span><span class="p">.</span><span class="n">groupby</span><span class="p">([</span><span class="s">'event_date'</span><span class="p">,</span><span class="s">'age'</span><span class="p">])</span>
+                 <span class="p">.</span><span class="n">agg</span><span class="p">({</span><span class="s">'messages_sent'</span><span class="p">:</span> <span class="nb">sum</span><span class="p">,</span>
+                       <span class="s">'users_sent'</span><span class="p">:</span> <span class="nb">sum</span><span class="p">,</span>
+                       <span class="s">'messages_received'</span><span class="p">:</span> <span class="nb">sum</span><span class="p">,</span>
+                       <span class="s">'users_received'</span><span class="p">:</span> <span class="nb">sum</span><span class="p">,</span>
+                       <span class="s">'likes'</span><span class="p">:</span> <span class="nb">sum</span><span class="p">,</span>
+                       <span class="s">'views'</span><span class="p">:</span> <span class="nb">sum</span><span class="p">,</span>
+                      <span class="p">}).</span><span class="n">reset_index</span><span class="p">()</span>
+                        <span class="p">.</span><span class="n">assign</span><span class="p">(</span><span class="n">metric</span> <span class="o">=</span> <span class="s">'age'</span><span class="p">)</span>
+                        <span class="p">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s">'age'</span><span class="p">:</span><span class="s">'metric_value'</span><span class="p">}))</span>
+    <span class="o">@</span><span class="n">task</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">gender_group</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">df</span><span class="p">.</span><span class="n">groupby</span><span class="p">([</span><span class="s">'event_date'</span><span class="p">,</span><span class="s">'gender'</span><span class="p">])</span>
+                 <span class="p">.</span><span class="n">agg</span><span class="p">({</span><span class="s">'messages_sent'</span><span class="p">:</span> <span class="nb">sum</span><span class="p">,</span>
+                       <span class="s">'users_sent'</span><span class="p">:</span> <span class="nb">sum</span><span class="p">,</span>
+                       <span class="s">'messages_received'</span><span class="p">:</span> <span class="nb">sum</span><span class="p">,</span>
+                       <span class="s">'users_received'</span><span class="p">:</span> <span class="nb">sum</span><span class="p">,</span>
+                       <span class="s">'likes'</span><span class="p">:</span> <span class="nb">sum</span><span class="p">,</span>
+                       <span class="s">'views'</span><span class="p">:</span> <span class="nb">sum</span><span class="p">,</span>
+                      <span class="p">}).</span><span class="n">reset_index</span><span class="p">()</span>
+                        <span class="p">.</span><span class="n">assign</span><span class="p">(</span><span class="n">metric</span> <span class="o">=</span> <span class="s">'gender'</span><span class="p">)</span>
+                        <span class="p">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s">'gender'</span><span class="p">:</span><span class="s">'metric_value'</span><span class="p">}))</span>
+    <span class="o">@</span><span class="n">task</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">os_group</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">df</span><span class="p">.</span><span class="n">groupby</span><span class="p">([</span><span class="s">'event_date'</span><span class="p">,</span><span class="s">'os'</span><span class="p">])</span>
+                 <span class="p">.</span><span class="n">agg</span><span class="p">({</span><span class="s">'messages_sent'</span><span class="p">:</span> <span class="nb">sum</span><span class="p">,</span>
+                       <span class="s">'users_sent'</span><span class="p">:</span> <span class="nb">sum</span><span class="p">,</span>
+                       <span class="s">'messages_received'</span><span class="p">:</span> <span class="nb">sum</span><span class="p">,</span>
+                       <span class="s">'users_received'</span><span class="p">:</span> <span class="nb">sum</span><span class="p">,</span>
+                       <span class="s">'likes'</span><span class="p">:</span> <span class="nb">sum</span><span class="p">,</span>
+                       <span class="s">'views'</span><span class="p">:</span> <span class="nb">sum</span><span class="p">,</span>
+                      <span class="p">}).</span><span class="n">reset_index</span><span class="p">()</span>
+                        <span class="p">.</span><span class="n">assign</span><span class="p">(</span><span class="n">metric</span> <span class="o">=</span> <span class="s">'os'</span><span class="p">)</span>
+                        <span class="p">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s">'os'</span><span class="p">:</span><span class="s">'metric_value'</span><span class="p">}))</span>
+    <span class="o">@</span><span class="n">task</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">concat</span><span class="p">(</span><span class="n">df_1</span><span class="p">,</span> <span class="n">df_2</span><span class="p">,</span> <span class="n">df_3</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="p">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_1</span><span class="p">,</span><span class="n">df_2</span><span class="p">,</span><span class="n">df_3</span><span class="p">]).</span><span class="n">astype</span><span class="p">({</span><span class="s">'metric_value'</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span>
+                                                       <span class="s">'messages_sent'</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                                                       <span class="s">'users_sent'</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span>
+                                                       <span class="s">'messages_received'</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span>
+                                                       <span class="s">'users_received'</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span>
+                                                       <span class="s">'likes'</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span>
+                                                       <span class="s">'views'</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span>
+                                                       <span class="s">'metric'</span><span class="p">:</span> <span class="nb">str</span>
+                                                      <span class="p">})[[</span><span class="s">'event_date'</span><span class="p">,</span> <span class="s">'metric'</span><span class="p">,</span> <span class="s">'metric_value'</span><span class="p">,</span> <span class="s">'views'</span><span class="p">,</span> <span class="s">'likes'</span><span class="p">,</span><span class="s">'messages_received'</span><span class="p">,</span> <span class="s">'messages_sent'</span><span class="p">,</span> <span class="s">'users_received'</span><span class="p">,</span> <span class="s">'users_sent'</span><span class="p">]]</span>     
+    <span class="o">@</span><span class="n">task</span><span class="p">()</span>    
+    <span class="k">def</span> <span class="nf">load_df_to_ch</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">ph</span><span class="p">.</span><span class="n">to_clickhouse</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s">'agladkikh8'</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">connection</span><span class="o">=</span><span class="n">connection_rw</span><span class="p">)</span>
+    
+    <span class="n">feed_df</span> <span class="o">=</span> <span class="n">get_feed_action</span><span class="p">()</span>
+    <span class="n">message_df</span><span class="o">=</span><span class="n">get_message_action</span><span class="p">()</span>
+    <span class="n">app_df</span> <span class="o">=</span> <span class="n">merge</span><span class="p">(</span><span class="n">feed_df</span><span class="p">,</span><span class="n">message_df</span><span class="p">)</span>
+    <span class="n">os_df</span> <span class="o">=</span> <span class="n">os_group</span><span class="p">(</span><span class="n">app_df</span><span class="p">)</span>
+    <span class="n">gender_df</span> <span class="o">=</span> <span class="n">gender_group</span><span class="p">(</span><span class="n">app_df</span><span class="p">)</span>
+    <span class="n">age_df</span> <span class="o">=</span> <span class="n">age_group</span><span class="p">(</span><span class="n">app_df</span><span class="p">)</span>
+    <span class="n">full_df</span> <span class="o">=</span> <span class="n">concat</span><span class="p">(</span><span class="n">os_df</span><span class="p">,</span><span class="n">gender_df</span><span class="p">,</span><span class="n">age_df</span><span class="p">)</span>
+    <span class="n">load_df_to_ch</span><span class="p">(</span><span class="n">full_df</span><span class="p">)</span>
+    
+<span class="n">report_zmey56_table</span> <span class="o">=</span> <span class="n">report_zmey56_table</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>That’s all for now. In the next article, we will continue to work with report automation.</p>
+
+<p>Source images:</p>
+<ul>
+  <li>https://airflow.apache.org</li>
+  <li>https://www.researchgate.net</li>
+  <li>https://www.educative.io</li>
+  <li>https://en.wikipedia.org</li>
+</ul>
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="Zmey56/blog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/data%20analysis/mysql/airflow/etl/2022/08/19/Building-ETL-Pipeline-Airflow.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/Zmey56" target="_blank" title="Zmey56"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/Zmey56" target="_blank" title="Zmey56"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
