@@ -26,7 +26,7 @@ A **graph** is a set of points (vertices, nodes) that are connected by a set of 
 
 A **directed** graph, also called a digraph, is a graph in which the edges have a direction.
 
-![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Airflow_1/Unknow.png)
+![image](https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Airflow_1/Unknown.png)
 
 Graphs are called **acyclic** when in some directed graphs the development of the process can develop in a strictly defined direction - it is impossible to return back to the same element if you have already left it.
 
