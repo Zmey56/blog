@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Automation of reporting | alex.gladkikh.org</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Automation of reporting" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Automation of reporting" />
+<meta property="og:description" content="Automation of reporting" />
+<link rel="canonical" href="https://zmey56.github.io/blog//data%20analysis/mysql/gitlab/telegram/bot/2022/08/24/Automation-of-reporting.html" />
+<meta property="og:url" content="https://zmey56.github.io/blog//data%20analysis/mysql/gitlab/telegram/bot/2022/08/24/Automation-of-reporting.html" />
+<meta property="og:site_name" content="alex.gladkikh.org" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-08-24T00:00:00-05:00" />
+<script type="application/ld+json">
+{"url":"https://zmey56.github.io/blog//data%20analysis/mysql/gitlab/telegram/bot/2022/08/24/Automation-of-reporting.html","@type":"BlogPosting","headline":"Automation of reporting","dateModified":"2022-08-24T00:00:00-05:00","datePublished":"2022-08-24T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://zmey56.github.io/blog//data%20analysis/mysql/gitlab/telegram/bot/2022/08/24/Automation-of-reporting.html"},"description":"Automation of reporting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://zmey56.github.io/blog//feed.xml" title="alex.gladkikh.org" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-183752218-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">alex.gladkikh.org</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a><a class="page-link" href="/search/">Search</a><a class="page-link" href="/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Automation of reporting</h1><p class="page-description">Automation of reporting</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-08-24T00:00:00-05:00" itemprop="datePublished">
+        Aug 24, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      6 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/categories/#data analysis">data analysis</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#mysql">mysql</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#gitlab">gitlab</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#telegram">telegram</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#bot">bot</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+</ul><p>I continue my publications on analytics:</p>
+
+<ul>
+  <li><a href="https://alex.gladkikh.org/data%20analysis/mysql/superset/bi/2022/08/03/the-first-dashboard.html">A Data Analysis in business - BI system and visualisation</a></li>
+  <li><a href="https://alex.gladkikh.org/data%20analysis/mysql/superset/bi/2022/08/05/analyses-of-product-metrics.html">Analyses of Product Metrics</a></li>
+  <li><a href="https://alex.gladkikh.org/data%20analysis/ab-test/aa-test/2022/08/09/aa-test-article.html">А/B-tests - Part 1/3(AA-test)</a></li>
+  <li><a href="https://alex.gladkikh.org/data%20analysis/ab-test/aa-test/2022/08/11/ab-test-article.html">А/B-tests - Part 2/3(AB-test)</a></li>
+  <li><a href="https://alex.gladkikh.org/data%20analysis/ab-test/metrics/2022/08/15/ab-test-article-metrics.html">A/B-tests - Part 3/3 (relationship metrics)</a></li>
+  <li><a href="https://alex.gladkikh.org/data%20analysis/mysql/airflow/etl/2022/08/19/Building-ETL-Pipeline-Airflow.html">Building an ETL-Pipeline (Airflow)</a></li>
+</ul>
+
+<p>In this series of articles, we will deal with the automation of basic reporting. We will set up automatic sending of the report in a telegram.
+How to create a bot:</p>
+<ol>
+  <li>First, let’s create our own telegram bot using @BotFather.</li>
+  <li>Click on start and send the command /newbot.</li>
+  <li>Next, we will enter the name of the future bot (my neme - Zmey56_test). The name may not be unique, it can be changed. </li>
+  <li>Then enter the nickname of the bot. The nickname must necessarily end with the word “bot” and be unique. It cannot be changed.</li>
+</ol>
+
+<p><img src="https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Automation_reporting_1/tel_1.png" alt="image"></p>
+
+<p><img src="https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Automation_reporting_1/tel_2.png" alt="image"></p>
+
+<p>Now we need to find the chat_id to which the bot will send information. It is important to note that telegram is configured so that chat_id has a positive value for personal chats, and a negative value for groups. Start a dialogue with the bot to allow him to write in private messages. To do this, follow the link t.me /<nickname of="" the="" bot=""> and launch the bot. To allow the bot to write to the chat/channel, first add the bot there and give it the rights to send messages in the channel settings. To get the chat_id, use the link: https://api.telegram.org/bot <your_bot token="">/getUpdates. As a result, you will receive the following response, where you can find the necessary chat_id:</your_bot></nickname></p>
+
+<p><img src="https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Automation_reporting_1/tel_3.png" alt="image"></p>
+
+<p>Now let’s start managing the bot via python. To do this, you need to install the <strong>telegram</strong> and <strong>python-telegram-bot</strong> libraries.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pip</span> <span class="n">install</span> <span class="n">telegram</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">telegram</span><span class="o">-</span><span class="n">bot</span>
+</code></pre></div></div>
+
+<p>After that, we will check our bot how it works.</p>
+
+<p>Getting access to the bot</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">telegram</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="n">sns</span>
+<span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+
+<span class="n">my_token</span> <span class="o">=</span> <span class="s">'token your bot'</span> <span class="c1">#
+</span><span class="n">bot</span> <span class="o">=</span> <span class="n">telegram</span><span class="p">.</span><span class="n">Bot</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="n">my_token</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Sending a text message:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">chat_id</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1001592565485</span>
+<span class="n">msg</span> <span class="o">=</span> <span class="s">'Hello'</span>
+<span class="n">bot</span><span class="p">.</span><span class="n">sendMessage</span><span class="p">(</span><span class="n">chat_id</span> <span class="o">=</span> <span class="n">chat_id</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="n">msg</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Sending an image:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">choice</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">sns</span><span class="p">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">'test plot'</span><span class="p">)</span>
+<span class="n">plot_object</span> <span class="o">=</span> <span class="n">io</span><span class="p">.</span><span class="n">BytesIO</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">plot_object</span><span class="p">)</span>
+<span class="n">plot_object</span><span class="p">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plot_object</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">'test_plot.png'</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">bot</span><span class="p">.</span><span class="n">sendPhoto</span><span class="p">(</span><span class="n">chat_id</span><span class="o">=</span><span class="n">chat_id</span><span class="p">,</span> <span class="n">photo</span> <span class="o">=</span> <span class="n">plot_object</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Sending a file:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="n">Getch</span><span class="p">(</span><span class="s">'select * from simulator.feed_actions where toDate(time) = today() limit 100'</span><span class="p">).</span><span class="n">df</span>
+<span class="n">file_object</span> <span class="o">=</span> <span class="n">io</span><span class="p">.</span><span class="n">StringIO</span><span class="p">()</span>
+<span class="n">data</span><span class="p">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">file_object</span><span class="p">)</span>
+<span class="n">file_object</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">'test_file.csv'</span>
+<span class="n">file_object</span><span class="p">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">bot</span><span class="p">.</span><span class="n">sendDocument</span><span class="p">(</span><span class="n">chat_id</span><span class="o">=</span><span class="n">chat_id</span><span class="p">,</span> <span class="n">document</span> <span class="o">=</span> <span class="n">file_object</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>It is important to note that I take the data to form a file from the database that was provided to us. You can generate data from other sources.</p>
+
+<p>Result in my group:</p>
+
+<p><img src="https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Automation_reporting_1/tel_4.png" alt="image"></p>
+
+<p>Now let’s go directly to the task. It included setting up automatic sending of a report in a telegram every morning. The report should contain:</p>
+
+<ul>
+  <li>a text with information about the values of key metrics (DAU, Views, Likes, CTR) for the previous day</li>
+  <li>a graph with the values of metrics for the previous 7 days</li>
+</ul>
+
+<p>Let’s write the main function that will collect the report:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">feed_report</span><span class="p">(</span><span class="n">chat</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="n">chat</span> <span class="o">=</span> <span class="n">chat</span> <span class="ow">or</span> <span class="n">chat_id</span>
+    <span class="n">bot</span> <span class="o">=</span> <span class="n">telegram</span><span class="p">.</span><span class="n">Bot</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="n">my_token</span><span class="p">)</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="s">""" 📃Feed report for {date}📃
+    Events: {events}
+    🧑DAU: {users}({to_users_day_ago:+.2%} to day ago, {to_users_week_ago:+.2%} to week ago)
+    👍Likes: {likes}({to_likes_day_ago:+.2%} to day ago, {to_likes_week_ago:+.2%} to week ago)
+    👀Views: {views}({to_views_day_ago:+.2%} to day ago, {to_views_week_ago:+.2%} to week ago)
+    🌈CTR: {ctr}({to_ctr_day_ago:+.2%} to day ago, {to_ctr_week_ago:+.2%} to week ago)
+    """</span>
+
+    <span class="n">query</span> <span class="o">=</span> <span class="s">"""
+            select 
+                toDate(time) as date
+                ,count(distinct user_id) as DAU
+                ,countIf(action='like') as likes
+                ,countIf(action='view') as views
+                ,countIf(action='like') / countIf(action='view') as CTR
+                ,likes+views as events
+            from simulator_20220620.feed_actions
+            where toDate(time) between today() - 8 and today() - 1
+            group by date
+            order by date
+            """</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">ph</span><span class="p">.</span><span class="n">read_clickhouse</span><span class="p">(</span><span class="n">query</span><span class="o">=</span><span class="n">query</span><span class="p">,</span> <span class="n">connection</span><span class="o">=</span><span class="n">connection</span><span class="p">))</span>
+
+    <span class="n">today</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s">'now'</span><span class="p">)</span> <span class="o">-</span> <span class="n">pd</span><span class="p">.</span><span class="n">DateOffset</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">day_ago</span> <span class="o">=</span> <span class="n">today</span> <span class="o">-</span> <span class="n">pd</span><span class="p">.</span><span class="n">DateOffset</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">week_ago</span> <span class="o">=</span> <span class="n">today</span> <span class="o">-</span> <span class="n">pd</span><span class="p">.</span><span class="n">DateOffset</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+
+    <span class="n">data</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'date'</span><span class="p">]).</span><span class="n">dt</span><span class="p">.</span><span class="n">date</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">astype</span><span class="p">({</span><span class="s">'DAU'</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="s">'views'</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="s">'likes'</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="s">'events'</span><span class="p">:</span><span class="nb">int</span><span class="p">})</span>
+
+    <span class="n">report</span> <span class="o">=</span> <span class="n">msg</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">date</span> <span class="o">=</span> <span class="n">today</span><span class="p">.</span><span class="n">date</span><span class="p">(),</span>
+
+                        <span class="n">events</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">==</span> <span class="n">today</span><span class="p">.</span><span class="n">date</span><span class="p">()][</span><span class="s">'events'</span><span class="p">].</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+
+                        <span class="n">users</span> <span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">==</span> <span class="n">today</span><span class="p">.</span><span class="n">date</span><span class="p">()][</span><span class="s">'DAU'</span><span class="p">].</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                        <span class="n">to_users_day_ago</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">==</span> <span class="n">today</span><span class="p">.</span><span class="n">date</span><span class="p">()][</span><span class="s">'DAU'</span><span class="p">].</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                                           <span class="o">-</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">==</span> <span class="n">day_ago</span><span class="p">.</span><span class="n">date</span><span class="p">()][</span><span class="s">'DAU'</span><span class="p">].</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                                           <span class="o">/</span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">==</span> <span class="n">day_ago</span><span class="p">.</span><span class="n">date</span><span class="p">()][</span><span class="s">'DAU'</span><span class="p">].</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                        <span class="n">to_users_week_ago</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">==</span> <span class="n">today</span><span class="p">.</span><span class="n">date</span><span class="p">()][</span><span class="s">'DAU'</span><span class="p">].</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                                           <span class="o">-</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">==</span> <span class="n">week_ago</span><span class="p">.</span><span class="n">date</span><span class="p">()][</span><span class="s">'DAU'</span><span class="p">].</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                                           <span class="o">/</span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">==</span> <span class="n">week_ago</span><span class="p">.</span><span class="n">date</span><span class="p">()][</span><span class="s">'DAU'</span><span class="p">].</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+
+                        <span class="n">likes</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">==</span> <span class="n">today</span><span class="p">.</span><span class="n">date</span><span class="p">()][</span><span class="s">'likes'</span><span class="p">].</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                        <span class="n">to_likes_day_ago</span><span class="o">=</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">==</span> <span class="n">today</span><span class="p">.</span><span class="n">date</span><span class="p">()][</span><span class="s">'likes'</span><span class="p">].</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                                           <span class="o">-</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">==</span> <span class="n">day_ago</span><span class="p">.</span><span class="n">date</span><span class="p">()][</span><span class="s">'likes'</span><span class="p">].</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                                           <span class="o">/</span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">==</span> <span class="n">day_ago</span><span class="p">.</span><span class="n">date</span><span class="p">()][</span><span class="s">'likes'</span><span class="p">].</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                        <span class="n">to_likes_week_ago</span><span class="o">=</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">==</span> <span class="n">today</span><span class="p">.</span><span class="n">date</span><span class="p">()][</span><span class="s">'likes'</span><span class="p">].</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                                           <span class="o">-</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">==</span> <span class="n">week_ago</span><span class="p">.</span><span class="n">date</span><span class="p">()][</span><span class="s">'likes'</span><span class="p">].</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                                           <span class="o">/</span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">==</span> <span class="n">week_ago</span><span class="p">.</span><span class="n">date</span><span class="p">()][</span><span class="s">'likes'</span><span class="p">].</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+
+                        <span class="n">views</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">==</span> <span class="n">today</span><span class="p">.</span><span class="n">date</span><span class="p">()][</span><span class="s">'views'</span><span class="p">].</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                        <span class="n">to_views_day_ago</span><span class="o">=</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">==</span> <span class="n">today</span><span class="p">.</span><span class="n">date</span><span class="p">()][</span><span class="s">'views'</span><span class="p">].</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                                           <span class="o">-</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">==</span> <span class="n">day_ago</span><span class="p">.</span><span class="n">date</span><span class="p">()][</span><span class="s">'views'</span><span class="p">].</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                                           <span class="o">/</span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">==</span> <span class="n">day_ago</span><span class="p">.</span><span class="n">date</span><span class="p">()][</span><span class="s">'views'</span><span class="p">].</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                        <span class="n">to_views_week_ago</span><span class="o">=</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">==</span> <span class="n">today</span><span class="p">.</span><span class="n">date</span><span class="p">()][</span><span class="s">'views'</span><span class="p">].</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                                           <span class="o">-</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">==</span> <span class="n">week_ago</span><span class="p">.</span><span class="n">date</span><span class="p">()][</span><span class="s">'views'</span><span class="p">].</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                                           <span class="o">/</span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">==</span> <span class="n">week_ago</span><span class="p">.</span><span class="n">date</span><span class="p">()][</span><span class="s">'views'</span><span class="p">].</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+
+                        <span class="n">ctr</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">==</span> <span class="n">today</span><span class="p">.</span><span class="n">date</span><span class="p">()][</span><span class="s">'CTR'</span><span class="p">].</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                        <span class="n">to_ctr_day_ago</span><span class="o">=</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">==</span> <span class="n">today</span><span class="p">.</span><span class="n">date</span><span class="p">()][</span><span class="s">'CTR'</span><span class="p">].</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                                           <span class="o">-</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">==</span> <span class="n">day_ago</span><span class="p">.</span><span class="n">date</span><span class="p">()][</span><span class="s">'CTR'</span><span class="p">].</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                                           <span class="o">/</span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">==</span> <span class="n">day_ago</span><span class="p">.</span><span class="n">date</span><span class="p">()][</span><span class="s">'CTR'</span><span class="p">].</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                        <span class="n">to_ctr_week_ago</span><span class="o">=</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">==</span> <span class="n">today</span><span class="p">.</span><span class="n">date</span><span class="p">()][</span><span class="s">'CTR'</span><span class="p">].</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                                           <span class="o">-</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">==</span> <span class="n">week_ago</span><span class="p">.</span><span class="n">date</span><span class="p">()][</span><span class="s">'CTR'</span><span class="p">].</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                                           <span class="o">/</span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">==</span> <span class="n">week_ago</span><span class="p">.</span><span class="n">date</span><span class="p">()][</span><span class="s">'CTR'</span><span class="p">].</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                        <span class="p">)</span>
+    <span class="n">bot</span><span class="p">.</span><span class="n">sendMessage</span><span class="p">(</span><span class="n">chat_id</span><span class="o">=</span><span class="n">chat_id</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="n">report</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>After executing this code, the following report comes to our group:</p>
+
+<p><img src="https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Automation_reporting_1/tel_5.png" alt="image"></p>
+
+<p>Now let’s build graphs for our report:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_plot</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span> <span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+    <span class="c1"># fig.subtitle("Feed statistics for the previous 7 days")
+</span>
+    <span class="n">plot_dict</span> <span class="o">=</span> <span class="p">{(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">):{</span><span class="s">'y'</span><span class="p">:</span><span class="s">'DAU'</span><span class="p">,</span> <span class="s">'title'</span><span class="p">:</span> <span class="s">'Unique users'</span><span class="p">},</span>
+                <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">):{</span><span class="s">'y'</span><span class="p">:</span><span class="s">'likes'</span><span class="p">,</span> <span class="s">'title'</span><span class="p">:</span> <span class="s">'Likes'</span><span class="p">},</span>
+                <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">):{</span><span class="s">'y'</span><span class="p">:</span><span class="s">'views'</span><span class="p">,</span> <span class="s">'title'</span><span class="p">:</span> <span class="s">'Views'</span><span class="p">},</span>
+                <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">):{</span><span class="s">'y'</span><span class="p">:</span><span class="s">'CTR'</span><span class="p">,</span> <span class="s">'title'</span><span class="p">:</span> <span class="s">'CTR'</span><span class="p">}}</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+            <span class="n">sns</span><span class="p">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">],</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s">'date'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">plot_dict</span><span class="p">[(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)][</span><span class="s">'y'</span><span class="p">])</span>
+            <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">].</span><span class="n">set_title</span><span class="p">(</span><span class="n">plot_dict</span><span class="p">[(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)][</span><span class="s">'title'</span><span class="p">])</span>
+            <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">].</span><span class="n">set_xlabel</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+            <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">].</span><span class="n">set_ylabel</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">].</span><span class="n">get_xticklabels</span><span class="p">()):</span>
+                <span class="k">if</span> <span class="n">ind</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">label</span><span class="p">.</span><span class="n">set_visible</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">label</span><span class="p">.</span><span class="n">set_visible</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+
+    <span class="n">plot_object</span> <span class="o">=</span> <span class="n">io</span><span class="p">.</span><span class="n">BytesIO</span><span class="p">()</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">plot_object</span><span class="p">)</span>
+    <span class="n">plot_object</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">'feed_stat.png'</span>
+    <span class="n">plot_object</span><span class="p">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">plot_object</span>
+</code></pre></div></div>
+
+<p>Next, I will add the following code to the end of the feed_report function:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">plot_object</span> <span class="o">=</span> <span class="n">get_plot</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">bot</span><span class="p">.</span><span class="n">sendPhoto</span><span class="p">(</span><span class="n">chat_id</span><span class="o">=</span><span class="n">chat_id</span><span class="p">,</span> <span class="n">photo</span><span class="o">=</span><span class="n">plot_object</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>After a test check of my code, I get the following graph in my group:</p>
+
+<p><img src="https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Automation_reporting_1/tel_6.png" alt="image"></p>
+
+<p>We have combined four graphs into one in order to exclude separate messages for each graph and not annoy users.
+For automation this time we will use GitLab CI/CD. It is better to read about how to work with this system in the official documentation. You also need to know what dockers are.
+In order for the token of our bot not to be visible in the public domain, it is desirable to hide it.
+To hide the bot token, you need to act according to the following algorithm:</p>
+<ul>
+  <li>In GitLab, go to Settings -&gt; CI/CD -&gt; Variables</li>
+  <li>Add a secret variable by specifying its name and value</li>
+  <li>In the code, import the os library and replace the value of the secret variable with the string os.environ.get(“REPORT_BOT_TOKEN”)</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">bot</span> <span class="o">=</span> <span class="n">telegram</span><span class="p">.</span><span class="n">Bot</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"REPORT_BOT_TOKEN"</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>After that, upload the file to our repository and go to CI/CD -&gt; Editor, where we press the Configure pipeline key. After that, we will be offered a template. We will clean it up and create our own. 
+I use the docker image from the course, the stages will be init and run. Let’s call the job <em>feed_report_job</em>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>image: cr.yandex/crp742p3qacifd2hcon2/practice-da:latest
+
+stages:
+  - init
+  - run
+
+
+feed_report_job:
+    stage: run
+    script:
+        - python main.py
+    only:
+        - schedules
+</code></pre></div></div>
+
+<p>Next, go to the schedule and create a schedule for sending reports. I chose 11 am time in Tbilisi (Georgia).</p>
+
+<p><img src="https://raw.githubusercontent.com/Zmey56/blog/master/_posts/images/Automation_reporting_1/git_1.png" alt="image"></p>
+
+<p>After that, you can force start by clicking on the play(triangle) button and see the report in your group.</p>
+
+<p>This concludes this article, in the next part we will continue to deal with the automation of reports.</p>
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="Zmey56/blog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/data%20analysis/mysql/gitlab/telegram/bot/2022/08/24/Automation-of-reporting.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/Zmey56" target="_blank" title="Zmey56"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/Zmey56" target="_blank" title="Zmey56"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
