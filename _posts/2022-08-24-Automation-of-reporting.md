@@ -2,9 +2,9 @@
 toc: true
 layout: post
 comments: true
-description: "Automation of reporting"
+description: "Automation of reporting Part 1"
 categories: [data analysis, mysql, gitlab, telegram, bot]
-title: "Automation of reporting"
+title: "Automation of reporting Part 1"
 ---
 I continue my publications on analytics:
 
