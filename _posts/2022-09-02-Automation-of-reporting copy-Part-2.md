@@ -4,7 +4,7 @@ layout: post
 comments: true
 description: "Automation of reporting Part 2"
 categories: [data analysis, mysql, gitlab, telegram, bot]
-title: "Automation of reporting"
+title: "Automation of reporting Part 2"
 ---
 I continue my publications on analytics:
 
