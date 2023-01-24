@@ -17,6 +17,7 @@ I continue my publications on analytics:
 * [Automation of reporting Part 1](https://alex.gladkikh.org/data%20analysis/mysql/gitlab/telegram/bot/2022/08/24/Automation-of-reporting.html)
 * [Automation of reporting Part 2](https://alex.gladkikh.org/data%20analysis/mysql/gitlab/telegram/bot/2022/09/02/Automation-of-reporting-copy-Part-2.html)
 
+
 This is the final block of articles on data analytics. The last task was to build a system that periodically checks key metrics every 15 minutes, such as active users in the feed / messenger, views, likes, CTR, the number of messages sent. It was necessary to choose the most suitable method for detecting anomalies. If an abnormal value is detected, an alert message with the following information should be sent to the chat: the metric, its value, the deviation value.
 
 To identify anomalies, we will compare the averages for three periods of 15 minutes a day ago and a week ago. For example, 12:45, 12:30 and 12:15 a day ago and 12:45, 12:30 and 12:15 a week ago.
