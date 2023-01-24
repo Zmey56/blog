@@ -3,13 +3,15 @@ layout: page
 title: About Me
 permalink: /about/
 ---
-Hi, I'm [Alexander Gladkikh](https://www.linkedin.com/in/alsgladkikh/), and I made my own website on GitHub dedicated to my projects in Data Analytic, Machine learning, Deep Learning, and algorithmic trading.
+Hi, I'm [Alexander Gladkikh](https://www.linkedin.com/in/alsgladkikh/), and I made my own website on GitHub dedicated to my projects. I'm Go/Python Developer.
 
 Participated in research at the scientific Institute in the following areas: psychology of behavior, physiology of nutrition, exposure to extreme temperatures and high pressure. I have a patent for an invention, and I am the author of more than 30 scientific papers. Participated in decommissioning of the radioactive waste storage facility, liquidation of the Soviet legacy, preparation of materials for environmental impact assessment and environmental expertise. Throughout my time, I have been studying the psychology of safe behavior and, thanks to my passion, additionally supervised the areas of digitalization in the field of occupational safety.
 
 I've always had a passion for machine learning, so I've been slowly switching to learn more about machine learning, etc. At first I was self-taught, and then I took courses on Yandex. After that, I also worked on the formation of investment portfolios using machine learning. As a result, over the past two years, I have managed to show profitability for my clients above 23 and 17% annually. I am currently undergoing training in artificial intelligence.
 
-I take part in kaggle competitions, have knowledge of R and Python (Pandas, numpy, Scipy, Scikit-learn, XGBoost), Java.
+In my free time I have been developing applications and websites, since 2021 I have devoted all my time to developing in the Go language. My knowledge in Java, Python, PHP, etc. helped me to master it quickly.
+
+I take part in kaggle competitions, have knowledge of Go, R and Python (Pandas, numpy, Scipy, Scikit-learn, XGBoost), Java.
 
 ### My degrees
 
