@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Alert System | alex.gladkikh.org</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Alert System" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Alert System" />
+<meta property="og:description" content="Alert System" />
+<link rel="canonical" href="https://zmey56.github.io/blog//data%20analysis/mysql/gitlab/telegram/bot/2023/01/25/Alert-System.html" />
+<meta property="og:url" content="https://zmey56.github.io/blog//data%20analysis/mysql/gitlab/telegram/bot/2023/01/25/Alert-System.html" />
+<meta property="og:site_name" content="alex.gladkikh.org" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-25T00:00:00-06:00" />
+<script type="application/ld+json">
+{"url":"https://zmey56.github.io/blog//data%20analysis/mysql/gitlab/telegram/bot/2023/01/25/Alert-System.html","@type":"BlogPosting","headline":"Alert System","dateModified":"2023-01-25T00:00:00-06:00","datePublished":"2023-01-25T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://zmey56.github.io/blog//data%20analysis/mysql/gitlab/telegram/bot/2023/01/25/Alert-System.html"},"description":"Alert System","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://zmey56.github.io/blog//feed.xml" title="alex.gladkikh.org" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-183752218-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">alex.gladkikh.org</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a><a class="page-link" href="/search/">Search</a><a class="page-link" href="/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Alert System</h1><p class="page-description">Alert System</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-01-25T00:00:00-06:00" itemprop="datePublished">
+        Jan 25, 2023
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      8 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/categories/#data analysis">data analysis</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#mysql">mysql</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#gitlab">gitlab</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#telegram">telegram</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#bot">bot</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+</ul><p>I continue my publications on analytics:</p>
+
+<ul>
+  <li><a href="https://alex.gladkikh.org/data%20analysis/mysql/superset/bi/2022/08/03/the-first-dashboard.html">A Data Analysis in business - BI system and visualisation</a></li>
+  <li><a href="https://alex.gladkikh.org/data%20analysis/mysql/superset/bi/2022/08/05/analyses-of-product-metrics.html">Analyses of Product Metrics</a></li>
+  <li><a href="https://alex.gladkikh.org/data%20analysis/ab-test/aa-test/2022/08/09/aa-test-article.html">А/B-tests - Part 1/3(AA-test)</a></li>
+  <li><a href="https://alex.gladkikh.org/data%20analysis/ab-test/aa-test/2022/08/11/ab-test-article.html">А/B-tests - Part 2/3(AB-test)</a></li>
+  <li><a href="https://alex.gladkikh.org/data%20analysis/ab-test/metrics/2022/08/15/ab-test-article-metrics.html">A/B-tests - Part 3/3 (relationship metrics)</a></li>
+  <li><a href="https://alex.gladkikh.org/data%20analysis/mysql/airflow/etl/2022/08/19/Building-ETL-Pipeline-Airflow.html">Building an ETL-Pipeline (Airflow)</a></li>
+  <li><a href="https://alex.gladkikh.org/data%20analysis/mysql/gitlab/telegram/bot/2022/08/24/Automation-of-reporting.html">Automation of reporting Part 1</a></li>
+  <li><a href="https://alex.gladkikh.org/data%20analysis/mysql/gitlab/telegram/bot/2022/09/02/Automation-of-reporting-copy-Part-2.html">Automation of reporting Part 2</a></li>
+</ul>
+
+<p>This is the final block of articles on data analytics. The last task was to build a system that periodically checks key metrics every 15 minutes, such as active users in the feed / messenger, views, likes, CTR, the number of messages sent. It was necessary to choose the most suitable method for detecting anomalies. If an abnormal value is detected, an alert message with the following information should be sent to the chat: the metric, its value, the deviation value.</p>
+
+<p>To identify anomalies, we will compare the averages for three periods of 15 minutes a day ago and a week ago. For example, 12:45, 12:30 and 12:15 a day ago and 12:45, 12:30 and 12:15 a week ago.</p>
+
+<p>As always, let’s start by connecting the necessary libraries:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="n">sns</span>
+<span class="kn">import</span> <span class="nn">telegram</span>
+<span class="kn">import</span> <span class="nn">pandahouse</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">sns</span><span class="p">.</span><span class="nb">set</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>The first step is to write a function that will track the metrics that we will monitor:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_alert_info</span><span class="p">():</span>
+    <span class="n">metrics_list</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">'users_feed'</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">'alias'</span><span class="p">:</span> <span class="s">'users_feed'</span><span class="p">,</span>
+            <span class="s">'formula'</span><span class="p">:</span> <span class="s">'uniqExact(user_id)'</span><span class="p">,</span>
+            <span class="s">'metric_name'</span><span class="p">:</span> <span class="s">'Users Feed'</span><span class="p">,</span>
+            <span class="s">'table_name'</span><span class="p">:</span> <span class="s">'simulator.feed_actions'</span>
+        <span class="p">},</span>
+        <span class="s">'likes'</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">'alias'</span><span class="p">:</span> <span class="s">'likes'</span><span class="p">,</span>
+            <span class="s">'formula'</span><span class="p">:</span> <span class="s">"countIf(user_id, action='like')"</span><span class="p">,</span>
+            <span class="s">'metric_name'</span><span class="p">:</span> <span class="s">'Likes'</span><span class="p">,</span>
+            <span class="s">'table_name'</span><span class="p">:</span> <span class="s">'simulator.feed_actions'</span>
+        <span class="p">},</span>
+        <span class="s">'views'</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">'alias'</span><span class="p">:</span> <span class="s">'views'</span><span class="p">,</span>
+            <span class="s">'formula'</span><span class="p">:</span> <span class="s">"countIf(user_id, action='view')"</span><span class="p">,</span>
+            <span class="s">'metric_name'</span><span class="p">:</span> <span class="s">'Views'</span><span class="p">,</span>
+            <span class="s">'table_name'</span><span class="p">:</span> <span class="s">'simulator.feed_actions'</span>
+        <span class="p">},</span>
+        <span class="s">'ctr'</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">'alias'</span><span class="p">:</span> <span class="s">'ctr'</span><span class="p">,</span>
+            <span class="s">'formula'</span><span class="p">:</span> <span class="s">"countIf(user_id, action='like') / countIf(user_id, action='view')"</span><span class="p">,</span>
+            <span class="s">'metric_name'</span><span class="p">:</span> <span class="s">'CTR'</span><span class="p">,</span>
+            <span class="s">'table_name'</span><span class="p">:</span> <span class="s">'simulator.feed_actions'</span>
+        <span class="p">},</span>
+        <span class="s">'lpu'</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">'alias'</span><span class="p">:</span> <span class="s">'lpu'</span><span class="p">,</span>
+            <span class="s">'formula'</span><span class="p">:</span> <span class="s">"countIf(user_id, action='like') / uniqExact(user_id)"</span><span class="p">,</span>
+            <span class="s">'metric_name'</span><span class="p">:</span> <span class="s">'Likes per user'</span><span class="p">,</span>
+            <span class="s">'table_name'</span><span class="p">:</span> <span class="s">'simulator.feed_actions'</span>
+        <span class="p">},</span>
+        <span class="s">'vpu'</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">'alias'</span><span class="p">:</span> <span class="s">'vpu'</span><span class="p">,</span>
+            <span class="s">'formula'</span><span class="p">:</span> <span class="s">"countIf(user_id, action='view') / uniqExact(user_id)"</span><span class="p">,</span>
+            <span class="s">'metric_name'</span><span class="p">:</span> <span class="s">'Views per user'</span><span class="p">,</span>
+            <span class="s">'table_name'</span><span class="p">:</span> <span class="s">'simulator.feed_actions'</span>
+        <span class="p">},</span>
+        <span class="s">'users_msg'</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">'alias'</span><span class="p">:</span> <span class="s">'users_msg'</span><span class="p">,</span>
+            <span class="s">'formula'</span><span class="p">:</span> <span class="s">'uniqExact(user_id)'</span><span class="p">,</span>
+            <span class="s">'metric_name'</span><span class="p">:</span> <span class="s">'Users Messenger'</span><span class="p">,</span>
+            <span class="s">'table_name'</span><span class="p">:</span> <span class="s">'simulator.message_actions'</span>
+        <span class="p">},</span>
+        <span class="s">'messages'</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">'alias'</span><span class="p">:</span> <span class="s">'messages'</span><span class="p">,</span>
+            <span class="s">'formula'</span><span class="p">:</span> <span class="s">'count(user_id)'</span><span class="p">,</span>
+            <span class="s">'metric_name'</span><span class="p">:</span> <span class="s">'Messages'</span><span class="p">,</span>
+            <span class="s">'table_name'</span><span class="p">:</span> <span class="s">'simulator.message_actions'</span>
+        <span class="p">},</span>
+        <span class="s">'mpu'</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">'alias'</span><span class="p">:</span> <span class="s">'mpu'</span><span class="p">,</span>
+            <span class="s">'formula'</span><span class="p">:</span> <span class="s">'count(user_id) / uniqExact(user_id)'</span><span class="p">,</span>
+            <span class="s">'metric_name'</span><span class="p">:</span> <span class="s">'Messages per user'</span><span class="p">,</span>
+            <span class="s">'table_name'</span><span class="p">:</span> <span class="s">'simulator.message_actions'</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+    <span class="n">group_by_slices_list</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">'os'</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">'alias'</span><span class="p">:</span> <span class="s">'os'</span><span class="p">,</span>
+            <span class="s">'group_levels'</span><span class="p">:</span> <span class="p">[</span><span class="s">'iOS'</span><span class="p">,</span> <span class="s">'Android'</span><span class="p">],</span>
+            <span class="s">'formula'</span><span class="p">:</span> <span class="s">'os'</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">where_expression_template</span> <span class="o">=</span> <span class="s">''' 
+         toDate(time) in (today(), today() - 1, today() - 7) and formatDateTime(time, '%R') &gt;= '01:00' '''</span>
+
+    <span class="n">responsible_users</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">"metrics"</span> <span class="p">:</span> <span class="p">{</span><span class="s">"users_msg"</span><span class="p">:</span> <span class="s">"@zmey5656"</span><span class="p">},</span>
+        <span class="s">"groups"</span> <span class="p">:</span> <span class="p">{</span><span class="s">"os"</span><span class="p">:</span> <span class="s">"@zmey5656"</span><span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">alert_plots</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">'total'</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">'users_feed'</span><span class="p">:</span> <span class="s">'http://superset.lab.karpov.courses/r/27'</span><span class="p">,</span>
+            <span class="s">'likes'</span><span class="p">:</span> <span class="s">'http://superset.lab.karpov.courses/r/30'</span><span class="p">,</span>
+            <span class="s">'views'</span><span class="p">:</span> <span class="s">'http://superset.lab.karpov.courses/r/33'</span><span class="p">,</span>
+            <span class="s">'ctr'</span><span class="p">:</span> <span class="s">'http://superset.lab.karpov.courses/r/36'</span><span class="p">,</span>
+            <span class="s">'vpu'</span><span class="p">:</span> <span class="s">'http://superset.lab.karpov.courses/r/39'</span><span class="p">,</span>
+            <span class="s">'lpu'</span><span class="p">:</span> <span class="s">'http://superset.lab.karpov.courses/r/42'</span><span class="p">,</span>
+            <span class="s">'users_msg'</span><span class="p">:</span> <span class="s">'http://superset.lab.karpov.courses/r/45'</span><span class="p">,</span>
+            <span class="s">'messages'</span><span class="p">:</span> <span class="s">'http://superset.lab.karpov.courses/r/50'</span><span class="p">,</span>
+            <span class="s">'mpu'</span><span class="p">:</span> <span class="s">'http://superset.lab.karpov.courses/r/55'</span>
+        <span class="p">},</span>
+        <span class="s">'os'</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">'users_feed'</span><span class="p">:</span> <span class="s">'http://superset.lab.karpov.courses/r/28'</span><span class="p">,</span>
+            <span class="s">'likes'</span><span class="p">:</span> <span class="s">'http://superset.lab.karpov.courses/r/32'</span><span class="p">,</span>
+            <span class="s">'views'</span><span class="p">:</span> <span class="s">'http://superset.lab.karpov.courses/r/35'</span><span class="p">,</span>
+            <span class="s">'ctr'</span><span class="p">:</span> <span class="s">'http://superset.lab.karpov.courses/r/38'</span><span class="p">,</span>
+            <span class="s">'vpu'</span><span class="p">:</span> <span class="s">'http://superset.lab.karpov.courses/r/41'</span><span class="p">,</span>
+            <span class="s">'lpu'</span><span class="p">:</span> <span class="s">'http://superset.lab.karpov.courses/r/44'</span><span class="p">,</span>
+            <span class="s">'users_msg'</span><span class="p">:</span> <span class="s">'http://superset.lab.karpov.courses/r/46'</span><span class="p">,</span>
+            <span class="s">'messages'</span><span class="p">:</span> <span class="s">'http://superset.lab.karpov.courses/r/52'</span><span class="p">,</span>
+            <span class="s">'mpu'</span><span class="p">:</span> <span class="s">'http://superset.lab.karpov.courses/r/54'</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">metrics_list</span><span class="p">,</span> <span class="n">group_by_slices_list</span><span class="p">,</span> <span class="n">where_expression_template</span><span class="p">,</span> <span class="n">alert_plots</span><span class="p">,</span> <span class="n">responsible_users</span>
+
+
+</code></pre></div></div>
+
+<p>As can be seen from the code, our values will be sent both by common values and by slices — group_by_slices_list. We also create a where_expression_template — a time condition (yesterday and a week ago). Also, for the absence of false alerts at midnight, we disabled them. In addition, we are adding users responsible for these metrics. Well, at the end of this function, we will add links to previously prepared dashboards.</p>
+
+<p>Next, we need to write functions that will collect the request as a constructor: SELECT, FROM, WHERE and GROUP BY.</p>
+
+<ol>
+  <li>SELECT</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_select_vars</span><span class="p">(</span><span class="n">mertics</span><span class="p">,</span> <span class="n">metrics_list</span><span class="p">,</span> <span class="n">group_by_slices_list</span><span class="p">,</span> <span class="nb">slice</span><span class="p">,</span> <span class="n">all_data</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="n">date_select</span> <span class="o">=</span> <span class="s">"toDate(time) as date, "</span>
+
+    <span class="n">time_select</span> <span class="o">=</span> <span class="s">'''toStartOfFifteenMinutes(time) as time, 
+                     formatDateTime(toStartOfFifteenMinutes(time), '%R') as time_,'''</span>
+
+    <span class="n">select_expression</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">mertics</span><span class="p">:</span>
+        <span class="n">formula</span> <span class="o">=</span> <span class="n">metrics_list</span><span class="p">[</span><span class="n">metric</span><span class="p">][</span><span class="s">'formula'</span><span class="p">]</span>
+        <span class="n">alias</span> <span class="o">=</span> <span class="n">metrics_list</span><span class="p">[</span><span class="n">metric</span><span class="p">][</span><span class="s">'alias'</span><span class="p">]</span>
+        <span class="n">expression</span> <span class="o">=</span> <span class="s">'{formula} AS {alias}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="n">formula</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="n">alias</span><span class="p">)</span>
+        <span class="n">select_expression</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">expression</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">slice</span> <span class="o">!=</span> <span class="s">'total'</span><span class="p">:</span>
+        <span class="n">formula</span> <span class="o">=</span> <span class="n">group_by_slices_list</span><span class="p">[</span><span class="nb">slice</span><span class="p">][</span><span class="s">'formula'</span><span class="p">]</span>
+        <span class="n">alias</span> <span class="o">=</span> <span class="n">group_by_slices_list</span><span class="p">[</span><span class="nb">slice</span><span class="p">][</span><span class="s">'alias'</span><span class="p">]</span>
+        <span class="n">expression</span> <span class="o">=</span> <span class="s">'{formula} AS {alias}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="n">formula</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="n">alias</span><span class="p">)</span>
+        <span class="n">select_expression</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">expression</span><span class="p">)</span>
+
+    <span class="n">select_expression</span> <span class="o">=</span> <span class="s">','</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">select_expression</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">all_data</span><span class="p">:</span>
+        <span class="n">select_expression</span> <span class="o">=</span> <span class="n">date_select</span> <span class="o">+</span> <span class="n">select_expression</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">select_expression</span> <span class="o">=</span> <span class="n">date_select</span> <span class="o">+</span> <span class="n">time_select</span> <span class="o">+</span> <span class="n">select_expression</span>
+    <span class="k">return</span> <span class="n">select_expression</span>
+</code></pre></div></div>
+
+<ol>
+  <li>FROM</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_from_table_name</span><span class="p">(</span><span class="n">mertics</span><span class="p">,</span> <span class="n">metrics_list</span><span class="p">):</span>
+    <span class="n">table_name_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">mertics</span><span class="p">:</span>
+        <span class="n">table_name</span> <span class="o">=</span> <span class="n">metrics_list</span><span class="p">[</span><span class="n">metric</span><span class="p">][</span><span class="s">'table_name'</span><span class="p">]</span>
+        <span class="n">table_name_list</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">table_name</span><span class="p">)</span>
+
+    <span class="n">table_name_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">table_name_list</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">table_name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">table_name_list</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">table_name</span>
+</code></pre></div></div>
+
+<ol>
+  <li>WHERE</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_where_expression</span><span class="p">(</span><span class="n">where_expression_template</span><span class="p">,</span> <span class="n">group_by_slices_list</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="nb">slice</span><span class="p">,</span> <span class="n">all_data</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="n">where_expression</span> <span class="o">=</span> <span class="s">''' {where_expression_template} and {alias} in ({group_levels}) '''</span>
+
+    <span class="n">day_0_min_time</span> <span class="o">=</span> <span class="n">time</span>
+    <span class="n">day_0_max_time</span> <span class="o">=</span> <span class="n">time</span> <span class="o">+</span> <span class="n">pd</span><span class="p">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+    <span class="n">day_1_min_time</span> <span class="o">=</span> <span class="n">time</span> <span class="o">-</span> <span class="n">pd</span><span class="p">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span> <span class="o">-</span> <span class="n">pd</span><span class="p">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">day_1_max_time</span> <span class="o">=</span> <span class="n">time</span> <span class="o">+</span> <span class="n">pd</span><span class="p">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span> <span class="o">-</span> <span class="n">pd</span><span class="p">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">day_7_min_time</span> <span class="o">=</span> <span class="n">time</span> <span class="o">-</span> <span class="n">pd</span><span class="p">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span> <span class="o">-</span> <span class="n">pd</span><span class="p">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+    <span class="n">day_7_max_time</span> <span class="o">=</span> <span class="n">time</span> <span class="o">+</span> <span class="n">pd</span><span class="p">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span> <span class="o">-</span> <span class="n">pd</span><span class="p">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+
+    <span class="n">time_expression</span> <span class="o">=</span> <span class="s">''' and ((time &gt;= '{day_0_min_time}' and time  &lt; '{day_0_max_time}') 
+                            or (time &gt;= '{day_1_min_time}' and time &lt; '{day_1_max_time}')
+                            or (time &gt;= '{day_7_min_time}' and time &lt; '{day_7_max_time}'))'''</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">day_0_min_time</span><span class="o">=</span><span class="n">day_0_min_time</span><span class="p">,</span>
+                                                                                                  <span class="n">day_0_max_time</span><span class="o">=</span><span class="n">day_0_max_time</span><span class="p">,</span>
+                                                                                                  <span class="n">day_1_min_time</span><span class="o">=</span><span class="n">day_1_min_time</span><span class="p">,</span>
+                                                                                                  <span class="n">day_1_max_time</span><span class="o">=</span><span class="n">day_1_max_time</span><span class="p">,</span>
+                                                                                                  <span class="n">day_7_min_time</span><span class="o">=</span><span class="n">day_7_min_time</span><span class="p">,</span>
+                                                                                                  <span class="n">day_7_max_time</span><span class="o">=</span><span class="n">day_7_max_time</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">all_data</span><span class="p">:</span>
+        <span class="n">where_expression_template</span> <span class="o">=</span> <span class="n">where_expression_template</span> <span class="o">+</span> <span class="n">time_expression</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">where_expression_template</span> <span class="o">=</span> <span class="n">where_expression_template</span>
+
+    <span class="k">if</span> <span class="nb">slice</span> <span class="o">==</span> <span class="s">'total'</span><span class="p">:</span>
+        <span class="n">where_expression</span> <span class="o">=</span> <span class="n">where_expression_template</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">group_levels</span> <span class="o">=</span> <span class="n">group_by_slices_list</span><span class="p">[</span><span class="nb">slice</span><span class="p">][</span><span class="s">'group_levels'</span><span class="p">]</span>
+        <span class="n">alias</span> <span class="o">=</span> <span class="n">group_by_slices_list</span><span class="p">[</span><span class="nb">slice</span><span class="p">][</span><span class="s">'alias'</span><span class="p">]</span>
+        <span class="n">group_levels</span> <span class="o">=</span> <span class="s">"'"</span> <span class="o">+</span> <span class="s">"', '"</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">group_levels</span><span class="p">)</span> <span class="o">+</span> <span class="s">"'"</span>
+
+        <span class="n">where_expression</span> <span class="o">=</span> <span class="n">where_expression</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">where_expression_template</span><span class="o">=</span><span class="n">where_expression_template</span><span class="p">,</span>
+                                                   <span class="n">alias</span><span class="o">=</span><span class="n">alias</span><span class="p">,</span>
+                                                   <span class="n">group_levels</span><span class="o">=</span><span class="n">group_levels</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">where_expression</span>
+</code></pre></div></div>
+
+<ol>
+  <li>GROUP BY</li>
+</ol>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_group_by_expression</span><span class="p">(</span><span class="nb">slice</span><span class="p">,</span> <span class="n">group_by_slices_list</span><span class="p">,</span> <span class="n">all_data</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">all_data</span><span class="p">:</span>
+        <span class="n">group_by_expression</span> <span class="o">=</span> <span class="s">' date'</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">group_by_expression</span> <span class="o">=</span> <span class="s">' date, toStartOfFifteenMinutes(time) as time, time_'</span>
+    <span class="k">if</span> <span class="nb">slice</span> <span class="o">!=</span> <span class="s">'total'</span><span class="p">:</span>
+        <span class="n">alias</span> <span class="o">=</span> <span class="n">group_by_slices_list</span><span class="p">[</span><span class="nb">slice</span><span class="p">][</span><span class="s">'alias'</span><span class="p">]</span>
+        <span class="n">group_by_expression</span> <span class="o">=</span> <span class="n">group_by_expression</span> <span class="o">+</span> <span class="s">','</span> <span class="o">+</span> <span class="n">alias</span>
+    <span class="k">return</span> <span class="n">group_by_expression</span>
+</code></pre></div></div>
+
+<p>Now you need to write a function that will send an alert:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">send_alert</span><span class="p">(</span><span class="n">plot_df</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">metric_name</span><span class="p">,</span> <span class="n">metric_alias</span><span class="p">,</span> <span class="n">slice_name</span><span class="p">,</span> <span class="n">alert_plot</span><span class="p">,</span> <span class="n">responsible_users</span><span class="p">,</span> <span class="n">chat</span><span class="p">):</span>
+
+    <span class="n">bot</span> <span class="o">=</span> <span class="n">telegram</span><span class="p">.</span><span class="n">Bot</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="n">os</span><span class="p">.</span><span class="n">environ</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'REPORT_BOT_TOKEN'</span><span class="p">))</span>
+
+    <span class="n">dahsboard_link</span> <span class="o">=</span> <span class="s">'https://superset.lab.karpov.courses/superset/dashboard/52/'</span>
+
+    <span class="n">day_0</span> <span class="o">=</span> <span class="n">date</span><span class="p">.</span><span class="n">today</span><span class="p">().</span><span class="n">strftime</span><span class="p">(</span><span class="s">"%Y-%m-%d"</span><span class="p">)</span>
+    <span class="n">day_1</span> <span class="o">=</span> <span class="p">(</span><span class="n">date</span><span class="p">.</span><span class="n">today</span><span class="p">()</span> <span class="o">-</span> <span class="n">pd</span><span class="p">.</span><span class="n">DateOffset</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)).</span><span class="n">strftime</span><span class="p">(</span><span class="s">"%Y-%m-%d"</span><span class="p">)</span>
+    <span class="n">day_7</span> <span class="o">=</span> <span class="p">(</span><span class="n">date</span><span class="p">.</span><span class="n">today</span><span class="p">()</span> <span class="o">-</span> <span class="n">pd</span><span class="p">.</span><span class="n">DateOffset</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">7</span><span class="p">)).</span><span class="n">strftime</span><span class="p">(</span><span class="s">"%Y-%m-%d"</span><span class="p">)</span>
+
+    <span class="n">sns</span><span class="p">.</span><span class="nb">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s">'figure.figsize'</span><span class="p">:</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">10</span><span class="p">)})</span>
+    <span class="n">sns</span><span class="p">.</span><span class="nb">set</span><span class="p">(</span><span class="n">font_scale</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">sns</span><span class="p">.</span><span class="n">set_style</span><span class="p">(</span><span class="s">"white"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="p">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">plot_df</span><span class="p">[</span><span class="n">plot_df</span><span class="p">[</span><span class="s">'date'</span><span class="p">].</span><span class="n">isin</span><span class="p">([</span><span class="n">day_0</span><span class="p">,</span> <span class="n">day_1</span><span class="p">,</span> <span class="n">day_7</span><span class="p">])].</span><span class="n">sort_values</span><span class="p">([</span><span class="s">'date'</span><span class="p">,</span> <span class="s">'time_'</span><span class="p">]),</span>
+                      <span class="n">x</span><span class="o">=</span><span class="s">'time_'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">metric_alias</span><span class="p">,</span>
+                      <span class="n">hue</span><span class="o">=</span><span class="s">'date'</span><span class="p">,</span>
+                      <span class="n">hue_order</span><span class="o">=</span><span class="p">[</span><span class="n">day_7</span><span class="p">,</span> <span class="n">day_1</span><span class="p">,</span> <span class="n">day_0</span><span class="p">],</span>
+                      <span class="n">style</span><span class="o">=</span><span class="s">'date'</span><span class="p">,</span>
+                      <span class="n">style_order</span><span class="o">=</span><span class="p">[</span><span class="n">day_0</span><span class="p">,</span> <span class="n">day_1</span><span class="p">,</span> <span class="n">day_7</span><span class="p">],</span>
+                      <span class="n">size</span><span class="o">=</span><span class="s">'date'</span><span class="p">,</span>
+                      <span class="n">sizes</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+                      <span class="n">size_order</span><span class="o">=</span><span class="p">[</span><span class="n">day_0</span><span class="p">,</span> <span class="n">day_1</span><span class="p">,</span> <span class="n">day_7</span><span class="p">])</span>
+    <span class="n">ax</span><span class="p">.</span><span class="n">legend</span><span class="p">([</span><span class="n">day_7</span><span class="p">,</span> <span class="n">day_1</span><span class="p">,</span> <span class="n">day_0</span><span class="p">])</span>
+
+    <span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ax</span><span class="p">.</span><span class="n">get_xticklabels</span><span class="p">()):</span>
+        <span class="k">if</span> <span class="n">ind</span> <span class="o">%</span> <span class="mi">15</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">label</span><span class="p">.</span><span class="n">set_visible</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">label</span><span class="p">.</span><span class="n">set_visible</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">.</span><span class="nb">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s">'time'</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">.</span><span class="nb">set</span><span class="p">(</span><span class="n">ylabel</span><span class="o">=</span><span class="n">metric_name</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">'{}</span><span class="se">\n</span><span class="s">{}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">metric_name</span><span class="p">))</span>
+
+    <span class="n">ax</span><span class="p">.</span><span class="nb">set</span><span class="p">(</span><span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">None</span><span class="p">))</span>
+
+    <span class="n">plot_object</span> <span class="o">=</span> <span class="n">io</span><span class="p">.</span><span class="n">BytesIO</span><span class="p">()</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">plot_object</span><span class="p">)</span>
+    <span class="n">plot_object</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">'{}.png'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">metric_name</span><span class="p">)</span>
+    <span class="n">plot_object</span><span class="p">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">slice_name</span> <span class="o">==</span> <span class="s">'total'</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="s">'''The problem with the metric {} is a strong deviation from yesterday/a week ago!</span><span class="se">\a</span><span class="s">lert schedule {}\Dashboard {}'''</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">metric_name</span><span class="p">,</span> <span class="n">alert_plot</span><span class="p">,</span> <span class="n">dahsboard_link</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="s">'''The problem with the metric {} is a strong deviation from yesterday/a week ago\in the slice {} - {}</span><span class="se">\a</span><span class="s">lert schedule {}\dashboard {}'''</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">metric_name</span><span class="p">,</span> <span class="n">slice_name</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">alert_plot</span><span class="p">,</span> <span class="n">dahsboard_link</span><span class="p">)</span>
+
+    <span class="n">responsible_users_metric</span> <span class="o">=</span> <span class="n">responsible_users</span><span class="p">[</span><span class="s">'metrics'</span><span class="p">].</span><span class="n">get</span><span class="p">(</span><span class="n">metric_alias</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">responsible_users_metric</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span> <span class="o">+</span> <span class="s">'''</span><span class="se">\n\n</span><span class="s">{} please see if everything is ok?'''</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">responsible_users_metric</span><span class="p">)</span>
+
+    <span class="n">responsible_users_group</span> <span class="o">=</span> <span class="n">responsible_users</span><span class="p">[</span><span class="s">'groups'</span><span class="p">].</span><span class="n">get</span><span class="p">(</span><span class="n">slice_name</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">responsible_users_group</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">text</span> <span class="o">+</span> <span class="s">'''</span><span class="se">\n\n</span><span class="s">{} please see if everything is ok?'''</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">responsible_users_group</span><span class="p">)</span>
+
+    <span class="n">bot</span><span class="p">.</span><span class="n">sendMessage</span><span class="p">(</span><span class="n">chat_id</span><span class="o">=</span><span class="n">chat</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">bot</span><span class="p">.</span><span class="n">sendPhoto</span><span class="p">(</span><span class="n">chat_id</span><span class="o">=</span><span class="n">chat</span><span class="p">,</span> <span class="n">photo</span><span class="o">=</span><span class="n">plot_object</span><span class="p">)</span>
+    <span class="k">return</span>
+</code></pre></div></div>
+
+<p>We also need a function that connects to the database and collects all the data:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_alert</span><span class="p">(</span><span class="n">alert_data</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">chat</span><span class="p">):</span>
+    <span class="n">chat_id</span> <span class="o">=</span> <span class="n">chat</span>
+
+    <span class="n">metrics_list</span><span class="p">,</span> <span class="n">group_by_slices_list</span><span class="p">,</span> <span class="n">where_expression_template</span><span class="p">,</span> <span class="n">alert_plots</span><span class="p">,</span> <span class="n">responsible_users</span> <span class="o">=</span> <span class="n">get_alert_info</span><span class="p">()</span>
+
+    <span class="n">mertics</span> <span class="o">=</span> <span class="n">alert_data</span><span class="p">[</span><span class="s">'mertics'</span><span class="p">]</span>
+    <span class="nb">slice</span> <span class="o">=</span> <span class="n">alert_data</span><span class="p">[</span><span class="s">'slice'</span><span class="p">]</span>
+
+    <span class="n">query</span> <span class="o">=</span> <span class="s">'''SELECT {select_vars} 
+               FROM {from_table_name} 
+               WHERE {where_expression} 
+               GROUP BY {group_by_expression}'''</span>
+    <span class="n">select_vars</span> <span class="o">=</span> <span class="n">get_select_vars</span><span class="p">(</span><span class="n">mertics</span><span class="p">,</span> <span class="n">metrics_list</span><span class="p">,</span> <span class="n">group_by_slices_list</span><span class="p">,</span> <span class="nb">slice</span><span class="p">)</span>
+    <span class="n">from_table_name</span> <span class="o">=</span> <span class="n">get_from_table_name</span><span class="p">(</span><span class="n">mertics</span><span class="p">,</span> <span class="n">metrics_list</span><span class="p">)</span>
+    <span class="n">where_expression</span> <span class="o">=</span> <span class="n">get_where_expression</span><span class="p">(</span><span class="n">where_expression_template</span><span class="p">,</span> <span class="n">group_by_slices_list</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="nb">slice</span><span class="p">)</span>
+    <span class="n">group_by_expression</span> <span class="o">=</span> <span class="n">get_group_by_expression</span><span class="p">(</span><span class="nb">slice</span><span class="p">,</span> <span class="n">group_by_slices_list</span><span class="p">)</span>
+
+    <span class="n">alert_query</span> <span class="o">=</span> <span class="n">query</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">select_vars</span><span class="o">=</span><span class="n">select_vars</span><span class="p">,</span>
+                               <span class="n">from_table_name</span><span class="o">=</span><span class="n">from_table_name</span><span class="p">,</span>
+                               <span class="n">where_expression</span><span class="o">=</span><span class="n">where_expression</span><span class="p">,</span>
+                               <span class="n">group_by_expression</span><span class="o">=</span><span class="n">group_by_expression</span><span class="p">)</span>
+
+    <span class="n">all_data</span> <span class="o">=</span> <span class="n">Getch</span><span class="p">(</span><span class="n">alert_query</span><span class="p">).</span><span class="n">df</span>
+
+    <span class="n">data_to_alerts</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">if</span> <span class="nb">slice</span> <span class="o">!=</span> <span class="s">'total'</span><span class="p">:</span>
+        <span class="n">group_levels</span> <span class="o">=</span> <span class="n">group_by_slices_list</span><span class="p">[</span><span class="nb">slice</span><span class="p">][</span><span class="s">'group_levels'</span><span class="p">]</span>
+        <span class="n">alias</span> <span class="o">=</span> <span class="n">group_by_slices_list</span><span class="p">[</span><span class="nb">slice</span><span class="p">][</span><span class="s">'alias'</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">group_level</span> <span class="ow">in</span> <span class="n">group_levels</span><span class="p">:</span>
+            <span class="n">alert_df</span> <span class="o">=</span> <span class="n">all_data</span><span class="p">[</span><span class="n">all_data</span><span class="p">[</span><span class="n">alias</span><span class="p">]</span> <span class="o">==</span> <span class="n">group_level</span><span class="p">].</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">data_to_alerts</span><span class="p">[</span><span class="n">group_level</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s">'df'</span><span class="p">:</span> <span class="n">alert_df</span><span class="p">,</span> <span class="s">'slice'</span><span class="p">:</span> <span class="nb">slice</span><span class="p">,</span> <span class="s">'group_level'</span><span class="p">:</span> <span class="n">group_level</span><span class="p">}</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">data_to_alerts</span><span class="p">[</span><span class="s">'total'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s">'df'</span><span class="p">:</span> <span class="n">all_data</span><span class="p">,</span> <span class="s">'slice'</span><span class="p">:</span> <span class="s">'total'</span><span class="p">,</span> <span class="s">'group_level'</span><span class="p">:</span> <span class="s">'total'</span><span class="p">}</span>
+
+    <span class="k">for</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">data_to_alerts</span><span class="p">:</span>
+        <span class="n">alert_df</span> <span class="o">=</span> <span class="n">data_to_alerts</span><span class="p">[</span><span class="n">group</span><span class="p">][</span><span class="s">'df'</span><span class="p">]</span>
+        <span class="n">slice_name</span> <span class="o">=</span> <span class="n">data_to_alerts</span><span class="p">[</span><span class="n">group</span><span class="p">][</span><span class="s">'slice'</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">metric</span> <span class="ow">in</span> <span class="n">mertics</span><span class="p">:</span>
+            <span class="n">metric_alias</span> <span class="o">=</span> <span class="n">metrics_list</span><span class="p">[</span><span class="n">metric</span><span class="p">][</span><span class="s">'alias'</span><span class="p">]</span>
+            <span class="n">metric_name</span> <span class="o">=</span> <span class="n">metrics_list</span><span class="p">[</span><span class="n">metric</span><span class="p">][</span><span class="s">'metric_name'</span><span class="p">]</span>
+            <span class="n">alert_data</span> <span class="o">=</span> <span class="n">get_metric_alert</span><span class="p">(</span><span class="n">alert_df</span><span class="p">,</span> <span class="n">metric</span><span class="p">,</span> <span class="n">metric_alias</span><span class="p">,</span> <span class="nb">slice</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">day_threshhold</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+            <span class="n">alert_data</span><span class="p">[</span><span class="s">'metric'</span><span class="p">]</span> <span class="o">=</span> <span class="n">metric</span>
+            <span class="n">alert_data</span><span class="p">[</span><span class="s">'metric_name'</span><span class="p">]</span> <span class="o">=</span> <span class="n">metric_name</span>
+            <span class="n">alert_data</span><span class="p">[</span><span class="s">'slice'</span><span class="p">]</span> <span class="o">=</span> <span class="nb">slice</span>
+            <span class="n">alert_data</span><span class="p">[</span><span class="s">'group'</span><span class="p">]</span> <span class="o">=</span> <span class="n">group</span>
+            <span class="n">alert_data</span><span class="p">[</span><span class="s">'group_level'</span><span class="p">]</span> <span class="o">=</span> <span class="n">group</span>
+            <span class="n">alert_data</span><span class="p">[</span><span class="s">'time'</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span>
+
+            <span class="n">alerts_log_df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">alert_data</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">]).</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">alerts_log_df</span> <span class="o">=</span> <span class="n">alerts_log_df</span><span class="p">[[</span><span class="s">'time'</span><span class="p">,</span> <span class="s">'day_0_value'</span><span class="p">,</span> <span class="s">'day_1_value'</span><span class="p">,</span> <span class="s">'day_7_value'</span><span class="p">,</span>
+                                           <span class="s">'day_1_diff'</span><span class="p">,</span> <span class="s">'day_7_diff'</span><span class="p">,</span> <span class="s">'slice'</span><span class="p">,</span> <span class="s">'group_level'</span><span class="p">,</span>
+                                           <span class="s">'metric'</span><span class="p">,</span> <span class="s">'metric_name'</span><span class="p">,</span> <span class="s">'is_alert'</span><span class="p">]]</span>
+
+            <span class="n">Insertch</span><span class="p">(</span><span class="n">alerts_log_df</span><span class="p">,</span> <span class="s">'alerts_log'</span><span class="p">).</span><span class="n">insert</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">alert_data</span><span class="p">[</span><span class="s">'is_alert'</span><span class="p">]:</span>
+                <span class="k">continue</span>
+
+            <span class="n">select_vars</span> <span class="o">=</span> <span class="n">get_select_vars</span><span class="p">(</span><span class="n">mertics</span><span class="p">,</span> <span class="n">metrics_list</span><span class="p">,</span> <span class="n">group_by_slices_list</span><span class="p">,</span> <span class="nb">slice</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+            <span class="n">from_table_name</span> <span class="o">=</span> <span class="n">get_from_table_name</span><span class="p">(</span><span class="n">mertics</span><span class="p">,</span> <span class="n">metrics_list</span><span class="p">)</span>
+            <span class="n">where_expression</span> <span class="o">=</span> <span class="n">get_where_expression</span><span class="p">(</span><span class="n">where_expression_template</span><span class="p">,</span> <span class="n">group_by_slices_list</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="nb">slice</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+            <span class="n">group_by_expression</span> <span class="o">=</span> <span class="n">get_group_by_expression</span><span class="p">(</span><span class="nb">slice</span><span class="p">,</span> <span class="n">group_by_slices_list</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+
+            <span class="n">plot_df_query</span> <span class="o">=</span> <span class="n">query</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">select_vars</span><span class="o">=</span><span class="n">select_vars</span><span class="p">,</span>
+                                         <span class="n">from_table_name</span><span class="o">=</span><span class="n">from_table_name</span><span class="p">,</span>
+                                         <span class="n">where_expression</span><span class="o">=</span><span class="n">where_expression</span><span class="p">,</span>
+                                         <span class="n">group_by_expression</span><span class="o">=</span><span class="n">group_by_expression</span><span class="p">)</span>
+
+            <span class="n">plot_df</span> <span class="o">=</span> <span class="n">Getch</span><span class="p">(</span><span class="n">plot_df_query</span><span class="p">).</span><span class="n">df</span>
+
+            <span class="k">if</span> <span class="nb">slice</span> <span class="o">!=</span> <span class="s">'total'</span><span class="p">:</span>
+                <span class="n">plot_df</span> <span class="o">=</span> <span class="n">plot_df</span><span class="p">.</span><span class="n">query</span><span class="p">(</span><span class="s">"{slice} == '{group}'"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span> <span class="nb">slice</span><span class="o">=</span><span class="nb">slice</span><span class="p">))</span>
+
+            <span class="n">plot_df</span><span class="p">[</span><span class="s">'time'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">plot_df</span><span class="p">[</span><span class="s">'time'</span><span class="p">])</span>
+            <span class="n">plot_df</span> <span class="o">=</span> <span class="n">plot_df</span><span class="p">[</span><span class="n">plot_df</span><span class="p">[</span><span class="s">'time'</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">time</span><span class="p">]</span>
+            <span class="n">alert_plot</span> <span class="o">=</span> <span class="n">alert_plots</span><span class="p">[</span><span class="nb">slice</span><span class="p">][</span><span class="n">metric</span><span class="p">]</span>
+
+            <span class="n">send_alert</span><span class="p">(</span><span class="n">plot_df</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">metric_name</span><span class="p">,</span> <span class="n">metric_alias</span><span class="p">,</span> <span class="n">slice_name</span><span class="p">,</span> <span class="n">alert_plot</span><span class="p">,</span> <span class="n">responsible_users</span><span class="p">,</span> <span class="n">chat</span><span class="o">=</span><span class="n">chat_id</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<p>Let’s divide the previous function and separately we will write a function for intervals:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">get_metric_alert</span><span class="p">(</span><span class="n">alert_df</span><span class="p">,</span> <span class="n">metric</span><span class="p">,</span> <span class="n">metric_alias</span><span class="p">,</span> <span class="nb">slice</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">day_threshhold</span><span class="o">=</span><span class="mf">0.3</span><span class="p">):</span>
+    <span class="n">alert_data</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">is_alert</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="n">day_0</span> <span class="o">=</span> <span class="n">date</span><span class="p">.</span><span class="n">today</span><span class="p">().</span><span class="n">strftime</span><span class="p">(</span><span class="s">"%Y-%m-%d"</span><span class="p">)</span>
+    <span class="n">day_1</span> <span class="o">=</span> <span class="p">(</span><span class="n">date</span><span class="p">.</span><span class="n">today</span><span class="p">()</span> <span class="o">-</span> <span class="n">pd</span><span class="p">.</span><span class="n">DateOffset</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)).</span><span class="n">strftime</span><span class="p">(</span><span class="s">"%Y-%m-%d"</span><span class="p">)</span>
+    <span class="n">day_7</span> <span class="o">=</span> <span class="p">(</span><span class="n">date</span><span class="p">.</span><span class="n">today</span><span class="p">()</span> <span class="o">-</span> <span class="n">pd</span><span class="p">.</span><span class="n">DateOffset</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">7</span><span class="p">)).</span><span class="n">strftime</span><span class="p">(</span><span class="s">"%Y-%m-%d"</span><span class="p">)</span>
+    <span class="n">day_0_value</span> <span class="o">=</span> <span class="n">alert_df</span><span class="p">[</span><span class="n">alert_df</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">==</span> <span class="n">day_0</span><span class="p">][</span><span class="n">metric</span><span class="p">].</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">day_1_value</span> <span class="o">=</span> <span class="n">alert_df</span><span class="p">[</span><span class="n">alert_df</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">==</span> <span class="n">day_1</span><span class="p">][</span><span class="n">metric</span><span class="p">].</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">day_7_value</span> <span class="o">=</span> <span class="n">alert_df</span><span class="p">[</span><span class="n">alert_df</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span> <span class="o">==</span> <span class="n">day_7</span><span class="p">][</span><span class="n">metric</span><span class="p">].</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">metric</span> <span class="ow">in</span> <span class="p">(</span><span class="s">'users_feed'</span><span class="p">,</span> <span class="s">'users_msg'</span><span class="p">,</span> <span class="s">'likes'</span><span class="p">,</span> <span class="s">'views'</span><span class="p">,</span> <span class="s">'messages'</span><span class="p">):</span>
+        <span class="n">day_1_value</span> <span class="o">=</span> <span class="n">day_1_value</span><span class="o">/</span><span class="mi">3</span>
+        <span class="n">day_7_value</span> <span class="o">=</span> <span class="n">day_7_value</span><span class="o">/</span><span class="mi">3</span>
+
+    <span class="k">if</span> <span class="n">day_0_value</span> <span class="o">&lt;=</span> <span class="n">day_7_value</span><span class="p">:</span>
+        <span class="n">day_7_diff</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">day_0_value</span> <span class="o">/</span> <span class="n">day_7_value</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">day_7_diff</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">day_7_value</span> <span class="o">/</span> <span class="n">day_0_value</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">day_0_value</span> <span class="o">&lt;=</span> <span class="n">day_1_value</span><span class="p">:</span>
+        <span class="n">day_1_diff</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">day_0_value</span> <span class="o">/</span> <span class="n">day_1_value</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">day_1_diff</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">day_1_value</span> <span class="o">/</span> <span class="n">day_0_value</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">alert_data</span><span class="p">[</span><span class="s">'day_0_value'</span><span class="p">]</span> <span class="o">=</span> <span class="n">day_0_value</span>
+    <span class="n">alert_data</span><span class="p">[</span><span class="s">'day_1_value'</span><span class="p">]</span> <span class="o">=</span> <span class="n">day_1_value</span>
+    <span class="n">alert_data</span><span class="p">[</span><span class="s">'day_7_value'</span><span class="p">]</span> <span class="o">=</span> <span class="n">day_7_value</span>
+    <span class="n">alert_data</span><span class="p">[</span><span class="s">'day_1_diff'</span><span class="p">]</span> <span class="o">=</span> <span class="n">day_1_diff</span>
+    <span class="n">alert_data</span><span class="p">[</span><span class="s">'day_7_diff'</span><span class="p">]</span> <span class="o">=</span> <span class="n">day_7_diff</span>
+    <span class="n">alert_data</span><span class="p">[</span><span class="s">'is_alert'</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_alert</span>
+
+    <span class="n">q</span> <span class="o">=</span> <span class="s">'''SELECT max(time) as last_time FROM simulator.alerts_log 
+           WHERE is_alert = 1 and slice = '{}' and metric = '{}' and group_level = '{}' '''</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="nb">slice</span><span class="p">,</span>
+                                                                                                   <span class="n">metric_alias</span><span class="p">,</span>
+                                                                                                   <span class="n">group</span><span class="p">)</span>
+    <span class="n">last_time</span> <span class="o">=</span> <span class="n">Getch</span><span class="p">(</span><span class="n">q</span><span class="p">).</span><span class="n">df</span>
+    <span class="n">last_time</span> <span class="o">=</span> <span class="n">last_time</span><span class="p">[</span><span class="s">'last_time'</span><span class="p">].</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">last_time</span> <span class="o">!=</span> <span class="s">'1970-01-01 03:00:00'</span> <span class="ow">and</span> <span class="n">pd</span><span class="p">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">pd</span><span class="p">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s">'now'</span><span class="p">)</span> <span class="o">-</span> <span class="n">pd</span><span class="p">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">last_time</span><span class="p">)).</span><span class="n">seconds</span> <span class="o">/</span> <span class="mf">3600.0</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">alert_data</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">day_1_value</span> <span class="o">&lt;=</span> <span class="n">day_0_value</span> <span class="o">&lt;=</span> <span class="n">day_7_value</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">day_7_value</span> <span class="o">&lt;=</span> <span class="n">day_0_value</span> <span class="o">&lt;=</span> <span class="n">day_1_value</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">alert_data</span>
+    <span class="k">if</span> <span class="n">day_7_diff</span> <span class="o">&gt;=</span> <span class="n">day_threshhold</span> <span class="ow">and</span> <span class="n">day_1_diff</span> <span class="o">&gt;=</span> <span class="n">day_threshhold</span><span class="p">:</span>
+        <span class="n">is_alert</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">alert_data</span><span class="p">[</span><span class="s">'is_alert'</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_alert</span>
+        <span class="k">return</span> <span class="n">alert_data</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">alert_data</span>
+</code></pre></div></div>
+
+<p>In conclusion, we need a function to which a list of metrics that we will monitor will be passed.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">global_monitoring</span><span class="p">(</span><span class="n">chat</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="n">chat_id</span> <span class="o">=</span> <span class="n">chat</span> <span class="ow">or</span> <span class="mi">0000000000</span>
+    <span class="n">alerts</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s">"mertics"</span><span class="p">:</span> <span class="p">[</span><span class="s">"users_feed"</span><span class="p">,</span> <span class="s">"likes"</span><span class="p">,</span> <span class="s">"views"</span><span class="p">,</span> <span class="s">"ctr"</span><span class="p">],</span> <span class="s">"slice"</span><span class="p">:</span> <span class="s">"total"</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">"mertics"</span><span class="p">:</span> <span class="p">[</span><span class="s">"users_feed"</span><span class="p">,</span> <span class="s">"likes"</span><span class="p">,</span> <span class="s">"views"</span><span class="p">,</span> <span class="s">"ctr"</span><span class="p">],</span> <span class="s">"slice"</span><span class="p">:</span> <span class="s">"os"</span><span class="p">},</span>
+        <span class="p">{</span><span class="s">"mertics"</span><span class="p">:</span> <span class="p">[</span><span class="s">"users_msg"</span><span class="p">,</span> <span class="s">"messages"</span><span class="p">,</span> <span class="s">"mpu"</span><span class="p">],</span> <span class="s">"slice"</span><span class="p">:</span> <span class="s">"total"</span><span class="p">},</span>
+    <span class="p">]</span>
+
+    <span class="n">time</span> <span class="o">=</span> <span class="n">Getch</span><span class="p">(</span><span class="s">'''SELECT toStartOfFifteenMinutes(max(time))  - interval 15 minute AS mas_time
+              FROM simulator.feed_actions WHERE toDate(time) &gt;= today() - 1'''</span><span class="p">).</span><span class="n">df</span>
+    <span class="n">time</span> <span class="o">=</span> <span class="n">time</span><span class="p">[</span><span class="s">'mas_time'</span><span class="p">].</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">alert_data</span> <span class="ow">in</span> <span class="n">alerts</span><span class="p">:</span>
+        <span class="n">get_alert</span><span class="p">(</span><span class="n">alert_data</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">chat</span><span class="o">=</span><span class="n">chat_id</span><span class="p">)</span>
+
+
+<span class="n">global_monitoring</span><span class="p">(</span><span class="n">chat</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+</code></pre></div></div>
+<p>The necessary Python code is finished. It remains to place it on gitlab and automate it. How to do this has been described in previous publications. This concludes my training publications on data analytics. Thank you all for your attention. The publications were made on the basis of practical work on Karpov’s courses: where I studied in order to upgrade my knowledge.</p>
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="Zmey56/blog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/data%20analysis/mysql/gitlab/telegram/bot/2023/01/25/Alert-System.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="https://zmey56.github.io/blog//feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li>
+  <a rel="me" href="https://twitter.com/zmey56" target="_blank" title="twitter">
+    <svg class="svg-icon grey">
+      <use xlink:href="/assets/minima-social-icons.svg#twitter"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="https://github.com/Zmey56" target="_blank" title="github">
+    <svg class="svg-icon grey">
+      <use xlink:href="/assets/minima-social-icons.svg#github"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="https://www.linkedin.com/in/alsgladkikh/" target="_blank" title="linkedin">
+    <svg class="svg-icon grey">
+      <use xlink:href="/assets/minima-social-icons.svg#linkedin"></use>
+    </svg>
+  </a>
+</li>
+</ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
