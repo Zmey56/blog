@@ -2,9 +2,9 @@
 toc: true
 layout: post
 comments: true
-description: "Solutions to the exercises from the book The Go Programming Language: First Part”
+description: "Solutions to the exercises from the book The Go Programming Language: First Part"
 categories: [go, exercise]
-title: "Solutions to the exercises from the book The Go Programming Language: First Part"
+title: "Solutions to the exercises from the book The Go Programming Language (First Part)"
 ---
 
 In this article, we will review solutions to the exercises presented in the first part of the book “The Go Programming Language” by Alan A.A. Donovan and Brain W. Kernighan. In an effort to refresh my knowledge, I have re-read this book and decided to complete all the exercises provided in it. I am delighted to share my solutions and receive feedback and comments on my code from other users. If you have any suggestions or improvements to my code, I would greatly appreciate your feedback.
